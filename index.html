@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>webSite</title>
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+            <a href="#" class="logo">D<span>oc</span>E D<span>esej</span>o</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home">Home</a></li>
+                <li class="nav-item"><a href="#about">Estilos de Bolos</a></li>
+                <li class="nav-item"><a href="#menu">Recheios e Massas</a></li>
+                <li class="nav-item"><a href="#contact">Contato</a></li>
+                <i class='bx bx-cake' ></i>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="home">
+            <div class="home-text">
+                <h4 class="text-h4">Bem-Vindo a Doce Desejo! </h4>
+                <h1 class="text-h1">Criando sabores para adoçar seu dia.</h1>
+                <p><strong>Criamos bolos únicos para aniversários</strong>, casamentos, formaturas e todas as ocasiões especiais. Do clássico chocolate ao sofisticado red velvet, nossos bolos são feitos para agradar todos os gostos e paladares. Confeitos artísticos e elegantes, feitos por nossos talentosos confeiteiros, tornam cada bolo uma verdadeira obra de arte.</p>
+                <a href="#" class="home-btn">Faça já seu pedido</a>
+            </div>
+            <div class="home-img">
+                <img src="/scr/bolo.png" alt="bolo" width="600" height="600">
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>Estilos de bolos</h2>
+            <div class="cake-container">
+                <div class="cake-item">
+                    <img src="/scr/bento.png" alt="bento-cake">
+                    <h3 class="cake-name"><strong>Bento Cake personalizado</strong></h3>
+                    <ul>
+                        <li>5 FATIAS - $35,00</li>
+                    </ul>
+                </div>
+                
+                <div class="cake-item">
+                    <img src="scr/Naked.png" alt="bolo naked">
+                    <h3 class="cake-name"><strong>Naked Cake</strong></h3>
+                    <ul>
+                        <li>10 FATIAS - $65,00</li>
+                    </ul>
+                </div>
+                
+                <div class="cake-item">
+                    <img src="/scr/confeitado.png" alt="bolo confeitado">
+                    <h3 class="cake-name"><strong>Bolo Confeitado</strong></h3>
+                    <ul>
+                        <li>10 FATIAS - $65,00</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+
+        <section id="menu" class="menu-section">
+            <h2>Recheios e Massas</h2>
+            <p>Lista de pratos e bebidas.</p>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Formulario para Encomendas</h2>
+            <form action="/send-whatsapp" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
+                <label for="numero">Número:</label>
+                <input type="tel" id="numero" name="numero" required>
+                
+                <label for="tipo-bolo">Tipo de Bolo:</label>
+                <select id="tipo-bolo" name="tipo-bolo" required>
+                    <option value="vulcao-10">Vulcão de 10 fatias</option>
+                    <option value="vulcao-15">Vulcão de 15 fatias</option>
+                    <option value="confeitado-10">Confeitado de 10 fatias</option>
+                    <option value="confeitado-40">Confeitado de 40 fatias</option>
+                    <option value="bento-cakes">Bento cakes</option>
+                </select>
+                
+                <label for="massa">Massa:</label>
+                <select id="massa" name="massa" required>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="ninho">Ninho</option>
+                    <option value="red-velvet">Red Velvet</option>
+                </select>
+                
+                <label for="recheio">Recheio:</label>
+                <select id="recheio" name="recheio" required>
+                    <option value="coco">Coco</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="ninho">Ninho</option>
+                    <option value="doce-de-leite">Doce de Leite</option>
+                </select>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
