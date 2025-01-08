@@ -39,11 +39,11 @@
             </div>
         </section>
 
-        <section id="about" class="about">
+        <section id="about" class="bolos">
             <h2>Estilos de bolos</h2>
             <div class="cake-container">
                 <div class="cake-item">
-                    <img src="/scr/bento.png" alt="bento-cake">
+                    <img src="/src/bento.png" alt="bento-cake">
                     <h3 class="cake-name"><strong>Bento Cake personalizado</strong></h3>
                     <ul>
                         <li>5 FATIAS - $35,00</li>
@@ -51,7 +51,7 @@
                 </div>
                 
                 <div class="cake-item">
-                    <img src="scr/Naked.png" alt="bolo naked">
+                    <img src="src/Naked.png" alt="bolo naked">
                     <h3 class="cake-name"><strong>Naked Cake</strong></h3>
                     <ul>
                         <li>10 FATIAS - $65,00</li>
@@ -59,7 +59,7 @@
                 </div>
                 
                 <div class="cake-item">
-                    <img src="/scr/confeitado.png" alt="bolo confeitado">
+                    <img src="src/confeitado.png" alt="bolo confeitado">
                     <h3 class="cake-name"><strong>Bolo Confeitado</strong></h3>
                     <ul>
                         <li>10 FATIAS - $65,00</li>
@@ -68,51 +68,85 @@
             </div>
         </section>
         
-        
-        
-
         <section id="menu" class="menu-section">
-            <h2>Recheios e Massas</h2>
+            <h2>Outros Produtos</h2>
             <p>Lista de pratos e bebidas.</p>
         </section>
 
         <section id="contact" class="contact">
-            <h2>Formulario para Encomendas</h2>
-            <form action="/send-whatsapp" method="post">
+            <h2>Formulario para Orçamento</h2>
+            <form id="pedidoForm" onsubmit="abrirWhatsapp(); return false;">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
-                
+
                 <label for="numero">Número:</label>
                 <input type="tel" id="numero" name="numero" required>
-                
+
                 <label for="tipo-bolo">Tipo de Bolo:</label>
-                <select id="tipo-bolo" name="tipo-bolo" required>
-                    <option value="vulcao-10">Vulcão de 10 fatias</option>
-                    <option value="vulcao-15">Vulcão de 15 fatias</option>
-                    <option value="confeitado-10">Confeitado de 10 fatias</option>
-                    <option value="confeitado-40">Confeitado de 40 fatias</option>
-                    <option value="bento-cakes">Bento cakes</option>
+                <select id="tipo-bolo" name="tipo_bolo" required>
+                    <option value="Confeitado-8">Confeitado (8 fatias - R$70,00)</option>
+                    <option value="Confeitado-10">Confeitado (10 fatias - R$80,00)</option>
+                    <option value="confeitado-15">Confeitado (15 fatias - R$100,00)</option>
+                    <option value="confeitado-20">Confeitado (20 fatias - R$120,00)</option>
+                    <option value="Confeitado-25">Confeitado (25 fatias - R$140,00)</option>
+                    <option value="Confeitado-30">Confeitado (30 fatias - R$160,00)</option>
+                    <option value="Confeitado-45">Confeitado (45 fatias - R$210,00)</option>
+                    <option value="bento-cake">Bento Cake (R$ 35,00)</option>
                 </select>
-                
+
                 <label for="massa">Massa:</label>
                 <select id="massa" name="massa" required>
                     <option value="chocolate">Chocolate</option>
                     <option value="ninho">Ninho</option>
                     <option value="red-velvet">Red Velvet</option>
+                    <option value="chocolate-ninho">Chocolate e Ninho (Mista)</option>
+                    <option value="chocolate-red">Chocolate e Red Velvet (Mista)</option>
+                    <option value="Nino-Red">Ninho e Red Velvet (Mista)</option>
                 </select>
-                
+
                 <label for="recheio">Recheio:</label>
                 <select id="recheio" name="recheio" required>
                     <option value="coco">Coco</option>
                     <option value="chocolate">Chocolate</option>
                     <option value="ninho">Ninho</option>
                     <option value="doce-de-leite">Doce de Leite</option>
+                    <option value="brigadeiro">Brigadeiro</option>
+                    <option value="castanha">Castanha</option>
+                    <option value="dois-amores">Dois Amores</option>
+                    <option value="abacaxi">Abacaxi</option>
                 </select>
-                
+
+                <label for="observacoes">Observações:</label>
+                <input type="text" id="observacoes" class="obs">
+
+                <label for="">ENVIAR A IMAGEM DE REFERENCIA JUNTO COM O FORMULARIO!</label>
+
                 <button type="submit">Enviar</button>
             </form>
         </section>
     </main>
-    <script src="script.js"></script>
+
+    <script>
+        function abrirWhatsapp() {
+            var nome = document.getElementById("nome").value; 
+            var telefone = document.getElementById("numero").value;
+            var tipoBolo = document.getElementById("tipo-bolo").value;
+            var massa = document.getElementById("massa").value;
+            var recheio = document.getElementById("recheio").value;
+            var observacoes = document.getElementById("observacoes").value;
+
+            var url = "https://wa.me/5517999999999?text="
+                + "*Formulário de Contato*" + "%0a"
+                + "%0a"
+                + "*Nome*: " + nome + "%0a"
+                + "*Telefone*: " + telefone + "%0a"
+                + "*Tipo de Bolo*: " + tipoBolo + "%0a"
+                + "*Massa*: " + massa + "%0a"
+                + "*Recheio*: " + recheio + "%0a"
+                + "*Observações*: " + observacoes;
+                
+            window.open(url, '_blank').focus();
+        }
+    </script>
 </body>
 </html>

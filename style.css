@@ -1,4 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@media (max-width: 785px) {
+    .navigation ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu.ativo .navigation ul {
+        display: flex;
+    }
+    .menu.ativo .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu.ativo .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu.ativo .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
 
 * {
     margin: 0;
@@ -115,22 +134,22 @@ body {
     margin:90px;
 }
 
-.about, .menu-section, .contact {
+.bolos, .menu-section, .contact {
     padding: 100px 10%;
     background-color: var(--white);
 }
 
-.about h2, .menu-section h2, .contact h2 {
+.bolos h2, .menu-section h2, .contact h2 {
     color: var(--red);
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.about {
+.bolos {
     text-align: center;
 }
 
-.about {
+.bolos {
     text-align: center;
 }
 
@@ -143,7 +162,7 @@ body {
 
 .cake-item {
     position: relative;
-    width: 450px;  /* Aumenta a largura das imagens */
+    width: 450px;  
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -157,12 +176,28 @@ body {
 }
 
 .cake-name {
-    font-size: 1.2rem;  /* Aumenta o tamanho do texto */
-    margin-top: 10px;  /* Espaço acima do nome do bolo */
+    font-size: 1.2rem;  
+    margin-top: 10px;  
     text-align: center;
 }
 
+.menu-section h2{
+    text-align: center;
+}
 
+.menu-section .massaB-container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;  
+    flex-wrap: wrap;
+}
+
+.menu-section .massaimg{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 40px;
+}
 
 .contact form {
     display: flex;
@@ -190,6 +225,10 @@ body {
 
 .contact button:hover {
     background: #fc4c35;
+}
+
+.contact .obs{
+    height: 150px;
 }
 
 @media (max-width: 785px) {
