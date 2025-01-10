@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <title>webSite</title>
 </head>
+
 <body>
     <header>
         <nav class="navigation">
@@ -16,14 +18,10 @@
                 <li class="nav-item"><a href="#home">Home</a></li>
                 <li class="nav-item"><a href="#about">Estilos de Bolos</a></li>
                 <li class="nav-item"><a href="#menu">Recheios e Massas</a></li>
-                <li class="nav-item"><a href="#contact">Contato</a></li>
-                <i class='bx bx-cake' ></i>
+                <li id="contato" class="nav-item"><a href="#contact">Contato</a></li>
+                <i class='bx bx-cake'></i>
             </ul>
-            <div class="menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+
         </nav>
     </header>
     <main>
@@ -31,7 +29,10 @@
             <div class="home-text">
                 <h4 class="text-h4">Bem-Vindo a Doce Desejo! </h4>
                 <h1 class="text-h1">Criando sabores para adoçar seu dia.</h1>
-                <p><strong>Criamos bolos únicos para aniversários</strong>, casamentos, formaturas e todas as ocasiões especiais. Do clássico chocolate ao sofisticado red velvet, nossos bolos são feitos para agradar todos os gostos e paladares. Confeitos artísticos e elegantes, feitos por nossos talentosos confeiteiros, tornam cada bolo uma verdadeira obra de arte.</p>
+                <p><strong>Criamos bolos únicos para aniversários</strong>, casamentos, formaturas e todas as ocasiões
+                    especiais. Do clássico chocolate ao sofisticado red velvet, nossos bolos são feitos para agradar
+                    todos os gostos e paladares. Confeitos artísticos e elegantes, feitos por nossos talentosos
+                    confeiteiros, tornam cada bolo uma verdadeira obra de arte.</p>
                 <a href="#" class="home-btn">Faça já seu pedido</a>
             </div>
             <div class="home-img">
@@ -49,7 +50,7 @@
                         <li>5 FATIAS - $35,00</li>
                     </ul>
                 </div>
-                
+
                 <div class="cake-item">
                     <img src="src/Naked.png" alt="bolo naked">
                     <h3 class="cake-name"><strong>Naked Cake</strong></h3>
@@ -57,7 +58,7 @@
                         <li>10 FATIAS - $65,00</li>
                     </ul>
                 </div>
-                
+
                 <div class="cake-item">
                     <img src="src/confeitado.png" alt="bolo confeitado">
                     <h3 class="cake-name"><strong>Bolo Confeitado</strong></h3>
@@ -67,14 +68,14 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="menu" class="menu-section">
             <h2>Outros Produtos</h2>
             <p>Lista de pratos e bebidas.</p>
         </section>
 
         <section id="contact" class="contact">
-            <h2>Formulario para Orçamento</h2>
+            <h2>Formulario para orçamento de bolos</h2>
             <form id="pedidoForm" onsubmit="abrirWhatsapp(); return false;">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -126,9 +127,33 @@
         </section>
     </main>
 
+    <footer class="footer">
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#F06292" fill-opacity="1"
+                d="M0,128L48,128C96,128,192,128,288,144C384,160,480,192,576,170.7C672,149,768,75,864,48C960,21,1056,43,1152,64C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+
+        <div class="content">
+            <p>&copy; 2025 Doce Desejo. Todos os direitos reservados.</p>
+            <div class="social">
+
+                <a href="https://www.instagram.com/docedesejogourmethe/" class="links"><i
+                        class='bx bxl-instagram'>INSTAGRAM</i></a>
+                <a href="https://linktr.ee/docedesejogourmethe" class="links"><i
+                        class='bx bx-phone-call'></i>CONTATOS</a>
+
+            </div>
+
+            <a href="https://linktr.ee/docedesejogourmethe" class="links"><img class="logo-footer" src="/src/Logo.png"
+                    alt="logo"></a>
+        </div>
+
+    </footer>
+
     <script>
         function abrirWhatsapp() {
-            var nome = document.getElementById("nome").value; 
+            var nome = document.getElementById("nome").value;
             var telefone = document.getElementById("numero").value;
             var tipoBolo = document.getElementById("tipo-bolo").value;
             var massa = document.getElementById("massa").value;
@@ -144,9 +169,10 @@
                 + "*Massa*: " + massa + "%0a"
                 + "*Recheio*: " + recheio + "%0a"
                 + "*Observações*: " + observacoes;
-                
+
             window.open(url, '_blank').focus();
         }
     </script>
 </body>
+
 </html>
