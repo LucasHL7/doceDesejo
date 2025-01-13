@@ -20,9 +20,20 @@
         opacity: 0;
     }
 
+    .home-img{
+        opacity: 0;
+    }
 
+    .home-text{
+        margin-top: 320px;
+    }
+
+    .bolos{
+        margin-top: 150px;
+    }
 
 }
+
 
 
 * {
@@ -44,10 +55,6 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    color: var(--dark);
-    background: var(--white);
-}
 
 .navigation {
     display: flex;
@@ -59,13 +66,13 @@ body {
     background: var(--white);
     transition: all 0.5s;
     position: fixed;
-
     z-index: 1000;
     transition: all 0.5s;
+    background-color: #F06292;
 }
 
 .navigation .logo {
-    color: var(--red);
+    color: var(--white);
     font-size: 1.7rem;
     font-weight: 600;
 }
@@ -88,7 +95,7 @@ body {
 }
 
 .navigation ul li a:hover {
-    color: var(--red);
+    color: var(--white);
 }
 
 .navigation i {
@@ -138,9 +145,9 @@ body {
 }
 
 .home-text .text-h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    line-height: 4rem;
+    font-size: 64px;
+    margin-bottom: 16px;
+    line-height: 64px;
 }
 
 .home-text p {
@@ -222,8 +229,81 @@ body {
 
 /* INICIO MENU */
 
-.menu-section h2 {
+.menu-section2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.left-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    width: 50%;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
     text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.right-section p {
+    margin-bottom: 10px;
+}
+
+.img-prod {
+    border-radius: 80px;
+    width: 300px;
+    height: 300px;
+}
+
+.menu-section2 a {
+    background: var(--red);
+    color: var(--white);
+    font-weight: 700;
+    transition: all 0.5s;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.menu-section2 a:hover {
+    background: #fc4c35;
+}
+
+.prod-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 1024px) {
+    .menu-section2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+        text-align: center;
+    }
+
+    .left-section {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    .right-section {
+        margin-top: 20px; 
+    }
 }
 
 /* FIM MENU */

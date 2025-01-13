@@ -44,7 +44,7 @@
             <h2>Estilos de bolos</h2>
             <div class="cake-container">
                 <div class="cake-item">
-                    <img src="/src/bento.png" alt="bento-cake">
+                    <img src="/scr/bento.png" alt="bento-cake">
                     <h3 class="cake-name"><strong>Bento Cake personalizado</strong></h3>
                     <ul>
                         <li>5 FATIAS - $35,00</li>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="cake-item">
-                    <img src="src/Naked.png" alt="bolo naked">
+                    <img src="scr/Naked.png" alt="bolo naked">
                     <h3 class="cake-name"><strong>Naked Cake</strong></h3>
                     <ul>
                         <li>10 FATIAS - $65,00</li>
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="cake-item">
-                    <img src="src/confeitado.png" alt="bolo confeitado">
+                    <img src="scr/confeitado.png" alt="bolo confeitado">
                     <h3 class="cake-name"><strong>Bolo Confeitado</strong></h3>
                     <ul>
                         <li>10 FATIAS - $65,00</li>
@@ -71,8 +71,28 @@
 
         <section id="menu" class="menu-section">
             <h2>Outros Produtos</h2>
-            <p>Lista de pratos e bebidas.</p>
+            <div class="menu-section2">
+                <div class="left-section">
+                    <div class="prod-item"><b>Brownie Recheado - 2,50 (Unidade)</b>
+                        <img class="img-prod" src="/scr/Brownie.jpg" alt="brownies">
+                    </div>
+                    <div class="prod-item"><b>Docinhos Variados</b>
+                        <img class="img-prod" src="/scr/brigadeiro.webp" alt="brigadeiros">
+                    </div>
+                    <div class="prod-item"><b>Salgadinhos de Festa</b>
+                        <img class="img-prod" src="/scr/salgadinhos.jpg" alt="salgados">
+                    </div>
+                    <div class="prod-item"><b>Bem-Casados</b>
+                        <img class="img-prod" src="/scr/bem-casado.jpg" alt="bem-casado">
+                    </div>
+                </div>
+                <div class="right-section">
+                    <p>Encomende esses produtos diretamente pelo nosso WhatsApp!</p>
+                    <a href="https://wa.me/5586999448882">Entre em Contato</a>
+                </div>
+            </div>
         </section>
+
 
         <section id="contact" class="contact">
             <h2>Formulario para orçamento de bolos</h2>
@@ -80,8 +100,20 @@
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
 
-                <label for="numero">Número:</label>
+                <label for="numero">Telefone:</label>
                 <input type="tel" id="numero" name="numero" required>
+
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" name="rua" placeholder="Digite a rua" required>
+
+                <label for="numero-endereco">Número:</label>
+                <input type="text" id="numero-endereco" name="numero-endereco" placeholder="Número" required>
+
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" placeholder="CEP" required>
 
                 <label for="tipo-bolo">Tipo de Bolo:</label>
                 <select id="tipo-bolo" name="tipo_bolo" required>
@@ -120,11 +152,12 @@
                 <label for="observacoes">Observações:</label>
                 <input type="text" id="observacoes" class="obs">
 
-                <label for="">ENVIAR A IMAGEM DE REFERENCIA JUNTO COM O FORMULARIO!</label>
+                <label for="">ENVIAR A LOCALIZAÇÃO FIXA E A IMAGEM DE REFERENCIA JUNTO COM O FORMULARIO!</label>
 
                 <button type="submit">Enviar</button>
             </form>
         </section>
+
     </main>
 
     <footer class="footer">
@@ -155,16 +188,21 @@
         function abrirWhatsapp() {
             var nome = document.getElementById("nome").value;
             var telefone = document.getElementById("numero").value;
+            var rua = document.getElementById("rua").value;
+            var numeroEndereco = document.getElementById("numero-endereco").value;
+            var bairro = document.getElementById("bairro").value;
+            var cep = document.getElementById("cep").value;
             var tipoBolo = document.getElementById("tipo-bolo").value;
             var massa = document.getElementById("massa").value;
             var recheio = document.getElementById("recheio").value;
             var observacoes = document.getElementById("observacoes").value;
 
-            var url = "https://wa.me/5517999999999?text="
+            var url = "https://wa.me/5586999448882?text="
                 + "*Formulário de Contato*" + "%0a"
                 + "%0a"
                 + "*Nome*: " + nome + "%0a"
                 + "*Telefone*: " + telefone + "%0a"
+                + "*Endereço*: " + rua + ", " + numeroEndereco + ", " + bairro + " - " + cep + "%0a"
                 + "*Tipo de Bolo*: " + tipoBolo + "%0a"
                 + "*Massa*: " + massa + "%0a"
                 + "*Recheio*: " + recheio + "%0a"
