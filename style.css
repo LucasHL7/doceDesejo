@@ -5,6 +5,11 @@
         opacity: 0;
     }
 
+    #iconcake {
+        display: flex;
+        align-items: end;
+    }
+
     #contato {
         pointer-events: all;
         opacity: 1;
@@ -13,6 +18,11 @@
         flex-direction: column;
         display: flex;
         align-items: center;
+        background-color: white;
+        border-radius: 8px;
+        width: 100px;
+        right: 20%;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
 
 
@@ -20,16 +30,74 @@
         opacity: 0;
     }
 
-    .home-img{
+    .home-img {
         opacity: 0;
+        display: flex;
+        flex-direction: column;
     }
 
-    .home-text{
+    .home-text {
         margin-top: 320px;
     }
 
-    .bolos{
-        margin-top: 150px;
+    .bolos {
+        margin-top: 350px;
+    }
+
+    #imgprod {
+        border-radius: 30px;
+        width: 250px;
+        height: 250px;
+    }
+
+    #home-img {
+        align-items: end;
+        opacity: 0;
+    }
+
+    .home {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-text {
+        max-width: 90%;
+        text-align: center;
+        margin-top: 220px;
+    }
+
+    .home-img {
+        display: none;
+    }
+
+    #navigation ul li a:hover {
+        color: #fc4c35;
+    }
+
+    #iconcake {
+        align-items: center;
+    }
+
+    #footer {
+        background-color: #F7418F;
+        height: 200px;
+    }
+
+    #link-footer {
+        display: none;
+    }
+
+    .logo-footer {
+        width: 100px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        border-radius: 50%;
+        margin-bottom:10px ;
+    }
+    
+    .logo-footer:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
 }
@@ -92,7 +160,9 @@ html {
     font-size: 17px;
     font-weight: 500;
     transition: all 0.5s;
+
 }
+
 
 .navigation ul li a:hover {
     color: var(--white);
@@ -252,14 +322,18 @@ html {
     font-weight: 300;
 }
 
+.right-section .text-con {
+    font-size: 25px;
+}
+
 .right-section p {
     margin-bottom: 10px;
 }
 
 .img-prod {
-    border-radius: 80px;
-    width: 300px;
-    height: 300px;
+    border-radius: 30px;
+    width: 280px;
+    height: 280px;
 }
 
 .menu-section2 a {
@@ -291,7 +365,8 @@ html {
         align-items: center;
     }
 
-    .left-section, .right-section {
+    .left-section,
+    .right-section {
         width: 100%;
         text-align: center;
     }
@@ -302,7 +377,7 @@ html {
     }
 
     .right-section {
-        margin-top: 20px; 
+        margin-top: 20px;
     }
 }
 
@@ -412,5 +487,6 @@ html {
     width: 120px;
     height: auto;
 }
+
 
 /* FIM FOOTER */

@@ -12,60 +12,66 @@
 
 <body>
     <header>
-        <nav class="navigation">
+        <nav id="navigation" class="navigation">
             <a href="#" class="logo">D<span>oc</span>E D<span>esej</span>o</a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home">Home</a></li>
                 <li class="nav-item"><a href="#about">Estilos de Bolos</a></li>
                 <li class="nav-item"><a href="#menu">Recheios e Massas</a></li>
                 <li id="contato" class="nav-item"><a href="#contact">Contato</a></li>
-                <i class='bx bx-cake'></i>
+                <i id="iconcake" class='bx bx-cake'></i>
+                
             </ul>
+            
 
         </nav>
     </header>
     <main>
         <section id="home" class="home">
-            <div class="home-text">
+            <div id="home-text" class="home-text">
                 <h4 class="text-h4">Bem-Vindo a Doce Desejo! </h4>
                 <h1 class="text-h1">Criando sabores para adoçar seu dia.</h1>
                 <p><strong>Criamos bolos únicos para aniversários</strong>, casamentos, formaturas e todas as ocasiões
                     especiais. Do clássico chocolate ao sofisticado red velvet, nossos bolos são feitos para agradar
                     todos os gostos e paladares. Confeitos artísticos e elegantes, feitos por nossos talentosos
                     confeiteiros, tornam cada bolo uma verdadeira obra de arte.</p>
-                <a href="#" class="home-btn">Faça já seu pedido</a>
+                <a href="#contact" class="home-btn">Faça já seu pedido</a>
             </div>
-            <div class="home-img">
-                <img src="/scr/bolo.png" alt="bolo" width="600" height="600">
+            <div id="home-img" class="home-img">
+                <img src="/scr/bolo.png" alt="bolo">
             </div>
         </section>
+        
 
         <section id="about" class="bolos">
             <h2>Estilos de bolos</h2>
             <div class="cake-container">
+
                 <div class="cake-item">
-                    <img src="/scr/bento.png" alt="bento-cake">
-                    <h3 class="cake-name"><strong>Bento Cake personalizado</strong></h3>
-                    <ul>
-                        <li>5 FATIAS - $35,00</li>
-                    </ul>
+                    <img class="confeitados" src="/scr/confeitados/confeitado-1.jpeg" alt="estilo-de-bolo-confeitado">
                 </div>
 
                 <div class="cake-item">
-                    <img src="scr/Naked.png" alt="bolo naked">
-                    <h3 class="cake-name"><strong>Naked Cake</strong></h3>
-                    <ul>
-                        <li>10 FATIAS - $65,00</li>
-                    </ul>
+                    <img class="confeitados" src="/scr/confeitados/confeitado-2.jpeg" alt="estilo-de-bolo-confeitado">
                 </div>
 
                 <div class="cake-item">
-                    <img src="scr/confeitado.png" alt="bolo confeitado">
-                    <h3 class="cake-name"><strong>Bolo Confeitado</strong></h3>
-                    <ul>
-                        <li>10 FATIAS - $65,00</li>
-                    </ul>
+                    <img class="confeitados" src="/scr/confeitados/confeitado-3.jpeg" alt="estilo-de-bolo-confeitado">
                 </div>
+
+                <div class="cake-item">
+                    <img class="confeitados" src="/scr/confeitados/confeitado-4.jpeg" alt="estilo-de-bolo-confeitado">
+                </div>
+
+                <div class="cake-item">
+                    <img class="confeitados" src="/scr/confeitados/confeitado-5.jpeg" alt="estilo-de-bolo-confeitado">
+                </div>
+
+            
+
+                
+
+                
             </div>
         </section>
 
@@ -73,22 +79,22 @@
             <h2>Outros Produtos</h2>
             <div class="menu-section2">
                 <div class="left-section">
-                    <div class="prod-item"><b>Brownie Recheado - 2,50 (Unidade)</b>
-                        <img class="img-prod" src="/scr/Brownie.jpg" alt="brownies">
+                    <div class="prod-item"><b>Brownie Recheado - 2,50 (Unidade - Minimo 20)</b>
+                        <img id="imgprod" class="img-prod" src="/scr/Brownie.jpg" alt="brownies">
                     </div>
-                    <div class="prod-item"><b>Docinhos Variados</b>
-                        <img class="img-prod" src="/scr/brigadeiro.webp" alt="brigadeiros">
+                    <div class="prod-item"><b>Docinhos Variados - </b>
+                        <img id="imgprod" class="img-prod" src="/scr/docinhos.jpg" alt="brigadeiros">
                     </div>
                     <div class="prod-item"><b>Salgadinhos de Festa</b>
-                        <img class="img-prod" src="/scr/salgadinhos.jpg" alt="salgados">
+                        <img id="imgprod" class="img-prod" src="/scr/salgadinhos.jpg" alt="salgados">
                     </div>
                     <div class="prod-item"><b>Bem-Casados</b>
-                        <img class="img-prod" src="/scr/bem-casado.jpg" alt="bem-casado">
+                        <img id="imgprod" class="img-prod" src="/scr/bem-casado.jpg" alt="bem-casado">
                     </div>
                 </div>
                 <div class="right-section">
                     <p>Encomende esses produtos diretamente pelo nosso WhatsApp!</p>
-                    <a href="https://wa.me/5586999448882">Entre em Contato</a>
+                    <a class="text-con" href="https://wa.me/5586999448882">Entre em Contato</a>
                 </div>
             </div>
         </section>
@@ -160,25 +166,25 @@
 
     </main>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
         <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
             <path fill="#F06292" fill-opacity="1"
                 d="M0,128L48,128C96,128,192,128,288,144C384,160,480,192,576,170.7C672,149,768,75,864,48C960,21,1056,43,1152,64C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
             </path>
         </svg>
 
-        <div class="content">
+        <div id="content" class="content">
             <p>&copy; 2025 Doce Desejo. Todos os direitos reservados.</p>
             <div class="social">
 
-                <a href="https://www.instagram.com/docedesejogourmethe/" class="links"><i
+                <a id="link-footer" href="https://www.instagram.com/docedesejogourmethe/" class="links"><i
                         class='bx bxl-instagram'>INSTAGRAM</i></a>
-                <a href="https://linktr.ee/docedesejogourmethe" class="links"><i
+                <a id="link-footer" href="https://linktr.ee/docedesejogourmethe" class="links"><i
                         class='bx bx-phone-call'></i>CONTATOS</a>
 
             </div>
 
-            <a href="https://linktr.ee/docedesejogourmethe" class="links"><img class="logo-footer" src="/scr/Logo.png" alt="logo"></a>
+            <a id="logo-footer" href="https://linktr.ee/docedesejogourmethe" class="links"><img class="logo-footer" src="/scr/Logo.png" alt="logo"></a>
         </div>
 
     </footer>
