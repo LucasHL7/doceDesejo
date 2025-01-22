@@ -180,6 +180,9 @@
                             <option value="chocolate">Chocolate</option>
                             <option value="ninho">Ninho</option>
                             <option value="red-velvet">Red Velvet</option>
+                            <option value="mesclada1">Chocolate/Ninho</option>
+                            <option value="mesclada2">Chocolate/Red Velvet</option>
+                            <option value="mesclada3">Ninho/Red Velvet</option>
                         </select>
                         <label for="recheio">Recheio:</label>
                         <select id="recheio" name="recheio">
@@ -189,13 +192,7 @@
                         </select>`;
                 } else if (produto === "brigadeiro") {
                     html = `
-                        <label for="tipo-brigadeiro">Tipo de Brigadeiro:</label>
-                        <select id="tipo-brigadeiro" name="tipo_brigadeiro">
-                            <option value="chocolate">Chocolate</option>
-                            <option value="ninho">Ninho</option>
-                            <option value="dois-amores">Dois Amores</option>
-                            <option value="beijinho">Beijinho</option>
-                        </select>
+                        <p><strong>Sabores: Chocolate, Ninho, Dois amores, Beijinho.</strong></p>
                         <label for="quantidade-brigadeiro">Quantidade:</label>
                         <select id="quantidade-brigadeiro" name="quantidade_brigadeiro">
                             <option value="50">50 unidades</option>
@@ -204,13 +201,7 @@
                         </select>`;
                 } else if (produto === "brownie") {
                     html = `
-                        <label for="sabor-brownie">Recheio:</label>
-                        <select id="sabor-brownie" name="sabor_brownie">
-                            <option value="ninho">Ninho</option>
-                            <option value="chocolate">Chocolate</option>
-                            <option value="dois-amores">Dois Amores</option>
-                            <option value="doce-de-leite">Doce de Leite</option>
-                        </select>
+                        <p><strong>Sabores: Chocolate, Ninho, Dois amores, Doce de Leite.</strong></p>
                         <label for="quantidade-brownie">Quantidade:</label>
                         <select id="quantidade-brownie" name="quantidade_brownie">
                             <option value="20">20 unidades</option>
@@ -233,7 +224,7 @@
                         </select>`;
                 } else if (produto === "salgadinho") {
                     html = `
-                        <p>Sabores: Coxinha (Frango e Pizza), Bolinhas de queijo, Pastel de queijo.</p>
+                        <p><strong>Sabores: Coxinha (Frango e Pizza), Bolinhas de queijo, Pastel de queijo.</strong></p>
                         <label for="quantidade-salgadinho">Quantidade:</label>
                         <select id="quantidade-salgadinho" name="quantidade_salgadinho">
                             <option value="20">20 unidades</option>
