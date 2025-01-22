@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Doce Desejo - Encomende bolos, doces e salgados personalizados para todas as ocasiões especiais. Descubra sabores únicos e designs exclusivos.">
+    <meta name="description"
+        content="Doce Desejo - Encomende bolos, doces e salgados personalizados para todas as ocasiões especiais. Descubra sabores únicos e designs exclusivos.">
     <meta name="keywords" content="bolos, doces, salgados, bem-casados, brigadeiros, brownie, festas, confeitaria">
     <meta name="author" content="Doce Desejo">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -15,7 +16,7 @@
 
 <body>
 
-<!--- MENU -->
+    <!--- MENU -->
 
     <header>
 
@@ -35,7 +36,7 @@
 
     <main>
 
- <!-- HOME -->
+        <!-- HOME -->
 
         <section id="home" class="home">
             <div id="home-text" class="home-text">
@@ -53,7 +54,7 @@
         </section>
 
 
-<!-- BOLOS -->
+        <!-- BOLOS -->
 
         <section id="about" class="bolos">
             <h2>Estilos de bolos</h2>
@@ -82,7 +83,7 @@
             </div>
         </section>
 
-<!--OUTROS ITENS-->
+        <!--OUTROS ITENS-->
 
         <section id="menu" class="menu-section">
             <h2>Outros Produtos</h2>
@@ -109,7 +110,7 @@
         </section>
 
 
-<!--CONTATO E FORMULARIO-->
+        <!--CONTATO E FORMULARIO-->
 
         <section id="contact" class="contact">
             <h2>Formulário para orçamento</h2>
@@ -154,7 +155,7 @@
             </form>
         </section>
 
-<!--SCRIPT PRA MANDAR PRO WHATS-->
+        <!--SCRIPT PRA MANDAR PRO WHATS-->
 
         <script>
             function atualizarOpcoes() {
@@ -164,76 +165,79 @@
 
                 if (produto === "bolo") {
                     html = `
-                        <label for="tipo-bolo">Tipo de Bolo:</label>
-                        <select id="tipo-bolo" name="tipo_bolo">
-                            <option value="Confeitado-8">Confeitado (8 fatias - R$70,00)</option>
-                            <option value="Confeitado-10">Confeitado (10 fatias - R$80,00)</option>
-                            <option value="Confeitado-15">Confeitado (15 fatias - R$100,00)</option>
-                            <option value="Confeitado-20">Confeitado (20 fatias - R$120,00)</option>
-                            <option value="Confeitado-25">Confeitado (25 fatias - R$140,00)</option>
-                            <option value="Confeitado-30">Confeitado (30 fatias - R$160,00)</option>
-                            <option value="Confeitado-45">Confeitado (45 fatias - R$210,00)</option>
-                            <option value="bento-cake">Bento Cake (R$ 35,00)</option>
-                        </select>
-                        <label for="massa">Massa:</label>
-                        <select id="massa" name="massa">
-                            <option value="chocolate">Chocolate</option>
-                            <option value="ninho">Ninho</option>
-                            <option value="red-velvet">Red Velvet</option>
-                            <option value="mesclada1">Chocolate/Ninho</option>
-                            <option value="mesclada2">Chocolate/Red Velvet</option>
-                            <option value="mesclada3">Ninho/Red Velvet</option>
-                        </select>
-                        <label for="recheio">Recheio:</label>
-                        <select id="recheio" name="recheio">
-                            <option value="coco">Coco</option>
-                            <option value="chocolate">Chocolate</option>
-                            <option value="ninho">Ninho</option>
-                        </select>`;
+                <label for="tipo-bolo">Tipo de Bolo:</label>
+                <select id="tipo-bolo" name="tipo_bolo">
+                    <option value="Confeitado-8">Confeitado (8 fatias - R$70,00)</option>
+                    <option value="Confeitado-10">Confeitado (10 fatias - R$80,00)</option>
+                    <option value="Confeitado-15">Confeitado (15 fatias - R$100,00)</option>
+                    <option value="Confeitado-20">Confeitado (20 fatias - R$120,00)</option>
+                    <option value="Confeitado-25">Confeitado (25 fatias - R$140,00)</option>
+                    <option value="Confeitado-30">Confeitado (30 fatias - R$160,00)</option>
+                    <option value="Confeitado-45">Confeitado (45 fatias - R$210,00)</option>
+                    <option value="bento-cake">Bento Cake (R$ 35,00)</option>
+                </select>
+                <label for="massa">Massa:</label>
+                <select id="massa" name="massa">
+                    <option value="chocolate">Chocolate</option>
+                    <option value="ninho">Ninho</option>
+                    <option value="red-velvet">Red Velvet</option>
+                    <option value="Chocolate/Ninho">Chocolate/Ninho</option>
+                    <option value="Chocolate/Red Velvet">Chocolate/Red Velvet</option>
+                    <option value="Ninho/Red Velvet">Ninho/Red Velvet</option>
+                </select>
+                <label for="recheio">Recheio:</label>
+                <select id="recheio" name="recheio">
+                    <option value="coco">Coco</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="castanha">Castanha</option>
+                    <option value="doce-de-leite">Doce de Leite</option>
+                    <option value="dois-amores">Dois amores</option>
+                    <option value="abacaxi">Abacaxi</option>
+                </select>`;
                 } else if (produto === "brigadeiro") {
                     html = `
-                        <p><strong>Sabores: Chocolate, Ninho, Dois amores, Beijinho.</strong></p>
-                        <label for="quantidade-brigadeiro">Quantidade:</label>
-                        <select id="quantidade-brigadeiro" name="quantidade_brigadeiro">
-                            <option value="50">50 unidades</option>
-                            <option value="100">100 unidades</option>
-                            <option value="200">200 unidades</option>
-                        </select>`;
+                <p><strong>Sabores: Chocolate, Ninho, Dois amores, Beijinho.</strong></p>
+                <label for="quantidade-brigadeiro">Quantidade:</label>
+                <select id="quantidade-brigadeiro" name="quantidade_brigadeiro">
+                    <option value="50">50 unidades</option>
+                    <option value="100">100 unidades</option>
+                    <option value="200">200 unidades</option>
+                </select>`;
                 } else if (produto === "brownie") {
                     html = `
-                        <p><strong>Sabores: Chocolate, Ninho, Dois amores, Doce de Leite.</strong></p>
-                        <label for="quantidade-brownie">Quantidade:</label>
-                        <select id="quantidade-brownie" name="quantidade_brownie">
-                            <option value="20">20 unidades</option>
-                            <option value="50">50 unidades</option>
-                            <option value="100">100 unidades</option>
-                        </select>`;
+                <p><strong>Sabores: Chocolate, Ninho, Dois amores, Doce de Leite.</strong></p>
+                <label for="quantidade-brownie">Quantidade:</label>
+                <select id="quantidade-brownie" name="quantidade_brownie">
+                    <option value="20">20 unidades</option>
+                    <option value="50">50 unidades</option>
+                    <option value="100">100 unidades</option>
+                </select>`;
                 } else if (produto === "bem-casado") {
                     html = `
-                        <label for="sabores-bemcasados">Recheio:</label>
-                        <select id="sabores-bemcasados" name="sabores-bemcasados">
-                            <option value="ninho">Ninho</option>
-                            <option value="chocolate">Chocolate</option>
-                            <option value="dois-amores">Dois Amores</option>
-                            <option value="doce-de-leite">Doce de Leite</option>
-                        </select>
-                        <label for="qtd-bemcasados">Quantidade:</label>
-                        <select id="qtd-bemcasados" name="qtd-bemcasados">
-                            <option value="20">20 unidades</option>
-                            <option value="50">50 unidades</option>
-                        </select>`;
+                <label for="sabores-bemcasados">Recheio:</label>
+                <select id="sabores-bemcasados" name="sabores-bemcasados">
+                    <option value="ninho">Ninho</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="dois-amores">Dois Amores</option>
+                    <option value="doce-de-leite">Doce de Leite</option>
+                </select>
+                <label for="qtd-bemcasados">Quantidade:</label>
+                <select id="qtd-bemcasados" name="qtd-bemcasados">
+                    <option value="20">20 unidades</option>
+                    <option value="50">50 unidades</option>
+                </select>`;
                 } else if (produto === "salgadinho") {
                     html = `
-                        <p><strong>Sabores: Coxinha (Frango e Pizza), Bolinhas de queijo, Pastel de queijo.</strong></p>
-                        <label for="quantidade-salgadinho">Quantidade:</label>
-                        <select id="quantidade-salgadinho" name="quantidade_salgadinho">
-                            <option value="20">20 unidades</option>
-                            <option value="50">50 unidades</option>
-                            <option value="100">100 unidades</option>
-                            <option value="150">150 unidades</option>
-                            <option value="200">200 unidades</option>
-                            <option value="300">300 unidades</option>
-                        </select>`;
+                <p><strong>Sabores: Coxinha (Frango e Pizza), Bolinhas de queijo, Pastel de queijo.</strong></p>
+                <label for="quantidade-salgadinho">Quantidade:</label>
+                <select id="quantidade-salgadinho" name="quantidade_salgadinho">
+                    <option value="20">20 unidades</option>
+                    <option value="50">50 unidades</option>
+                    <option value="100">100 unidades</option>
+                    <option value="150">150 unidades</option>
+                    <option value="200">200 unidades</option>
+                    <option value="300">300 unidades</option>
+                </select>`;
                 }
 
                 opcoesContainer.innerHTML = html;
@@ -241,14 +245,19 @@
             }
 
             function abrirWhatsapp() {
-                const nome = document.getElementById("nome").value;
-                const telefone = document.getElementById("numero").value;
-                const rua = document.getElementById("rua").value;
-                const numeroEndereco = document.getElementById("numero-endereco").value;
-                const bairro = document.getElementById("bairro").value;
-                const cep = document.getElementById("cep").value;
+                const nome = document.getElementById("nome").value.trim();
+                const telefone = document.getElementById("numero").value.trim();
+                const rua = document.getElementById("rua").value.trim();
+                const numeroEndereco = document.getElementById("numero-endereco").value.trim();
+                const bairro = document.getElementById("bairro").value.trim();
+                const cep = document.getElementById("cep").value.trim();
                 const produto = document.getElementById("produto").value;
-                const observacoes = document.getElementById("observacoes").value;
+                const observacoes = document.getElementById("observacoes").value.trim();
+
+                if (!nome || !telefone || !produto) {
+                    alert("Por favor, preencha todos os campos obrigatórios.");
+                    return;
+                }
 
                 let detalhes = "";
 
@@ -258,13 +267,11 @@
                     const recheio = document.getElementById("recheio").value;
                     detalhes = `*Tipo de Bolo*: ${tipoBolo}%0a*Massa*: ${massa}%0a*Recheio*: ${recheio}`;
                 } else if (produto === "brigadeiro") {
-                    const tipoBrigadeiro = document.getElementById("tipo-brigadeiro").value;
                     const quantidadeBrigadeiro = document.getElementById("quantidade-brigadeiro").value;
-                    detalhes = `*Tipo de Brigadeiro*: ${tipoBrigadeiro}%0a*Quantidade*: ${quantidadeBrigadeiro}`;
+                    detalhes = `*Quantidade*: ${quantidadeBrigadeiro}`;
                 } else if (produto === "brownie") {
-                    const saborBrownie = document.getElementById("sabor-brownie").value;
                     const quantidadeBrownie = document.getElementById("quantidade-brownie").value;
-                    detalhes = `*Recheio*: ${saborBrownie}%0a*Quantidade*: ${quantidadeBrownie}`;
+                    detalhes = `*Quantidade*: ${quantidadeBrownie}`;
                 } else if (produto === "bem-casado") {
                     const saboresBemCasados = document.getElementById("sabores-bemcasados").value;
                     const qtdBemCasados = document.getElementById("qtd-bemcasados").value;
@@ -274,12 +281,13 @@
                     detalhes = `*Quantidade*: ${quantidadeSalgadinho}`;
                 }
 
-                const url = `https://wa.me/5586999448882?text=*FORMULARIO DE ORÇAMENTO*%0a%0a*Nome*: ${nome}%0a*Telefone*: ${telefone}%0a*Endereço*: ${rua}, ${numeroEndereco}, ${bairro} - ${cep}%0a*Produto*: ${produto}%0a${detalhes}%0a*Observações*: ${observacoes}`;
+                const url = `https://wa.me/5586999448882?text=*FORMULARIO DE ORÇAMENTO*%0a%0a*Nome*: ${encodeURIComponent(nome)}%0a*Telefone*: ${encodeURIComponent(telefone)}%0a*Endereço*: ${encodeURIComponent(rua)}, ${encodeURIComponent(numeroEndereco)}, ${encodeURIComponent(bairro)} - ${encodeURIComponent(cep)}%0a*Produto*: ${encodeURIComponent(produto)}%0a${detalhes}%0a*Observações*: ${encodeURIComponent(observacoes)}`;
                 window.open(url, "_blank").focus();
             }
         </script>
 
-<!--FOOTER-->
+
+        <!--FOOTER-->
 
         <footer id="footer" class="footer">
             <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
