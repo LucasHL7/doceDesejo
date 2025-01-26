@@ -42,7 +42,7 @@
             <div id="home-text" class="home-text">
                 <h4 class="text-h4">Bem-Vindo a Doce Desejo! </h4>
                 <h1 class="text-h1">Criando sabores para adoçar seu dia.</h1>
-                <p><strong>Criamos bolos únicos para aniversários</strong>, casamentos, formaturas e todas as ocasiões
+                <p><strong>Criamos bolos únicos</strong> para aniversários, casamentos, formaturas e todas as ocasiões
                     especiais. Do clássico chocolate ao sofisticado red velvet, nossos bolos são feitos para agradar
                     todos os gostos e paladares. Confeitos artísticos e elegantes, feitos por nossos talentosos
                     confeiteiros, tornam cada bolo uma verdadeira obra de arte.</p>
@@ -165,83 +165,101 @@
 
                 if (produto === "bolo") {
                     html = `
-                <label for="tipo-bolo">Tipo de Bolo:</label>
-                <select id="tipo-bolo" name="tipo_bolo">
-                    <option value="Confeitado-8">Confeitado (8 fatias - R$70,00)</option>
-                    <option value="Confeitado-10">Confeitado (10 fatias - R$80,00)</option>
-                    <option value="Confeitado-15">Confeitado (15 fatias - R$100,00)</option>
-                    <option value="Confeitado-20">Confeitado (20 fatias - R$120,00)</option>
-                    <option value="Confeitado-25">Confeitado (25 fatias - R$140,00)</option>
-                    <option value="Confeitado-30">Confeitado (30 fatias - R$160,00)</option>
-                    <option value="Confeitado-45">Confeitado (45 fatias - R$210,00)</option>
-                    <option value="bento-cake">Bento Cake (R$ 35,00)</option>
-                </select>
-                <label for="massa">Massa:</label>
-                <select id="massa" name="massa">
-                    <option value="chocolate">Chocolate</option>
-                    <option value="ninho">Ninho</option>
-                    <option value="red-velvet">Red Velvet</option>
-                    <option value="Chocolate/Ninho">Chocolate/Ninho</option>
-                    <option value="Chocolate/Red Velvet">Chocolate/Red Velvet</option>
-                    <option value="Ninho/Red Velvet">Ninho/Red Velvet</option>
-                </select>
-                <label for="recheio">Recheio:</label>
-                <select id="recheio" name="recheio">
-                    <option value="coco">Coco</option>
-                    <option value="chocolate">Chocolate</option>
-                    <option value="castanha">Castanha</option>
-                    <option value="doce-de-leite">Doce de Leite</option>
-                    <option value="dois-amores">Dois amores</option>
-                    <option value="abacaxi">Abacaxi</option>
-                </select>`;
+                        <label for="tipo-bolo">Tipo de Bolo:</label>
+                        <select id="tipo-bolo" name="tipo_bolo" onchange="verificarBentoCake()">
+                            <option value="Confeitado-8">Confeitado (8 fatias - R$70,00)</option>
+                            <option value="Confeitado-10">Confeitado (10 fatias - R$80,00)</option>
+                            <option value="Confeitado-15">Confeitado (15 fatias - R$100,00)</option>
+                            <option value="Confeitado-20">Confeitado (20 fatias - R$120,00)</option>
+                            <option value="Confeitado-25">Confeitado (25 fatias - R$120,00)</option>
+                            <option value="Confeitado-30">Confeitado (30 fatias - R$150,00)</option>
+                            <option value="Confeitado-35">Confeitado (35 fatias - R$150,00)</option>
+                            <option value="Confeitado-40">Confeitado (40 fatias - R$210,00)</option>
+                            <option value="Confeitado-45">Confeitado (45 fatias - R$210,00)</option>
+                            <option value="Confeitado-50">Confeitado (50 fatias - R$260,00)</option>
+                            <option value="Confeitado-60">Confeitado (60 fatias - R$260,00)</option>
+                            <option value="Confeitado-70">Confeitado (70 fatias - R$300,00)</option>
+                            <option value="Confeitado-80">Confeitado (80 fatias - R$300,00)</option>
+                            <option value="bento-cake">Bento Cake (R$ 35,00)</option>
+                        </select>
+                        <label for="massa">Massa:</label>
+                        <select id="massa" name="massa">
+                            <option value="chocolate">Chocolate</option>
+                            <option value="ninho">Ninho</option>
+                            <option value="red-velvet">Red Velvet</option>
+                            <option value="Chocolate/Ninho">Chocolate/Ninho</option>
+                            <option value="Chocolate/Red Velvet">Chocolate/Red Velvet</option>
+                            <option value="Ninho/Red Velvet">Ninho/Red Velvet</option>
+                        </select>
+                        <div id="recheio-container">
+                            <label for="recheio">Recheio:</label>
+                            <select id="recheio" name="recheio">
+                                <option value="coco">Coco</option>
+                                <option value="chocolate">Chocolate</option>
+                                <option value="castanha">Castanha</option>
+                                <option value="doce-de-leite">Doce de Leite</option>
+                                <option value="dois-amores">Dois amores</option>
+                                <option value="abacaxi">Abacaxi</option>
+                            </select>
+                        </div>`;
                 } else if (produto === "brigadeiro") {
                     html = `
-                <p><strong>Sabores: Chocolate, Ninho, Dois amores, Beijinho.</strong></p>
-                <label for="quantidade-brigadeiro">Quantidade:</label>
-                <select id="quantidade-brigadeiro" name="quantidade_brigadeiro">
-                    <option value="50">50 unidades</option>
-                    <option value="100">100 unidades</option>
-                    <option value="200">200 unidades</option>
-                </select>`;
+                        <p><strong>Sabores: Chocolate, Ninho, Dois amores, Beijinho.</strong></p>
+                        <label for="quantidade-brigadeiro">Quantidade:</label>
+                        <select id="quantidade-brigadeiro" name="quantidade_brigadeiro">
+                            <option value="50">50 unidades - $42,00</option>
+                            <option value="100">100 unidades - $120,00</option>
+                            <option value="200">200 unidades - $165,00</option>
+                        </select>`;
                 } else if (produto === "brownie") {
                     html = `
-                <p><strong>Sabores: Chocolate, Ninho, Dois amores, Doce de Leite.</strong></p>
-                <label for="quantidade-brownie">Quantidade:</label>
-                <select id="quantidade-brownie" name="quantidade_brownie">
-                    <option value="20">20 unidades</option>
-                    <option value="50">50 unidades</option>
-                    <option value="100">100 unidades</option>
-                </select>`;
+                        <p><strong>Sabores: Chocolate, Ninho, Dois amores, Doce de Leite.</strong></p>
+                        <label for="quantidade-brownie">Quantidade:</label>
+                        <select id="quantidade-brownie" name="quantidade_brownie">
+                            <option value="20">20 unidades - $90,00</option>
+                            <option value="50">50 unidades - $250,00</option>
+                            <option value="100">100 unidades - $450,00</option>
+                        </select>`;
                 } else if (produto === "bem-casado") {
                     html = `
-                <label for="sabores-bemcasados">Recheio:</label>
-                <select id="sabores-bemcasados" name="sabores-bemcasados">
-                    <option value="ninho">Ninho</option>
-                    <option value="chocolate">Chocolate</option>
-                    <option value="dois-amores">Dois Amores</option>
-                    <option value="doce-de-leite">Doce de Leite</option>
-                </select>
-                <label for="qtd-bemcasados">Quantidade:</label>
-                <select id="qtd-bemcasados" name="qtd-bemcasados">
-                    <option value="20">20 unidades</option>
-                    <option value="50">50 unidades</option>
-                </select>`;
+                        <label for="sabores-bemcasados">Recheio:</label>
+                        <select id="sabores-bemcasados" name="sabores-bemcasados">
+                            <option value="ninho">Ninho</option>
+                            <option value="chocolate">Chocolate</option>
+                            <option value="dois-amores">Dois Amores</option>
+                            <option value="doce-de-leite">Doce de Leite</option>
+                        </select>
+                        <label for="qtd-bemcasados">Quantidade:</label>
+                        <select id="qtd-bemcasados" name="qtd-bemcasados">
+                            <option value="20">20 unidades - $70,00</option>
+                            <option value="50">50 unidades - $175,00</option>
+                        </select>`;
                 } else if (produto === "salgadinho") {
                     html = `
-                <p><strong>Sabores: Coxinha (Frango e Pizza), Bolinhas de queijo, Pastel de queijo.</strong></p>
-                <label for="quantidade-salgadinho">Quantidade:</label>
-                <select id="quantidade-salgadinho" name="quantidade_salgadinho">
-                    <option value="20">20 unidades</option>
-                    <option value="50">50 unidades</option>
-                    <option value="100">100 unidades</option>
-                    <option value="150">150 unidades</option>
-                    <option value="200">200 unidades</option>
-                    <option value="300">300 unidades</option>
-                </select>`;
+                        <p><strong>Sabores: Coxinha (Frango e Pizza), Bolinhas de queijo, Pastel de queijo.</strong></p>
+                        <label for="quantidade-salgadinho">Quantidade:</label>
+                        <select id="quantidade-salgadinho" name="quantidade_salgadinho">
+                            <option value="50">50 unidades - $32,00</option>
+                            <option value="100">100 unidades - $65,00</option>
+                            <option value="150">150 unidades - $97,00</option>
+                            <option value="200">200 unidades - $129,00</option>
+                            <option value="300">300 unidades - $194,00</option>
+                        </select>`;
                 }
 
                 opcoesContainer.innerHTML = html;
                 opcoesContainer.style.display = html ? "block" : "none";
+            }
+
+            function verificarBentoCake() {
+                const tipoBolo = document.getElementById("tipo-bolo").value;
+                const recheioContainer = document.getElementById("recheio-container");
+
+                if (tipoBolo === "bento-cake") {
+                    recheioContainer.style.display = "none";
+                } else {
+                    recheioContainer.style.display = "block";
+                }
             }
 
             function abrirWhatsapp() {
@@ -264,8 +282,10 @@
                 if (produto === "bolo") {
                     const tipoBolo = document.getElementById("tipo-bolo").value;
                     const massa = document.getElementById("massa").value;
-                    const recheio = document.getElementById("recheio").value;
-                    detalhes = `*Tipo de Bolo*: ${tipoBolo}%0a*Massa*: ${massa}%0a*Recheio*: ${recheio}`;
+                    const recheioContainer = document.getElementById("recheio-container");
+                    const recheio = recheioContainer.style.display === "none" ? "" : document.getElementById("recheio").value;
+                    detalhes = `*Tipo de Bolo*: ${tipoBolo}%0a*Massa*: ${massa}`;
+                    if (recheio) detalhes += `%0a*Recheio*: ${recheio}`;
                 } else if (produto === "brigadeiro") {
                     const quantidadeBrigadeiro = document.getElementById("quantidade-brigadeiro").value;
                     detalhes = `*Quantidade*: ${quantidadeBrigadeiro}`;
@@ -285,6 +305,7 @@
                 window.open(url, "_blank").focus();
             }
         </script>
+
 
 
         <!--FOOTER-->
