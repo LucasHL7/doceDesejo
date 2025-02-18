@@ -121,17 +121,11 @@
                 <label for="numero">Telefone:</label>
                 <input type="tel" id="numero" name="numero" required>
 
-                <label for="rua">Rua:</label>
-                <input type="text" id="rua" name="rua" placeholder="Digite a rua" required>
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required>
 
-                <label for="numero-endereco">Número:</label>
-                <input type="text" id="numero-endereco" name="numero-endereco" placeholder="Número" required>
-
-                <label for="bairro">Bairro:</label>
-                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
-
-                <label for="cep">CEP:</label>
-                <input type="text" id="cep" name="cep" placeholder="CEP">
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" required min="13:00" max="17:00">
 
                 <label for="produto">Produto:</label>
                 <select id="produto" name="produto" required onchange="atualizarOpcoes()">
@@ -160,8 +154,6 @@
                 <label for="">ENVIAR A LOCALIZAÇÃO FIXA E A IMAGEM DE REFERÊNCIA JUNTO COM O FORMULÁRIO!</label>
 
                 <button type="submit">Enviar</button>
-
-
             </form>
         </section>
 
@@ -289,16 +281,21 @@
             function abrirWhatsapp() {
                 const nome = document.getElementById("nome").value.trim();
                 const telefone = document.getElementById("numero").value.trim();
-                const rua = document.getElementById("rua").value.trim();
-                const numeroEndereco = document.getElementById("numero-endereco").value.trim();
-                const bairro = document.getElementById("bairro").value.trim();
-                const cep = document.getElementById("cep").value.trim();
+                const data = document.getElementById("data").value;
+                const hora = document.getElementById("hora").value;
                 const produto = document.getElementById("produto").value;
                 const observacoes = document.getElementById("observacoes").value.trim();
                 const formaPagamento = document.getElementById("forma-pagamento").value;
 
-                if (!nome || !telefone || !produto || !formaPagamento) {
+                if (!nome || !telefone || !produto || !formaPagamento || !data || !hora) {
                     alert("Por favor, preencha todos os campos obrigatórios.");
+                    return;
+                }
+
+                const horaMinima = "13:00";
+                const horaMaxima = "17:00";
+                if (hora < horaMinima || hora > horaMaxima) {
+                    alert("Por favor, selecione uma hora entre 13:00 e 17:00.");
                     return;
                 }
 
@@ -343,7 +340,7 @@
                     valorTotal *= 1.05; // Acrescenta 5% ao valor total
                 }
 
-                const url = `https://wa.me/5586995811231?text=*FORMULARIO DE ORÇAMENTO*%0a%0a*Nome*: ${encodeURIComponent(nome)}%0a*Telefone*: ${encodeURIComponent(telefone)}%0a*Endereço*: ${encodeURIComponent(rua)}, ${encodeURIComponent(numeroEndereco)}, ${encodeURIComponent(bairro)} - ${encodeURIComponent(cep)}%0a*Produto*: ${encodeURIComponent(produto)}%0a${detalhes}%0a*Observações*: ${encodeURIComponent(observacoes)}%0a*Forma de Pagamento*: ${encodeURIComponent(formaPagamento)}%0a*Valor Total*: R$ ${valorTotal.toFixed(2)}`;
+                const url = `https://wa.me/5586995811231?text=*FORMULARIO DE ORÇAMENTO*%0a%0a*Nome*: ${encodeURIComponent(nome)}%0a*Telefone*: ${encodeURIComponent(telefone)}%0a*Data*: ${encodeURIComponent(data)}%0a*Hora*: ${encodeURIComponent(hora)}%0a*Produto*: ${encodeURIComponent(produto)}%0a${detalhes}%0a*Observações*: ${encodeURIComponent(observacoes)}%0a*Forma de Pagamento*: ${encodeURIComponent(formaPagamento)}%0a*Valor Total*: R$ ${valorTotal.toFixed(2)}`;
                 window.open(url, "_blank").focus();
             }
 
