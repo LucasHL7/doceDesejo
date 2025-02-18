@@ -208,7 +208,19 @@
                                 <option value="chocolate">Chocolate</option>
                                 <option value="castanha">Castanha</option>
                                 <option value="doce-de-leite">Doce de Leite</option>
-                                <option value="dois-amores">Dois amores</option>
+                                <option value="ninho">Ninho</option>
+                                <option value="abacaxi">Abacaxi</option>
+                            </select>
+                        </div>
+                        <div id="recheio2-container">
+                            <label for="recheio2">Segundo Recheio (opcional):</label>
+                            <select id="recheio2" name="recheio2">
+                                <option value="">Nenhum</option>
+                                <option value="coco">Coco</option>
+                                <option value="chocolate">Chocolate</option>
+                                <option value="castanha">Castanha</option>
+                                <option value="doce-de-leite">Doce de Leite</option>
+                                <option value="ninho">Ninho</option>
                                 <option value="abacaxi">Abacaxi</option>
                             </select>
                         </div>`;
@@ -301,8 +313,10 @@
                     const massa = document.getElementById("massa").value;
                     const recheioContainer = document.getElementById("recheio-container");
                     const recheio = recheioContainer.style.display === "none" ? "" : document.getElementById("recheio").value;
+                    const recheio2 = document.getElementById("recheio2").value;
                     detalhes = `*Tipo de Bolo*: ${tipoBolo}%0a*Massa*: ${massa}`;
                     if (recheio) detalhes += `%0a*Recheio*: ${recheio}`;
+                    if (recheio2) detalhes += `%0a*Segundo Recheio*: ${recheio2}`;
                     valorTotal = extrairValor(document.querySelector(`#tipo-bolo option[value="${tipoBolo}"]`).textContent);
                 } else if (produto === "brigadeiro") {
                     const quantidadeBrigadeiro = document.getElementById("quantidade-brigadeiro").value;
