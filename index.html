@@ -125,7 +125,7 @@
                 <input type="date" id="data" name="data" required>
 
                 <label for="hora">Hora:</label>
-                <input type="time" id="hora" name="hora" required min="13:00" max="17:00">
+                <input type="time" id="hora" name="hora" required>
 
                 <label for="produto">Produto:</label>
                 <select id="produto" name="produto" required onchange="atualizarOpcoes()">
@@ -289,13 +289,6 @@
 
                 if (!nome || !telefone || !produto || !formaPagamento || !data || !hora) {
                     alert("Por favor, preencha todos os campos obrigatórios.");
-                    return;
-                }
-
-                const horaMinima = "13:00";
-                const horaMaxima = "17:00";
-                if (hora < horaMinima || hora > horaMaxima) {
-                    alert("Por favor, selecione uma hora entre 13:00 e 17:00.");
                     return;
                 }
 
