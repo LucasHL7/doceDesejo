@@ -363,8 +363,10 @@ html {
 }
 
 #recheio-container {
-    margin-top: 20px; /* Ajuste o valor conforme necessário */
-    margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+    margin-top: 20px;
+    
+    margin-bottom: 20px;
+    
 }
 
 @media (max-width: 1024px) {
