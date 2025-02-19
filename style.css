@@ -362,6 +362,10 @@ html {
     margin-bottom: 20px;
 }
 
+#recheio-container {
+    margin-top: 20px; /* Ajuste o valor conforme necessário */
+    margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+}
 
 @media (max-width: 1024px) {
     .menu-section2 {
