@@ -135,9 +135,14 @@
                     <option value="brownie">Brownie Recheado</option>
                     <option value="salgadinho">Salgadinhos de Festa</option>
                     <option value="bem-casado">Bem Casado</option>
+                    <option value="bento-cake">Bento Cake</option>
                 </select>
 
                 <div id="opcoesAdicionais" style="display: none;">
+                </div>
+
+                <div id="bento-cake-message" style="display: none; color: red; font-weight: bold;">
+                    Bento Cake selecionado. Este bolo tem recheio padrão.
                 </div>
 
                 <label for="forma-pagamento">Forma de Pagamento:</label>
@@ -169,7 +174,7 @@
                 if (produto === "bolo") {
                     html = `
                         <label for="tipo-bolo">Tipo de Bolo:</label>
-                        <select id="tipo-bolo" name="tipo_bolo" onchange="verificarBentoCake()">
+                        <select id="tipo-bolo" name="tipo_bolo">
                             <option value="Confeitado-8">Confeitado (8 fatias - R$70,00)</option>
                             <option value="Confeitado-10">Confeitado (10 fatias - R$80,00)</option>
                             <option value="Confeitado-15">Confeitado (15 fatias - R$100,00)</option>
@@ -183,7 +188,6 @@
                             <option value="Confeitado-60">Confeitado (60 fatias - R$260,00)</option>
                             <option value="Confeitado-70">Confeitado (70 fatias - R$300,00)</option>
                             <option value="Confeitado-80">Confeitado (80 fatias - R$300,00)</option>
-                            <option value="bento-cake">Bento Cake (R$ 40,00)</option>
                         </select>
                         <label for="massa">Massa:</label>
                         <select id="massa" name="massa">
@@ -262,6 +266,11 @@
                             <option value="200">200 unidades - $129,00</option>
                             <option value="300">300 unidades - $194,00</option>
                         </select>`;
+                } else if (produto === "bento-cake") {
+                    html = `
+                        <div id="bento-cake-message" style="color: red; font-weight: bold;">
+                            Bento Cake selecionado. Este bolo tem recheio padrão e custa R$40,00.
+                        </div>`;
                 }
 
                 opcoesContainer.innerHTML = html;
@@ -270,15 +279,21 @@
 
             function verificarBentoCake() {
                 const tipoBolo = document.getElementById("tipo-bolo").value;
+                const massaContainer = document.getElementById("massa").parentElement;
                 const recheioContainer = document.getElementById("recheio-container");
                 const recheio2Container = document.getElementById("recheio2-container");
+                const bentoCakeMessage = document.getElementById("bento-cake-message");
 
                 if (tipoBolo === "bento-cake") {
+                    massaContainer.style.display = "none";
                     recheioContainer.style.display = "none";
                     recheio2Container.style.display = "none";
+                    bentoCakeMessage.style.display = "block";
                 } else {
+                    massaContainer.style.display = "block";
                     recheioContainer.style.display = "block";
                     recheio2Container.style.display = "block";
+                    bentoCakeMessage.style.display = "none";
                 }
             }
 
@@ -313,7 +328,10 @@
                     const recheioContainer = document.getElementById("recheio-container");
                     const recheio = recheioContainer.style.display === "none" ? "" : document.getElementById("recheio").value;
                     const recheio2 = document.getElementById("recheio2").value;
-                    detalhes = `*Tipo de Bolo*: ${tipoBolo}%0a*Massa*: ${massa}`;
+                    detalhes = `*Tipo de Bolo*: ${tipoBolo}`;
+                    if (tipoBolo !== "bento-cake") {
+                        detalhes += `%0a*Massa*: ${massa}`;
+                    }
                     if (recheio) detalhes += `%0a*Recheio*: ${recheio}`;
                     if (recheio2) detalhes += `%0a*Segundo Recheio*: ${recheio2}`;
                     if (tipoBolo === "bento-cake") {
@@ -333,11 +351,14 @@
                     const saboresBemCasados = document.getElementById("sabores-bemcasados").value;
                     const qtdBemCasados = document.getElementById("qtd-bemcasados").value;
                     detalhes = `*Recheio*: ${saboresBemCasados}%0a*Quantidade*: ${qtdBemCasados}`;
-                    valorTotal = extrairValor(document.querySelector(`#qtd-bemcasados option[value="${qtd - bemcasados}"]`).textContent);
+                    valorTotal = extrairValor(document.querySelector(`#qtd-bemcasados option[value="${qtdBemCasados}"]`).textContent);
                 } else if (produto === "salgadinho") {
                     const quantidadeSalgadinho = document.getElementById("quantidade-salgadinho").value;
                     detalhes = `*Quantidade*: ${quantidadeSalgadinho}`;
                     valorTotal = extrairValor(document.querySelector(`#quantidade-salgadinho option[value="${quantidadeSalgadinho}"]`).textContent);
+                } else if (produto === "bento-cake") {
+                    detalhes = `*Produto*: Bento Cake`;
+                    valorTotal = 40.00; // Preço fixo para Bento Cake
                 }
 
                 if (formaPagamento === "credito") {
