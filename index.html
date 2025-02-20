@@ -183,7 +183,7 @@
                             <option value="Confeitado-60">Confeitado (60 fatias - R$260,00)</option>
                             <option value="Confeitado-70">Confeitado (70 fatias - R$300,00)</option>
                             <option value="Confeitado-80">Confeitado (80 fatias - R$300,00)</option>
-                            <option value="bento-cake">Bento Cake (R$ 35,00)</option>
+                            <option value="bento-cake">Bento Cake (R$ 40,00)</option>
                         </select>
                         <label for="massa">Massa:</label>
                         <select id="massa" name="massa">
@@ -271,11 +271,14 @@
             function verificarBentoCake() {
                 const tipoBolo = document.getElementById("tipo-bolo").value;
                 const recheioContainer = document.getElementById("recheio-container");
+                const recheio2Container = document.getElementById("recheio2-container");
 
                 if (tipoBolo === "bento-cake") {
                     recheioContainer.style.display = "none";
+                    recheio2Container.style.display = "none";
                 } else {
                     recheioContainer.style.display = "block";
+                    recheio2Container.style.display = "block";
                 }
             }
 
@@ -292,6 +295,9 @@
                     alert("Por favor, preencha todos os campos obrigatórios.");
                     return;
                 }
+
+                // Formatar a data para dd/mm/aaaa
+                const dataFormatada = data.split('-').reverse().join('/');
 
                 let detalhes = "";
                 let valorTotal = 0;
@@ -310,7 +316,11 @@
                     detalhes = `*Tipo de Bolo*: ${tipoBolo}%0a*Massa*: ${massa}`;
                     if (recheio) detalhes += `%0a*Recheio*: ${recheio}`;
                     if (recheio2) detalhes += `%0a*Segundo Recheio*: ${recheio2}`;
-                    valorTotal = extrairValor(document.querySelector(`#tipo-bolo option[value="${tipoBolo}"]`).textContent);
+                    if (tipoBolo === "bento-cake") {
+                        valorTotal = 40.00; // Preço fixo para Bento Cake
+                    } else {
+                        valorTotal = extrairValor(document.querySelector(`#tipo-bolo option[value="${tipoBolo}"]`).textContent);
+                    }
                 } else if (produto === "brigadeiro") {
                     const quantidadeBrigadeiro = document.getElementById("quantidade-brigadeiro").value;
                     detalhes = `*Quantidade*: ${quantidadeBrigadeiro}`;
@@ -323,7 +333,7 @@
                     const saboresBemCasados = document.getElementById("sabores-bemcasados").value;
                     const qtdBemCasados = document.getElementById("qtd-bemcasados").value;
                     detalhes = `*Recheio*: ${saboresBemCasados}%0a*Quantidade*: ${qtdBemCasados}`;
-                    valorTotal = extrairValor(document.querySelector(`#qtd-bemcasados option[value="${qtdBemCasados}"]`).textContent);
+                    valorTotal = extrairValor(document.querySelector(`#qtd-bemcasados option[value="${qtd - bemcasados}"]`).textContent);
                 } else if (produto === "salgadinho") {
                     const quantidadeSalgadinho = document.getElementById("quantidade-salgadinho").value;
                     detalhes = `*Quantidade*: ${quantidadeSalgadinho}`;
@@ -334,7 +344,7 @@
                     valorTotal *= 1.05; // Acrescenta 5% ao valor total
                 }
 
-                const url = `https://wa.me/5586995811231?text=*FORMULARIO DE ORÇAMENTO*%0a%0a*Nome*: ${encodeURIComponent(nome)}%0a*Telefone*: ${encodeURIComponent(telefone)}%0a*Data*: ${encodeURIComponent(data)}%0a*Hora*: ${encodeURIComponent(hora)}%0a*Produto*: ${encodeURIComponent(produto)}%0a${detalhes}%0a*Observações*: ${encodeURIComponent(observacoes)}%0a*Forma de Pagamento*: ${encodeURIComponent(formaPagamento)}%0a*Valor Total*: R$ ${valorTotal.toFixed(2)}`;
+                const url = `https://wa.me/5586995811231?text=*FORMULARIO DE ORÇAMENTO*%0a%0a*Nome*: ${encodeURIComponent(nome)}%0a*Telefone*: ${encodeURIComponent(telefone)}%0a*Data*: ${encodeURIComponent(dataFormatada)}%0a*Hora*: ${encodeURIComponent(hora)}%0a*Produto*: ${encodeURIComponent(produto)}%0a${detalhes}%0a*Observações*: ${encodeURIComponent(observacoes)}%0a*Forma de Pagamento*: ${encodeURIComponent(formaPagamento)}%0a*Valor Total*: R$ ${valorTotal.toFixed(2)}`;
                 window.open(url, "_blank").focus();
             }
 
