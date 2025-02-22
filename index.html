@@ -53,6 +53,42 @@
             </div>
         </section>
 
+        <!-- LISTA DE PRODUTOS E PREÇOS -->
+        <section id="product-list" class="product-list">
+            <h2>Lista de Produtos e Preços</h2>
+            <div id="product-list-container" class="container">
+                <ul class="product-list-ul row">
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (8 fatias):</strong> R$70,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (10 fatias):</strong> R$80,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (15 fatias):</strong> R$100,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (20 fatias):</strong> R$120,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (25 fatias):</strong> R$120,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (30 fatias):</strong> R$150,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (35 fatias):</strong> R$150,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (40 fatias):</strong> R$210,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (45 fatias):</strong> R$210,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (50 fatias):</strong> R$260,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (60 fatias):</strong> R$260,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (70 fatias):</strong> R$300,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bolo Confeitado (80 fatias):</strong> R$300,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bento Cake:</strong> R$40,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Brigadeiro (50 unidades):</strong> R$42,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Brigadeiro (100 unidades):</strong> R$120,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Brigadeiro (200 unidades):</strong> R$165,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Brownie (20 unidades):</strong> R$90,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Brownie (50 unidades):</strong> R$250,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Brownie (100 unidades):</strong> R$450,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bem-Casado (20 unidades):</strong> R$70,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Bem-Casado (50 unidades):</strong> R$175,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Salgadinho (50 unidades):</strong> R$32,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Salgadinho (100 unidades):</strong> R$65,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Salgadinho (150 unidades):</strong> R$97,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Salgadinho (200 unidades):</strong> R$129,00</li>
+                    <li class="col-md-6 col-lg-6"><strong>Salgadinho (300 unidades):</strong> R$194,00</li>
+                </ul>
+            </div>
+        </section>
+
 
         <!-- BOLOS -->
 
@@ -110,11 +146,13 @@
         </section>
 
 
+
+
         <!--CONTATO E FORMULARIO-->
 
         <section id="contact" class="contact">
             <h2>Formulário para orçamento</h2>
-            <form id="pedidoForm" onsubmit="abrirWhatsapp(); return false;">
+            <form id="pedidoForm" onsubmit="abrirWhatsapp(); return false;" class="container">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
 
@@ -145,6 +183,68 @@
                     Bento Cake selecionado. Este bolo tem recheio padrão.
                 </div>
 
+                <div class="form-group" id="sabores-brigadeiro-container" style="display: none;">
+                    <label for="sabores-brigadeiro">Escolha até 4 sabores de Brigadeiro:</label>
+                    <div>
+                        <input type="checkbox" id="brigadeiro-chocolate" name="sabores-brigadeiro" value="chocolate">
+                        <label for="brigadeiro-chocolate">Chocolate</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="brigadeiro-ninho" name="sabores-brigadeiro" value="ninho">
+                        <label for="brigadeiro-ninho">Ninho</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="brigadeiro-dois-amores" name="sabores-brigadeiro"
+                            value="dois-amores">
+                        <label for="brigadeiro-dois-amores">Dois Amores</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="brigadeiro-beijinho" name="sabores-brigadeiro" value="beijinho">
+                        <label for="brigadeiro-beijinho">Beijinho</label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="sabores-brownie-container" style="display: none;">
+                    <label for="sabores-brownie">Escolha até 4 sabores de Brownie:</label>
+                    <div>
+                        <input type="checkbox" id="brownie-chocolate" name="sabores-brownie" value="chocolate">
+                        <label for="brownie-chocolate">Chocolate</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="brownie-ninho" name="sabores-brownie" value="ninho">
+                        <label for="brownie-ninho">Ninho</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="brownie-dois-amores" name="sabores-brownie" value="dois-amores">
+                        <label for="brownie-dois-amores">Dois Amores</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="brownie-doce-de-leite" name="sabores-brownie" value="doce-de-leite">
+                        <label for="brownie-doce-de-leite">Doce de Leite</label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="sabores-bemcasado-container" style="display: none;">
+                    <label for="sabores-bemcasado">Escolha até 4 sabores de Bem Casado:</label>
+                    <div>
+                        <input type="checkbox" id="bemcasado-ninho" name="sabores-bemcasado" value="ninho">
+                        <label for="bemcasado-ninho">Ninho</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="bemcasado-chocolate" name="sabores-bemcasado" value="chocolate">
+                        <label for="bemcasado-chocolate">Chocolate</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="bemcasado-dois-amores" name="sabores-bemcasado" value="dois-amores">
+                        <label for="bemcasado-dois-amores">Dois Amores</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="bemcasado-doce-de-leite" name="sabores-bemcasado"
+                            value="doce-de-leite">
+                        <label for="bemcasado-doce-de-leite">Doce de Leite</label>
+                    </div>
+                </div>
+
                 <label for="forma-pagamento">Forma de Pagamento:</label>
                 <select id="forma-pagamento" name="forma_pagamento" required>
                     <option value="dinheiro">Dinheiro</option>
@@ -159,7 +259,7 @@
                 <label for="">ENVIAR A IMAGEM DE REFERÊNCIA JUNTO COM O FORMULÁRIO!</label>
                 <label for="">ESSE É UM FORMULARIO DE ORÇAMENTO, AGUARDE O SEU PEDIDO SER CONFIRMADO</label>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </section>
 
@@ -275,6 +375,22 @@
 
                 opcoesContainer.innerHTML = html;
                 opcoesContainer.style.display = html ? "block" : "none";
+
+                const saboresBrigadeiroContainer = document.getElementById("sabores-brigadeiro-container");
+                const saboresBrownieContainer = document.getElementById("sabores-brownie-container");
+                const saboresBemcasadoContainer = document.getElementById("sabores-bemcasado-container");
+
+                saboresBrigadeiroContainer.style.display = "none";
+                saboresBrownieContainer.style.display = "none";
+                saboresBemcasadoContainer.style.display = "none";
+
+                if (produto === "brigadeiro") {
+                    saboresBrigadeiroContainer.style.display = "block";
+                } else if (produto === "brownie") {
+                    saboresBrownieContainer.style.display = "block";
+                } else if (produto === "bem-casado") {
+                    saboresBemcasadoContainer.style.display = "block";
+                }
             }
 
             function verificarBentoCake() {
@@ -296,6 +412,25 @@
                     bentoCakeMessage.style.display = "none";
                 }
             }
+
+            function limitarSelecao(containerId, limite) {
+                const checkboxes = document.querySelectorAll(`#${containerId} input[type="checkbox"]`);
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        const selecionados = document.querySelectorAll(`#${containerId} input[type="checkbox"]:checked`);
+                        if (selecionados.length > limite) {
+                            checkbox.checked = false;
+                            alert(`Você pode selecionar no máximo ${limite} sabores.`);
+                        }
+                    });
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                limitarSelecao('sabores-brigadeiro-container', 4);
+                limitarSelecao('sabores-brownie-container', 4);
+                limitarSelecao('sabores-bemcasado-container', 4);
+            });
 
             function abrirWhatsapp() {
                 const nome = document.getElementById("nome").value.trim();
@@ -322,6 +457,11 @@
                     return match ? parseFloat(match[1].replace(',', '.')) : 0;
                 }
 
+                function obterSaboresSelecionados(containerId) {
+                    const checkboxes = document.querySelectorAll(`#${containerId} input[type="checkbox"]:checked`);
+                    return Array.from(checkboxes).map(checkbox => checkbox.value).join(', ');
+                }
+
                 if (produto === "bolo") {
                     const tipoBolo = document.getElementById("tipo-bolo").value;
                     const massa = document.getElementById("massa").value;
@@ -341,14 +481,16 @@
                     }
                 } else if (produto === "brigadeiro") {
                     const quantidadeBrigadeiro = document.getElementById("quantidade-brigadeiro").value;
-                    detalhes = `*Quantidade*: ${quantidadeBrigadeiro}`;
+                    const saboresBrigadeiro = obterSaboresSelecionados('sabores-brigadeiro-container');
+                    detalhes = `*Quantidade*: ${quantidadeBrigadeiro}%0a*Sabores*: ${saboresBrigadeiro}`;
                     valorTotal = extrairValor(document.querySelector(`#quantidade-brigadeiro option[value="${quantidadeBrigadeiro}"]`).textContent);
                 } else if (produto === "brownie") {
                     const quantidadeBrownie = document.getElementById("quantidade-brownie").value;
-                    detalhes = `*Quantidade*: ${quantidadeBrownie}`;
+                    const saboresBrownie = obterSaboresSelecionados('sabores-brownie-container');
+                    detalhes = `*Quantidade*: ${quantidadeBrownie}%0a*Sabores*: ${saboresBrownie}`;
                     valorTotal = extrairValor(document.querySelector(`#quantidade-brownie option[value="${quantidadeBrownie}"]`).textContent);
                 } else if (produto === "bem-casado") {
-                    const saboresBemCasados = document.getElementById("sabores-bemcasados").value;
+                    const saboresBemCasados = obterSaboresSelecionados('sabores-bemcasado-container');
                     const qtdBemCasados = document.getElementById("qtd-bemcasados").value;
                     detalhes = `*Recheio*: ${saboresBemCasados}%0a*Quantidade*: ${qtdBemCasados}`;
                     valorTotal = extrairValor(document.querySelector(`#qtd-bemcasados option[value="${qtdBemCasados}"]`).textContent);
