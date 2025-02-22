@@ -607,13 +607,21 @@ body {
     text-align: center;
 }
 
+.product-block {
+    margin-bottom: 30px;
+}
+
+.product-block h3 {
+    color: #F06292;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
 .product-list-ul {
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
-    max-width: 1200px;
-    /* Adjusted max-width for larger screens */
 }
 
 .product-list-ul li {
@@ -632,7 +640,11 @@ body {
         font-size: 1.5rem;
     }
 
-    .product-list li {
+    .product-block h3 {
+        font-size: 1.2rem;
+    }
+
+    .product-list-ul li {
         font-size: 1rem;
     }
 }
