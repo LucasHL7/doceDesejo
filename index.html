@@ -134,8 +134,15 @@
                 <div class="product-block">
                     <h3>Bem-Casados</h3>
                     <ul class="product-list-ul row">
-                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (20 unidades):</strong> R$70,00</li>
-                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (50 unidades):</strong> R$175,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (25 unidades):</strong> R$100,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (30 unidades):</strong> R$120,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (40 unidades):</strong> R$160,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (50 unidades):</strong> R$200,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (60 unidades):</strong> R$240,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (70 unidades):</strong> R$280,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (80 unidades):</strong> R$320,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (90 unidades):</strong> R$360,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Bem-Casado (100 unidades):</strong> R$400,00</li>
                     </ul>
                 </div>
 
@@ -184,6 +191,7 @@
 
         <!--CONTATO E FORMULARIO-->
 
+        <!-- FORMULÁRIO DE CONTATO -->
         <section id="contact" class="contact">
             <h2>Formulário para orçamento</h2>
             <form id="pedidoForm" onsubmit="abrirWhatsapp(); return false;" class="container">
@@ -210,8 +218,7 @@
                     <option value="bento-cake">Bento Cake</option>
                 </select>
 
-                <div id="opcoesAdicionais" style="display: none;">
-                </div>
+                <div id="opcoesAdicionais" style="display: none;"></div>
 
                 <div id="bento-cake-message" style="display: none; color: red; font-weight: bold;">
                     Bento Cake selecionado. Este bolo tem recheio padrão.
@@ -362,18 +369,18 @@
                         <p><strong>Sabores: Chocolate, Ninho, Dois amores, Beijinho.</strong></p>
                         <label for="quantidade-brigadeiro">Quantidade:</label>
                         <select id="quantidade-brigadeiro" name="quantidade_brigadeiro">
-                            <option value="50">50 unidades - $42,00</option>
-                            <option value="100">100 unidades - $120,00</option>
-                            <option value="200">200 unidades - $165,00</option>
+                            <option value="50">50 unidades - R$42,00</option>
+                            <option value="100">100 unidades - R$120,00</option>
+                            <option value="200">200 unidades - R$165,00</option>
                         </select>`;
                 } else if (produto === "brownie") {
                     html = `
                         <p><strong>Sabores: Chocolate, Ninho, Dois amores, Doce de Leite.</strong></p>
                         <label for="quantidade-brownie">Quantidade:</label>
                         <select id="quantidade-brownie" name="quantidade_brownie">
-                            <option value="20">20 unidades - $90,00</option>
-                            <option value="50">50 unidades - $250,00</option>
-                            <option value="100">100 unidades - $450,00</option>
+                            <option value="20">20 unidades - R$90,00</option>
+                            <option value="50">50 unidades - R$250,00</option>
+                            <option value="100">100 unidades - R$450,00</option>
                         </select>`;
                 } else if (produto === "bem-casado") {
                     html = `
@@ -386,19 +393,26 @@
                         </select>
                         <label for="qtd-bemcasados">Quantidade:</label>
                         <select id="qtd-bemcasados" name="qtd-bemcasados">
-                            <option value="20">20 unidades - $70,00</option>
-                            <option value="50">50 unidades - $175,00</option>
+                            <option value="25">25 unidades - R$100,00</option>
+                            <option value="30">30 unidades - R$120,00</option>
+                            <option value="40">40 unidades - R$160,00</option>
+                            <option value="50">50 unidades - R$200,00</option>
+                            <option value="60">60 unidades - R$240,00</option>
+                            <option value="70">70 unidades - R$280,00</option>
+                            <option value="80">80 unidades - R$320,00</option>
+                            <option value="90">90 unidades - R$360,00</option>
+                            <option value="100">100 unidades - R$400,00</option>
                         </select>`;
                 } else if (produto === "salgadinho") {
                     html = `
                         <p><strong>Sabores: Coxinha (Frango e Pizza), Bolinhas de queijo, Pastel de queijo.</strong></p>
                         <label for="quantidade-salgadinho">Quantidade:</label>
                         <select id="quantidade-salgadinho" name="quantidade_salgadinho">
-                            <option value="50">50 unidades - $32,00</option>
-                            <option value="100">100 unidades - $65,00</option>
-                            <option value="150">150 unidades - $97,00</option>
-                            <option value="200">200 unidades - $129,00</option>
-                            <option value="300">300 unidades - $194,00</option>
+                            <option value="50">50 unidades - R$32,00</option>
+                            <option value="100">100 unidades - R$65,00</option>
+                            <option value="150">150 unidades - R$97,00</option>
+                            <option value="200">200 unidades - R$129,00</option>
+                            <option value="300">300 unidades - R$194,00</option>
                         </select>`;
                 } else if (produto === "bento-cake") {
                     html = `
