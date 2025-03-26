@@ -114,15 +114,29 @@
                 <div class="product-block">
                     <h3>Brigadeiros</h3>
                     <ul class="product-list-ul row">
-                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (50 unidades):</strong> R$60,00</li>
-                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (100 unidades):</strong> R$120,00</li>
-                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (150 unidades):</strong> R$180,00</li>
-                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (200 unidades):</strong> R$240,00</li>
-                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (250 unidades):</strong> R$300,00</li>
-                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (300 unidades):</strong> R$360,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (50 unidades):</strong> R$70,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (100 unidades):</strong> R$130,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (150 unidades):</strong> R$190,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (200 unidades):</strong> R$250,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (250 unidades):</strong> R$310,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro (300 unidades):</strong> R$370,00</li>
                     </ul>
                 </div>
 
+                <!-- Bloco de Brigadeiros Gourmet -->
+                <div class="product-block">
+                    <h3>Brigadeiros Gourmet</h3>
+                    <ul class="product-list-ul row">
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro Gourmet (50 unidades):</strong> R$80,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro Gourmet(100 unidades):</strong> R$160,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro Gourmet(150 unidades):</strong> R$240,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro Gourmet(200 unidades):</strong> R$320,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro Gourmet(250 unidades):</strong> R$400,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Brigadeiro Gourmet(300 unidades):</strong> R$480,00</li>
+
+                        
+                    </ul>
+                </div>
                 <!-- Bloco de Brownies -->
                 <div class="product-block">
                     <h3>Brownies</h3>
@@ -153,7 +167,7 @@
                 <div class="product-block">
                     <h3>Salgadinhos</h3>
                     <ul class="product-list-ul row">
-                        <li class="col-md-6 col-lg-6"><strong>Salgadinho (50 unidades):</strong> R$32,00</li>
+                        <li class="col-md-6 col-lg-6"><strong>Salgadinho (50 unidades):</strong> R$35,00</li>
                         <li class="col-md-6 col-lg-6"><strong>Salgadinho (100 unidades):</strong> R$65,00</li>
                         <li class="col-md-6 col-lg-6"><strong>Salgadinho (150 unidades):</strong> R$97,00</li>
                         <li class="col-md-6 col-lg-6"><strong>Salgadinho (200 unidades):</strong> R$129,00</li>
@@ -215,6 +229,7 @@
                     <option value="">Selecione um produto</option>
                     <option value="bolo">Bolo</option>
                     <option value="brigadeiro">Brigadeiro</option>
+                    <option value="brigadeiro-gourmet">Brigadeiro Gourmet</option>
                     <option value="brownie">Brownie Recheado</option>
                     <option value="salgadinho">Salgadinhos de Festa</option>
                     <option value="bem-casado">Bem Casado</option>
@@ -234,8 +249,8 @@
                         <label for="brigadeiro-chocolate">Chocolate</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="brigadeiro-ninho" name="sabores-brigadeiro" value="ninho">
-                        <label for="brigadeiro-ninho">Ninho</label>
+                        <input type="checkbox" id="oreo" name="sabores-brigadeiro" value="Oreo">
+                        <label for="oreo">Oreo</label>
                     </div>
                     <div>
                         <input type="checkbox" id="brigadeiro-dois-amores" name="sabores-brigadeiro"
@@ -247,6 +262,32 @@
                         <label for="brigadeiro-beijinho">Beijinho</label>
                     </div>
                 </div>
+
+                <div class="form-group" id="sabores-gourmet-container" style="display: none;">
+                    <label for="sabores-gourmet">Escolha até 4 sabores de Brigadeiro:</label>
+                    <div>
+                        <input type="checkbox" id="brigadeiro-churrus" name="sabores-gourmet" value="churrus">
+                        <label for="brigadeiro-churrus">Churrus</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="oreo" name="sabores-gourmet" value="Oreo">
+                        <label for="oreo">Oreo</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="olho-de-sogra" name="sabores-gourmet"
+                            value="olho-de-sogra">
+                        <label for="olho-de-sogra">Olho de Sogra</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="chocolate-belga" name="sabores-gourmet" value="chocolate-belga">
+                        <label for="chocolate-belga">Chocolate Belga</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="castanha" name="sabores-gourmet" value="castanha">
+                        <label for="castanha">Castanha</label>
+                    </div>
+                </div>
+
 
                 <div class="form-group" id="sabores-brownie-container" style="display: none;">
                     <label for="sabores-brownie">Escolha até 4 sabores de Brownie:</label>
@@ -372,12 +413,24 @@
                         <p><strong>Sabores: Chocolate, Ninho, Dois amores, Beijinho.</strong></p>
                         <label for="quantidade-brigadeiro">Quantidade:</label>
                         <select id="quantidade-brigadeiro" name="quantidade_brigadeiro">
-                            <option value="50">50 unidades - R$60,00</option>
-                            <option value="100">100 unidades - R$120,00</option>
-                            <option value="150">150 unidades - R$180,00</option>
-                            <option value="200">200 unidades - R$240,00</option>
-                            <option value="250">250 unidades - R$300,00</option>
-                            <option value="300">300 unidades - R$360,00</option>
+                            <option value="50">50 unidades - R$70,00</option>
+                            <option value="100">100 unidades - R$130,00</option>
+                            <option value="150">150 unidades - R$190,00</option>
+                            <option value="200">200 unidades - R$250,00</option>
+                            <option value="250">250 unidades - R$310,00</option>
+                            <option value="300">300 unidades - R$370,00</option>
+                        </select>`;
+                }else if (produto === "brigadeiro-gourmet") {
+                    html = `
+                        <p><strong>Sabores: Churros, Oreo, Olho de sogra, Chocolate belga e castanha.</strong></p>
+                        <label for="quantidade-brigadeiro-gourmet">Quantidade:</label>
+                        <select id="quantidade-brigadeiro-gourmet" name="quantidade_brigadeiro-gourmet">
+                            <option value="50">50 unidades - R$80,00</option>
+                            <option value="100">100 unidades - R$160,00</option>
+                            <option value="150">150 unidades - R$240,00</option>
+                            <option value="200">200 unidades - R$320,00</option>
+                            <option value="250">250 unidades - R$400,00</option>
+                            <option value="300">300 unidades - R$480,00</option>
                         </select>`;
                 } else if (produto === "brownie") {
                     html = `
@@ -414,7 +467,7 @@
                         <p><strong>Sabores: Coxinha (Frango e Pizza), Bolinhas de queijo, Pastel de queijo.</strong></p>
                         <label for="quantidade-salgadinho">Quantidade:</label>
                         <select id="quantidade-salgadinho" name="quantidade_salgadinho">
-                            <option value="50">50 unidades - R$32,00</option>
+                            <option value="50">50 unidades - R$35,00</option>
                             <option value="100">100 unidades - R$65,00</option>
                             <option value="150">150 unidades - R$97,00</option>
                             <option value="200">200 unidades - R$129,00</option>
@@ -431,15 +484,19 @@
                 opcoesContainer.style.display = html ? "block" : "none";
 
                 const saboresBrigadeiroContainer = document.getElementById("sabores-brigadeiro-container");
+                const saboresGourmetContainer = document.getElementById("sabores-gourmet-container")
                 const saboresBrownieContainer = document.getElementById("sabores-brownie-container");
                 const saboresBemcasadoContainer = document.getElementById("sabores-bemcasado-container");
 
                 saboresBrigadeiroContainer.style.display = "none";
+                saboresGourmetContainer.style.display = "none";
                 saboresBrownieContainer.style.display = "none";
                 saboresBemcasadoContainer.style.display = "none";
 
                 if (produto === "brigadeiro") {
                     saboresBrigadeiroContainer.style.display = "block";
+                } else if (produto === "brigadeiro-gourmet") {
+                    saboresGourmetContainer.style.display = "block";
                 } else if (produto === "brownie") {
                     saboresBrownieContainer.style.display = "block";
                 } else if (produto === "bem-casado") {
@@ -482,6 +539,7 @@
 
             document.addEventListener('DOMContentLoaded', () => {
                 limitarSelecao('sabores-brigadeiro-container', 4);
+                limitarSelecao('sabores-gourmet-container', 4)
                 limitarSelecao('sabores-brownie-container', 4);
                 limitarSelecao('sabores-bemcasado-container', 4);
             });
@@ -529,7 +587,7 @@
                     if (recheio) detalhes += `%0a*Recheio*: ${recheio}`;
                     if (recheio2) detalhes += `%0a*Segundo Recheio*: ${recheio2}`;
                     if (tipoBolo === "bento-cake") {
-                        valorTotal = 40.00; // Preço fixo para Bento Cake
+                        valorTotal = 40.00;
                     } else {
                         valorTotal = extrairValor(document.querySelector(`#tipo-bolo option[value="${tipoBolo}"]`).textContent);
                     }
@@ -538,6 +596,11 @@
                     const saboresBrigadeiro = obterSaboresSelecionados('sabores-brigadeiro-container');
                     detalhes = `*Quantidade*: ${quantidadeBrigadeiro}%0a*Sabores*: ${saboresBrigadeiro}`;
                     valorTotal = extrairValor(document.querySelector(`#quantidade-brigadeiro option[value="${quantidadeBrigadeiro}"]`).textContent);
+                } else if (produto === "brigadeiro-gourmet") {
+                    const quantidadeBrigadeiroGourmet = document.getElementById("quantidade-brigadeiro-gourmet").value;
+                    const saboresBrigadeiroGourmet = obterSaboresSelecionados('sabores-gourmet-container');
+                    detalhes = `*Quantidade*: ${quantidadeBrigadeiroGourmet}%0a*Sabores*: ${saboresBrigadeiroGourmet}`;
+                    valorTotal = extrairValor(document.querySelector(`#quantidade-brigadeiro-gourmet option[value="${quantidadeBrigadeiroGourmet}"]`).textContent);
                 } else if (produto === "brownie") {
                     const quantidadeBrownie = document.getElementById("quantidade-brownie").value;
                     const saboresBrownie = obterSaboresSelecionados('sabores-brownie-container');
@@ -554,7 +617,7 @@
                     valorTotal = extrairValor(document.querySelector(`#quantidade-salgadinho option[value="${quantidadeSalgadinho}"]`).textContent);
                 } else if (produto === "bento-cake") {
                     detalhes = `*Produto*: Bento Cake`;
-                    valorTotal = 40.00; // Preço fixo para Bento Cake
+                    valorTotal = 40.00;
                 }
 
                 if (formaPagamento === "credito") {
