@@ -96,14 +96,14 @@
                         <li ><strong>Bolo Confeitado (15 fatias):</strong> R$100,00</li>
                         <li ><strong>Bolo Confeitado (20 fatias):</strong> R$120,00</li>
                         <li ><strong>Bolo Confeitado (25 fatias):</strong> R$135,00</li>
-                        <li ><strong>Bolo Confeitado (30 fatias):</strong> R$150,00</li>
-                        <li ><strong>Bolo Confeitado (35 fatias):</strong> R$170,00</li>
-                        <li ><strong>Bolo Confeitado (40 fatias):</strong> R$210,00</li>
-                        <li ><strong>Bolo Confeitado (45 fatias):</strong> R$260,00</li>
-                        <li ><strong>Bolo Confeitado (50 fatias):</strong> R$270,00</li>
-                        <li ><strong>Bolo Confeitado (60 fatias):</strong> R$280,00</li>
-                        <li ><strong>Bolo Confeitado (70 fatias):</strong> R$300,00</li>
-                        <li ><strong>Bolo Confeitado (80 fatias):</strong> R$310,00</li>
+                        <li ><strong>Bolo Confeitado (30 fatias):</strong> R$170,00</li>
+                        <li ><strong>Bolo Confeitado (35 fatias):</strong> R$185,00</li>
+                        <li ><strong>Bolo Confeitado (40 fatias):</strong> R$230,00</li>
+                        <li ><strong>Bolo Confeitado (45 fatias):</strong> R$280,00</li>
+                        <li ><strong>Bolo Confeitado (50 fatias):</strong> R$310,00</li>
+                        <li ><strong>Bolo Confeitado (60 fatias):</strong> R$360,00</li>
+                        <li ><strong>Bolo Confeitado (70 fatias):</strong> R$400,00</li>
+                        <li ><strong>Bolo Confeitado (80 fatias):</strong> R$450,00</li>
                         <li ><strong>Bento Cake (5 fatias):</strong> R$40,00</li>
                     </ul>
                 </div>
@@ -309,14 +309,14 @@
                             <option value="Confeitado-15">Confeitado (15 fatias - R$100,00)</option>
                             <option value="Confeitado-20">Confeitado (20 fatias - R$120,00)</option>
                             <option value="Confeitado-25">Confeitado (25 fatias - R$135,00)</option>
-                            <option value="Confeitado-30">Confeitado (30 fatias - R$150,00)</option>
-                            <option value="Confeitado-35">Confeitado (35 fatias - R$170,00)</option>
-                            <option value="Confeitado-40">Confeitado (40 fatias - R$210,00)</option>
-                            <option value="Confeitado-45">Confeitado (45 fatias - R$260,00)</option>
-                            <option value="Confeitado-50">Confeitado (50 fatias - R$270,00)</option>
-                            <option value="Confeitado-60">Confeitado (60 fatias - R$280,00)</option>
-                            <option value="Confeitado-70">Confeitado (70 fatias - R$300,00)</option>
-                            <option value="Confeitado-80">Confeitado (80 fatias - R$310,00)</option>
+                            <option value="Confeitado-30">Confeitado (30 fatias - R$170,00)</option>
+                            <option value="Confeitado-35">Confeitado (35 fatias - R$185,00)</option>
+                            <option value="Confeitado-40">Confeitado (40 fatias - R$230,00)</option>
+                            <option value="Confeitado-45">Confeitado (45 fatias - R$280,00)</option>
+                            <option value="Confeitado-50">Confeitado (50 fatias - R$310,00)</option>
+                            <option value="Confeitado-60">Confeitado (60 fatias - R$360,00)</option>
+                            <option value="Confeitado-70">Confeitado (70 fatias - R$400,00)</option>
+                            <option value="Confeitado-80">Confeitado (80 fatias - R$450,00)</option>
                         </select>
                         <label for="massa">Massa:</label>
                         <select id="massa" name="massa">
@@ -333,7 +333,6 @@
                                 <option value="coco">Coco</option>
                                 <option value="chocolate">Chocolate</option>
                                 <option value="castanha">Castanha</option>
-                                <option value="doce-de-leite">Doce de Leite</option>
                                 <option value="ninho">Ninho</option>
                                 <option value="abacaxi">Abacaxi</option>
                                 <option value="dois-amores">Dois Amores</option>
@@ -346,7 +345,6 @@
                                 <option value="coco">Coco</option>
                                 <option value="chocolate">Chocolate</option>
                                 <option value="castanha">Castanha</option>
-                                <option value="doce-de-leite">Doce de Leite</option>
                                 <option value="ninho">Ninho</option>
                                 <option value="abacaxi">Abacaxi</option>
                                 <option value="dois-amores">Dois Amores</option>
@@ -503,10 +501,8 @@
                     return;
                 }
 
-                // Gerar código aleatório de confirmação
                 const codigoConfirmacao = Math.random().toString(36).substring(2, 7).toUpperCase();
 
-                // Formatar a data para dd/mm/aaaa
                 const dataFormatada = data.split('-').reverse().join('/');
 
                 let detalhes = "";
