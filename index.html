@@ -224,6 +224,7 @@
                 <select id="produto" name="produto" required onchange="atualizarOpcoes()">
                     <option value="">Selecione um produto</option>
                     <option value="bolo">Bolo</option>
+                    <option value="fatias">Fatias de Bolo</option>
                     <option value="brigadeiro">Brigadeiro</option>
                     <!-- <option value="brigadeiro-gourmet">Brigadeiro Gourmet</option> -->
                     <option value="brownie">Brownie Recheado</option>
@@ -295,6 +296,7 @@
         <!--SCRIPT PRA MANDAR PRO WHATS.-->
 
         <script>
+
             function atualizarOpcoes() {
                 const produto = document.getElementById("produto").value;
                 const opcoesContainer = document.getElementById("opcoesAdicionais");
@@ -420,6 +422,20 @@
                         <div id="bento-cake-message" style="color: red; font-weight: bold;">
                             Bento Cake selecionado. Este bolo tem recheio padrão e custa R$40,00.
                         </div>`;
+                } else if (produto === "fatias"){
+                    html = `
+                        <label for="tipo-fatia">Tipo de fatia:</label>
+                        <select id="tipo-fatia" onchange="calcularTotalFatias()">
+                            <option value="5">Fatia com embalagem propria - R$5,00</option>
+                            <option value="6">Fatia com nossa embalagem - R$6,00</option>
+                            <option value="8">Fatia com 3 brigadeiros - R$8,00</option>
+                        </select>
+                        <p>Digite a quantidade de fatias</p>
+                        <input id="fatias-input-value" placeholder="Nenhuma" type="number" min="8" onkeydown="return event.key !== 'e' && event.key !== 'E'" oninput="calcularTotalFatias()">
+                        </input>
+
+                        <p> Total: R$ <span id="total-fatias">0,00</span></p>    
+                    `;
                 }
 
                 opcoesContainer.innerHTML = html;
@@ -431,13 +447,13 @@
                 const saboresBemcasadoContainer = document.getElementById("sabores-bemcasado-container");
 
                 saboresBrigadeiroContainer.style.display = "none";
-                saboresGourmetContainer.style.display = "none";
+                if (saboresGourmetContainer) saboresGourmetContainer.style.display = "none";
                 saboresBrownieContainer.style.display = "none";
                 saboresBemcasadoContainer.style.display = "none";
 
                 if (produto === "brigadeiro") {
                     saboresBrigadeiroContainer.style.display = "block";
-                } else if (produto === "brigadeiro-gourmet") {
+                } else if (produto === "brigadeiro-gourmet" && saboresGourmetContainer) {
                     saboresGourmetContainer.style.display = "block";
                 } else if (produto === "brownie") {
                     saboresBrownieContainer.style.display = "block";
@@ -562,6 +578,14 @@
                 } else if (produto === "bento-cake") {
                     detalhes = `*Produto*: Bento Cake`;
                     valorTotal = 40.00;
+                } else if(produto === "fatias"){
+                    const quantidadeFatias = Number(document.getElementById("fatias-input-value").value);
+                    const selectTipoFatia = document.getElementById("tipo-fatia");
+                    const valorDaFatia = Number(selectTipoFatia.value);
+                    const nomeTipoFatia = selectTipoFatia.options[selectTipoFatia.selectedIndex].textContent;
+
+                    detalhes = `*Tipo de fatia*: ${nomeTipoFatia}%0a*Quantidade de fatias*: ${quantidadeFatias}`;
+                    valorTotal = valorDaFatia * quantidadeFatias;
                 }
 
                 if (formaPagamento === "credito") {
@@ -586,6 +610,15 @@
                 valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); 
                 campo.value = valor;
             }
+
+            function calcularTotalFatias(){
+                const quantidade = Number(document.getElementById("fatias-input-value").value);
+                const valorDaFatia = Number(document.getElementById("tipo-fatia").value);
+                const total = valorDaFatia * quantidade;
+
+                document.getElementById("total-fatias").textContent = total.toFixed(2).replace(".",",");
+            }
+
         </script>
 
 
