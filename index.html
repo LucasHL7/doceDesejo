@@ -224,6 +224,7 @@
                 <select id="produto" name="produto" required onchange="atualizarOpcoes()">
                     <option value="">Selecione um produto</option>
                     <option value="bolo">Bolo</option>
+                    <option value="fatias">Fatias de Bolo</option>
                     <option value="brigadeiro">Brigadeiro</option>
                     <!-- <option value="brigadeiro-gourmet">Brigadeiro Gourmet</option> -->
                     <option value="brownie">Brownie Recheado</option>
@@ -295,6 +296,7 @@
         <!--SCRIPT PRA MANDAR PRO WHATS.-->
 
         <script>
+
             function atualizarOpcoes() {
                 const produto = document.getElementById("produto").value;
                 const opcoesContainer = document.getElementById("opcoesAdicionais");
@@ -351,16 +353,12 @@
                         </div>`;
                 } else if (produto === "brigadeiro") {
                     html = `
-                        <p><strong>Sabores: Chocolate, Ninho, Dois amores, Beijinho.</strong></p>
                         <label for="quantidade-brigadeiro">Quantidade:</label>
-                        <select id="quantidade-brigadeiro" name="quantidade_brigadeiro">
-                            <option value="50">50 unidades - R$80,00</option>
-                            <option value="100">100 unidades - R$150,00</option>
-                            <option value="150">150 unidades - R$225,00</option>
-                            <option value="200">200 unidades - R$300,00</option>
-                            <option value="250">250 unidades - R$375,00</option>
-                            <option value="300">300 unidades - R$450,00</option>
-                        </select>`;
+                         <p>Digite a quantidade de brigadeiros</p>
+                        <input id="brigadeiros-input-value" placeholder="Nenhum" type="number" min="10" onkeydown="return event.key !== 'e' && event.key !== 'E'" oninput="calcularTotalBrigadeiros()">
+                        </input>
+
+                        <p> Total: R$ <span id="total-brigadeiros">0,00</span></p> `;
                 }else if (produto === "brigadeiro-gourmet") {
                     html = `
                         <p><strong>Sabores: Churros, Oreo, Olho de sogra, Chocolate belga e castanha.</strong></p>
@@ -420,6 +418,42 @@
                         <div id="bento-cake-message" style="color: red; font-weight: bold;">
                             Bento Cake selecionado. Este bolo tem recheio padrão e custa R$40,00.
                         </div>`;
+                } else if (produto === "fatias"){
+                    html = `
+                        <label for="tipo-fatia">Tipo de fatia:</label>
+                        <select id="tipo-fatia" onchange="calcularTotalFatias()">
+                            <option value="5">Fatia com embalagem propria - R$5,00</option>
+                            <option value="6">Fatia com nossa embalagem - R$6,00</option>
+                            <option value="8">Fatia com 3 brigadeiros - R$8,00</option>
+                        </select>
+                        <p>Digite a quantidade de fatias</p>
+                        <input id="fatias-input-value" placeholder="Nenhuma" type="number" min="8" onkeydown="return event.key !== 'e' && event.key !== 'E'" oninput="calcularTotalFatias()">
+                        </input>
+                        <div>
+                            <label for="massa">Massas:</label>
+                            <select id="massa" name="massa">
+                                <option value="chocolate">Chocolate</option>
+                                <option value="ninho">Ninho</option>
+                                <option value="red-velvet">Red Velvet</option>
+                                <option value="Chocolate/Ninho">Chocolate/Ninho</option>
+                                <option value="Chocolate/Red Velvet">Chocolate/Red Velvet</option>
+                                <option value="Ninho/Red Velvet">Ninho/Red Velvet</option>
+                            </select>
+                        </div>
+                        
+                        <div id="recheio-container">
+                            <label for="recheio">Recheio:</label>
+                            <select id="recheio" name="recheio">
+                                <option value="coco">Coco</option>
+                                <option value="chocolate">Chocolate</option>
+                                <option value="castanha">Castanha</option>
+                                <option value="ninho">Ninho</option>
+                                <option value="dois-amores">Dois Amores</option>
+                            </select>
+                        </div>
+
+                        <p> Total: R$ <span id="total-fatias">0,00</span></p>    
+                    `;
                 }
 
                 opcoesContainer.innerHTML = html;
@@ -431,13 +465,13 @@
                 const saboresBemcasadoContainer = document.getElementById("sabores-bemcasado-container");
 
                 saboresBrigadeiroContainer.style.display = "none";
-                saboresGourmetContainer.style.display = "none";
+                if (saboresGourmetContainer) saboresGourmetContainer.style.display = "none";
                 saboresBrownieContainer.style.display = "none";
                 saboresBemcasadoContainer.style.display = "none";
 
                 if (produto === "brigadeiro") {
                     saboresBrigadeiroContainer.style.display = "block";
-                } else if (produto === "brigadeiro-gourmet") {
+                } else if (produto === "brigadeiro-gourmet" && saboresGourmetContainer) {
                     saboresGourmetContainer.style.display = "block";
                 } else if (produto === "brownie") {
                     saboresBrownieContainer.style.display = "block";
@@ -536,15 +570,15 @@
                         valorTotal = extrairValor(document.querySelector(`#tipo-bolo option[value="${tipoBolo}"]`).textContent);
                     }
                 } else if (produto === "brigadeiro") {
-                    const quantidadeBrigadeiro = document.getElementById("quantidade-brigadeiro").value;
+                    const quantidadeBrigadeiro = Number(document.getElementById("brigadeiros-input-value").value);
                     const saboresBrigadeiro = obterSaboresSelecionados('sabores-brigadeiro-container');
                     detalhes = `*Quantidade*: ${quantidadeBrigadeiro}%0a*Sabores*: ${saboresBrigadeiro}`;
-                    valorTotal = extrairValor(document.querySelector(`#quantidade-brigadeiro option[value="${quantidadeBrigadeiro}"]`).textContent);
+                    const valorUnitario = quantidadeBrigadeiro > 45 ? 1.50 : 1.70;
+                    valorTotal = valorUnitario * quantidadeBrigadeiro;
                 } else if (produto === "brigadeiro-gourmet") {
                     const quantidadeBrigadeiroGourmet = document.getElementById("quantidade-brigadeiro-gourmet").value;
                     const saboresBrigadeiroGourmet = obterSaboresSelecionados('sabores-gourmet-container');
                     detalhes = `*Quantidade*: ${quantidadeBrigadeiroGourmet}%0a*Sabores*: ${saboresBrigadeiroGourmet}`;
-                    valorTotal = extrairValor(document.querySelector(`#quantidade-brigadeiro-gourmet option[value="${quantidadeBrigadeiroGourmet}"]`).textContent);
                 } else if (produto === "brownie") {
                     const quantidadeBrownie = document.getElementById("quantidade-brownie").value;
                     const saboresBrownie = obterSaboresSelecionados('sabores-brownie-container');
@@ -562,6 +596,18 @@
                 } else if (produto === "bento-cake") {
                     detalhes = `*Produto*: Bento Cake`;
                     valorTotal = 40.00;
+                } else if(produto === "fatias"){
+                    const quantidadeFatias = Number(document.getElementById("fatias-input-value").value);
+                    const selectTipoFatia = document.getElementById("tipo-fatia");
+                    const valorDaFatia = Number(selectTipoFatia.value);
+                    const nomeTipoFatia = selectTipoFatia.options[selectTipoFatia.selectedIndex].textContent;
+                    const massa = document.getElementById("massa").value;
+                    const recheioContainer = document.getElementById("recheio-container");
+                    const recheio = recheioContainer.style.display === "none" ? "" : document.getElementById("recheio").value;
+
+
+                    detalhes = `*Tipo de fatia*: ${nomeTipoFatia}%0a*Massa*: ${massa}%0a*Recheio*: ${recheio}%0a*Quantidade de fatias*: ${quantidadeFatias}`;
+                    valorTotal = valorDaFatia * quantidadeFatias;
                 }
 
                 if (formaPagamento === "credito") {
@@ -586,6 +632,28 @@
                 valor = valor.replace(/(\d{4})(\d)/, "$1-$2"); 
                 campo.value = valor;
             }
+
+            function calcularTotalFatias(){
+                const quantidade = Number(document.getElementById("fatias-input-value").value);
+                const valorDaFatia = Number(document.getElementById("tipo-fatia").value);
+                const total = valorDaFatia * quantidade;
+
+                document.getElementById("total-fatias").textContent = total.toFixed(2).replace(".",",");
+            }
+
+            function calcularTotalBrigadeiros(){
+                const quantidade = Number(document.getElementById("brigadeiros-input-value").value)
+                let valorDoBrigadeiro = 1.70
+                
+                if (quantidade > 45){
+                    valorDoBrigadeiro = 1.50
+                }
+
+                const total = valorDoBrigadeiro * quantidade 
+                document.getElementById("total-brigadeiros").textContent = total.toFixed(2).replace(".",",")
+            }
+
+
         </script>
 
 
