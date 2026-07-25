@@ -120,10 +120,12 @@
     --red: #F7418F;
     --white: #fff;
     --dark: #1e1c2a;
+    
 }
 
 html {
     scroll-behavior: smooth;
+    
 }
 
 
@@ -205,7 +207,9 @@ html {
     align-items: center;
     justify-content: space-between;
     padding: 0px 10%;
+    
 }
+
 
 .home-text {
     max-width: 37rem;
