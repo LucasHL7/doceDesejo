@@ -243,19 +243,10 @@
                 <div class="form-group" id="sabores-brigadeiro-container" style="display: none;">
                     <label>Escolha até 4 sabores de Brigadeiro:</label>
                     <div><input type="checkbox" id="brigadeiro-chocolate" name="sabores-brigadeiro" value="chocolate"><label for="brigadeiro-chocolate">Chocolate</label></div>
-                    <div><input type="checkbox" id="oreo" name="sabores-brigadeiro" value="Oreo"><label for="oreo">Oreo</label></div>
+                    <div><input type="checkbox" id="ninho" name="sabores-brigadeiro" value="Ninho"><label for="ninho">Ninho</label></div>
                     <div><input type="checkbox" id="brigadeiro-dois-amores" name="sabores-brigadeiro" value="dois-amores"><label for="brigadeiro-dois-amores">Dois Amores</label></div>
                     <div><input type="checkbox" id="brigadeiro-beijinho" name="sabores-brigadeiro" value="beijinho"><label for="brigadeiro-beijinho">Beijinho</label></div>
                 </div>
-
-                <!-- <div class="form-group" id="sabores-gourmet-container" style="display: none;">
-                    <label>Escolha até 4 sabores de Brigadeiro Gourmet:</label>
-                    <div><input type="checkbox" id="brigadeiro-churrus" name="sabores-gourmet" value="churrus"><label for="brigadeiro-churrus">Churrus</label></div>
-                    <div><input type="checkbox" id="oreo-gourmet" name="sabores-gourmet" value="Oreo"><label for="oreo-gourmet">Oreo</label></div>
-                    <div><input type="checkbox" id="olho-de-sogra" name="sabores-gourmet" value="olho-de-sogra"><label for="olho-de-sogra">Olho de Sogra</label></div>
-                    <div><input type="checkbox" id="chocolate-belga" name="sabores-gourmet" value="chocolate-belga"><label for="chocolate-belga">Chocolate Belga</label></div>
-                    <div><input type="checkbox" id="castanha" name="sabores-gourmet" value="castanha"><label for="castanha">Castanha</label></div>
-                </div> -->
 
                 <div class="form-group" id="sabores-brownie-container" style="display: none;">
                     <label>Escolha até 4 sabores de Brownie:</label>
@@ -374,18 +365,6 @@
 
                         <p>Total: R$ <span id="total-brigadeiros">0,00</span></p>
                     `;
-                }else if (produto === "brigadeiro-gourmet") {
-                    html = `
-                        <p><strong>Sabores: Churros, Oreo, Olho de sogra, Chocolate belga e castanha.</strong></p>
-                        <label for="quantidade-brigadeiro-gourmet">Quantidade:</label>
-                        <select id="quantidade-brigadeiro-gourmet" name="quantidade_brigadeiro-gourmet">
-                            <option value="50">50 unidades - R$80,00</option>
-                            <option value="100">100 unidades - R$160,00</option>
-                            <option value="150">150 unidades - R$240,00</option>
-                            <option value="200">200 unidades - R$320,00</option>
-                            <option value="250">250 unidades - R$400,00</option>
-                            <option value="300">300 unidades - R$480,00</option>
-                        </select>`;
                 } else if (produto === "brownie") {
                     html = `
                         <p><strong>Sabores: Chocolate, Ninho, Dois amores, Doce de Leite.</strong></p>
