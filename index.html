@@ -354,11 +354,26 @@
                 } else if (produto === "brigadeiro") {
                     html = `
                         <label for="quantidade-brigadeiro">Quantidade:</label>
-                         <p>Digite a quantidade de brigadeiros</p>
-                        <input id="brigadeiros-input-value" placeholder="Nenhum" type="number" min="10" onkeydown="return event.key !== 'e' && event.key !== 'E'" oninput="calcularTotalBrigadeiros()">
-                        </input>
+                        <p>Digite a quantidade de brigadeiros</p>
 
-                        <p> Total: R$ <span id="total-brigadeiros">0,00</span></p> `;
+                        <input
+                            id="brigadeiros-input-value"
+                            type="number"
+                            min="10"
+                            placeholder="Nenhum"
+                            onkeydown="return event.key !== 'e' && event.key !== 'E'"
+                            oninput="calcularTotalBrigadeiros()"
+                        >
+
+                        <label for="cor-caixeta">Cor da caixeta:</label>
+                        <input
+                            type="text"
+                            id="cor-caixeta"
+                            placeholder="Ex.: Branco, Rosa Claro, Dourado..."
+                        >
+
+                        <p>Total: R$ <span id="total-brigadeiros">0,00</span></p>
+                    `;
                 }else if (produto === "brigadeiro-gourmet") {
                     html = `
                         <p><strong>Sabores: Churros, Oreo, Olho de sogra, Chocolate belga e castanha.</strong></p>
@@ -572,7 +587,8 @@
                 } else if (produto === "brigadeiro") {
                     const quantidadeBrigadeiro = Number(document.getElementById("brigadeiros-input-value").value);
                     const saboresBrigadeiro = obterSaboresSelecionados('sabores-brigadeiro-container');
-                    detalhes = `*Quantidade*: ${quantidadeBrigadeiro}%0a*Sabores*: ${saboresBrigadeiro}`;
+                    const corCaixeta = document.getElementById("cor-caixeta")?.value || "";
+                    detalhes = `*Quantidade*: ${quantidadeBrigadeiro}%0a*Sabores*: ${saboresBrigadeiro}%0a*Cor da Caixeta*: ${corCaixeta}`; 
                     const valorUnitario = quantidadeBrigadeiro > 45 ? 1.50 : 1.70;
                     valorTotal = valorUnitario * quantidadeBrigadeiro;
                 } else if (produto === "brigadeiro-gourmet") {
