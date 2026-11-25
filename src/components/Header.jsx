@@ -1,3 +1,5 @@
+import Icon from './Icon/Icon.jsx';
+
 export default function Header() {
   return (
     <header>
@@ -11,7 +13,7 @@ export default function Header() {
           <li className="nav-item"><a href="#about">Estilos de Bolos</a></li>
           <li className="nav-item"><a href="#menu">Recheios e Massas</a></li>
           <li id="contato" className="nav-item"><a href="#contact">Contato</a></li>
-          <i id="iconcake" className="bx bx-cake"></i>
+          <Icon id="iconcake" name="cake" />
         </ul>
       </nav>
     </header>

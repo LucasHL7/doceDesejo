@@ -1,3 +1,5 @@
+import Icon from './Icon/Icon.jsx';
+
 export default function Footer() {
   return (
     <footer id="footer" className="footer">
@@ -13,10 +15,10 @@ export default function Footer() {
         <p>&copy; 2025 Doce Desejo. Todos os direitos reservados.</p>
         <div className="social">
           <a id="link-footer" href="https://www.instagram.com/docedesejogourmethe/" className="links">
-            <i className="bx bxl-instagram">INSTAGRAM</i>
+            <Icon name="photo_camera" />INSTAGRAM
           </a>
           <a id="link-footer" href="https://linktr.ee/docedesejogourmethe" className="links">
-            <i className="bx bx-phone-call"></i>CONTATOS
+            <Icon name="call" />CONTATOS
           </a>
         </div>
 
