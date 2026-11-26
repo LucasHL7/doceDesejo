@@ -1,0 +1,260 @@
+/* DELIVERY: chamada para o catálogo externo */
+
+.delivery {
+    background: var(--white);
+    padding: 100px 6%;
+}
+
+.delivery-card {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 56px;
+    border-radius: 40px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.18) 0, transparent 40%),
+        linear-gradient(135deg, var(--rosa-forte) 0%, #C92C6A 100%);
+    color: var(--white);
+    box-shadow: 0 24px 50px rgba(226, 62, 126, 0.28);
+}
+
+/* Texto */
+
+.delivery-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.delivery-eyebrow .icon {
+    font-size: 1.15rem;
+}
+
+.delivery-title {
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+}
+
+.delivery-script {
+    font-family: 'Gwendolyn', cursive;
+    font-weight: 700;
+    font-size: 1.3em;
+    line-height: 0.8;
+    color: #FFE3EE;
+}
+
+.delivery-lead {
+    max-width: 32rem;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 22px;
+}
+
+.delivery-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 30rem;
+    margin-bottom: 28px;
+}
+
+.delivery-compare li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.delivery-compare strong {
+    font-size: 0.95rem;
+}
+
+.delivery-compare span {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.delivery-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 28px;
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--rosa-forte);
+    font-size: 1.02rem;
+    font-weight: 700;
+    box-shadow: 0 12px 26px rgba(58, 36, 32, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.delivery-btn .icon {
+    font-size: 1.2rem;
+}
+
+.delivery-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(58, 36, 32, 0.26);
+}
+
+.delivery-btn:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 3px;
+}
+
+.delivery-note {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Fotos em "polaroid" */
+
+.delivery-photos {
+    position: relative;
+    height: 380px;
+}
+
+.delivery-photo {
+    position: absolute;
+    width: 54%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 8px solid var(--white);
+    border-radius: 22px;
+    box-shadow: 0 18px 36px rgba(58, 36, 32, 0.28);
+    transition: transform 0.4s ease;
+}
+
+.delivery-photo-1 {
+    left: 0;
+    top: 30px;
+    transform: rotate(-8deg);
+}
+
+.delivery-photo-2 {
+    left: 23%;
+    top: 0;
+    z-index: 2;
+    transform: rotate(3deg);
+}
+
+.delivery-photo-3 {
+    right: 0;
+    top: 60px;
+    transform: rotate(10deg);
+}
+
+.delivery-card:hover .delivery-photo-1 {
+    transform: rotate(-11deg) translateX(-6px);
+}
+
+.delivery-card:hover .delivery-photo-3 {
+    transform: rotate(13deg) translateX(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .delivery-photo,
+    .delivery-btn {
+        transition: none;
+    }
+}
+
+/* Desktop: espaço para o menu lateral (ver Header.css) */
+@media (min-width: 1025px) {
+    .delivery {
+        padding-left: max(6%, 110px);
+        padding-right: max(6%, 110px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .delivery {
+        padding: 80px 5%;
+    }
+
+    .delivery-card {
+        grid-template-columns: 1fr;
+        padding: 40px 32px;
+        gap: 12px;
+    }
+
+    .delivery-photos {
+        order: -1;
+        height: 230px;
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .delivery-photo {
+        width: 44%;
+        border-width: 6px;
+    }
+
+    .delivery-photo-1 {
+        left: 2%;
+        top: 22px;
+    }
+
+    .delivery-photo-2 {
+        left: 28%;
+    }
+
+    .delivery-photo-3 {
+        right: 2%;
+        top: 34px;
+    }
+}
+
+@media (max-width: 640px) {
+    .delivery {
+        padding: 64px 16px;
+    }
+
+    .delivery-card {
+        padding: 28px 22px 30px;
+        border-radius: 30px;
+    }
+
+    .delivery-photos {
+        height: 170px;
+    }
+
+    .delivery-compare {
+        grid-template-columns: 1fr;
+    }
+
+    .delivery-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 16px;
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+
+    .delivery-note {
+        text-align: center;
+    }
+}

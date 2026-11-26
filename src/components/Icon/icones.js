@@ -20,14 +20,16 @@ import icChevronRight from '@material-symbols/svg-400/rounded/chevron_right.svg?
 import icChevronRightFill from '@material-symbols/svg-400/rounded/chevron_right-fill.svg?raw';
 import icClose from '@material-symbols/svg-400/rounded/close.svg?raw';
 import icCloseFill from '@material-symbols/svg-400/rounded/close-fill.svg?raw';
-import icCookie from '@material-symbols/svg-400/rounded/cookie.svg?raw';
-import icCookieFill from '@material-symbols/svg-400/rounded/cookie-fill.svg?raw';
 import icDelete from '@material-symbols/svg-400/rounded/delete.svg?raw';
 import icDeleteFill from '@material-symbols/svg-400/rounded/delete-fill.svg?raw';
 import icHome from '@material-symbols/svg-400/rounded/home.svg?raw';
 import icHomeFill from '@material-symbols/svg-400/rounded/home-fill.svg?raw';
 import icMenu from '@material-symbols/svg-400/rounded/menu.svg?raw';
 import icMenuFill from '@material-symbols/svg-400/rounded/menu-fill.svg?raw';
+import icMoped from '@material-symbols/svg-400/rounded/moped.svg?raw';
+import icMopedFill from '@material-symbols/svg-400/rounded/moped-fill.svg?raw';
+import icOpenInNew from '@material-symbols/svg-400/rounded/open_in_new.svg?raw';
+import icOpenInNewFill from '@material-symbols/svg-400/rounded/open_in_new-fill.svg?raw';
 import icPhotoCamera from '@material-symbols/svg-400/rounded/photo_camera.svg?raw';
 import icPhotoCameraFill from '@material-symbols/svg-400/rounded/photo_camera-fill.svg?raw';
 import icPhotoLibrary from '@material-symbols/svg-400/rounded/photo_library.svg?raw';
@@ -49,10 +51,11 @@ export const icones = {
   chevron_left: [icChevronLeft, icChevronLeftFill],
   chevron_right: [icChevronRight, icChevronRightFill],
   close: [icClose, icCloseFill],
-  cookie: [icCookie, icCookieFill],
   delete: [icDelete, icDeleteFill],
   home: [icHome, icHomeFill],
   menu: [icMenu, icMenuFill],
+  moped: [icMoped, icMopedFill],
+  open_in_new: [icOpenInNew, icOpenInNewFill],
   photo_camera: [icPhotoCamera, icPhotoCameraFill],
   photo_library: [icPhotoLibrary, icPhotoLibraryFill],
   remove: [icRemove, icRemoveFill],

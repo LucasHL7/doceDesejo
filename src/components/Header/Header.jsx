@@ -9,7 +9,7 @@ const links = [
   { href: '#home', label: 'Início', icon: 'home' },
   { href: '#about', label: 'Estilos de bolos', icon: 'photo_library' },
   { href: '#product-list', label: 'Preços', icon: 'sell' },
-  { href: '#menu', label: 'Outros produtos', icon: 'cookie' },
+  { href: '#menu', label: 'Delivery', icon: 'moped' },
 ];
 
 // A partir de quantos pixels rolados o menu vai para a lateral (desktop).

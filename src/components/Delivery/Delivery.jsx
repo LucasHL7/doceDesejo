@@ -1,0 +1,61 @@
+import Icon from '../Icon/Icon.jsx';
+import './Delivery.css';
+
+const CATALOGO_URL = 'https://app.cardapioweb.com/doce_desejo_gourmet';
+
+const fotos = [
+  { src: '/scr/Brownie.jpg', alt: 'Brownie recheado' },
+  { src: '/scr/docinhos.jpg', alt: 'Docinhos variados' },
+  { src: '/scr/salgadinhos.jpg', alt: 'Salgadinhos de festa' },
+];
+
+// Chamada para o catálogo de delivery (Cardápio Web), separado das encomendas por orçamento.
+export default function Delivery() {
+  return (
+    <section id="menu" className="delivery" aria-labelledby="delivery-title">
+      <div className="delivery-card">
+        <div className="delivery-text">
+          <span className="delivery-eyebrow">
+            <Icon name="moped" /> Delivery
+          </span>
+          <h2 id="delivery-title" className="delivery-title">
+            Quer pedir sem esperar <span className="delivery-script">orçamento?</span>
+          </h2>
+          <p className="delivery-lead">
+            No nosso catálogo de delivery você escolhe os doces e salgados, faz o pedido e
+            recebe em casa. As encomendas personalizadas, como bolos decorados, continuam sendo
+            feitas aqui pelo orçamento.
+          </p>
+
+          <ul className="delivery-compare">
+            <li>
+              <strong>Delivery</strong>
+              <span>Pedido direto pelo catálogo online</span>
+            </li>
+            <li>
+              <strong>Orçamento</strong>
+              <span>Encomendas e bolos personalizados</span>
+            </li>
+          </ul>
+
+          <a
+            href={CATALOGO_URL}
+            className="delivery-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Abrir catálogo de delivery
+            <Icon name="open_in_new" />
+          </a>
+          <p className="delivery-note">Abre o Cardápio Web em uma nova aba.</p>
+        </div>
+
+        <div className="delivery-photos" aria-hidden="true">
+          {fotos.map((f, i) => (
+            <img key={f.src} src={f.src} alt="" className={`delivery-photo delivery-photo-${i + 1}`} loading="lazy" />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

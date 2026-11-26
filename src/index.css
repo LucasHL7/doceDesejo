@@ -91,14 +91,12 @@ html {
 
 /* ESTILOS DE BOLOS: estilos em src/components/CakeStyles/CakeStyles.css */
 
-.menu-section,
 .contact {
     padding: 100px 10%;
     background-color: var(--white);
 }
 
 .footer .psocial,
-.menu-section h2,
 .contact h2 {
     color: var(--red);
     font-size: 2rem;
@@ -106,108 +104,7 @@ html {
     text-align: center;
 }
 
-/* INICIO MENU */
-.menu-section {
-    padding: 80px 5%;
-    background-color: #fff;
-    text-align: center;
-}
-
-.menu-section h2 {
-    color: #F06292;
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-.menu-section2 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.left-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
-    flex: 1 1 60%;
-}
-
-.prod-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: 600;
-    gap: 10px;
-}
-
-.img-prod {
-    width: 100%;
-    height: auto;
-    max-width: 250px;
-    border-radius: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.img-prod:hover {
-    transform: scale(1.05);
-}
-
-.right-section {
-    flex: 1 1 35%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.right-section .text-con {
-    font-size: 20px;
-    margin-top: 10px;
-    display: inline-block;
-    padding: 12px 24px;
-    background: var(--red);
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.right-section .text-con:hover {
-    background: #fc4c35;
-}
-
-.right-section p {
-    margin-bottom: 20px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .menu-section2 {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .left-section {
-        grid-template-columns: 1fr;
-        width: 100%;
-    }
-
-    .right-section {
-        width: 100%;
-        margin-top: 30px;
-    }
-
-    .img-prod {
-        max-width: 220px;
-    }
-}
-/* FIM MENU */
+/* DELIVERY: estilos em src/components/Delivery/Delivery.css */
 
 /* INICIO FORM */
 .contact form {
@@ -325,11 +222,3 @@ body {
 }
 
 /* CARDÁPIO: estilos em src/components/Cardapio/Cardapio.css */
-
-/* Desktop: deixa espaço para o menu lateral (ver Header.css) */
-@media (min-width: 1025px) {
-    .menu-section {
-        padding-left: max(5%, 100px);
-        padding-right: max(5%, 100px);
-    }
-}
