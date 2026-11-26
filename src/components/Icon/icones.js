@@ -8,6 +8,8 @@ import icArrowBack from '@material-symbols/svg-400/rounded/arrow_back.svg?raw';
 import icArrowBackFill from '@material-symbols/svg-400/rounded/arrow_back-fill.svg?raw';
 import icArrowForward from '@material-symbols/svg-400/rounded/arrow_forward.svg?raw';
 import icArrowForwardFill from '@material-symbols/svg-400/rounded/arrow_forward-fill.svg?raw';
+import icArrowUpward from '@material-symbols/svg-400/rounded/arrow_upward.svg?raw';
+import icArrowUpwardFill from '@material-symbols/svg-400/rounded/arrow_upward-fill.svg?raw';
 import icCake from '@material-symbols/svg-400/rounded/cake.svg?raw';
 import icCakeFill from '@material-symbols/svg-400/rounded/cake-fill.svg?raw';
 import icCalendarMonth from '@material-symbols/svg-400/rounded/calendar_month.svg?raw';
@@ -38,6 +40,8 @@ import icImage from '@material-symbols/svg-400/rounded/image.svg?raw';
 import icImageFill from '@material-symbols/svg-400/rounded/image-fill.svg?raw';
 import icInfo from '@material-symbols/svg-400/rounded/info.svg?raw';
 import icInfoFill from '@material-symbols/svg-400/rounded/info-fill.svg?raw';
+import icLink from '@material-symbols/svg-400/rounded/link.svg?raw';
+import icLinkFill from '@material-symbols/svg-400/rounded/link-fill.svg?raw';
 import icMenu from '@material-symbols/svg-400/rounded/menu.svg?raw';
 import icMenuFill from '@material-symbols/svg-400/rounded/menu-fill.svg?raw';
 import icMoped from '@material-symbols/svg-400/rounded/moped.svg?raw';
@@ -69,6 +73,7 @@ export const icones = {
   add: [icAdd, icAddFill],
   arrow_back: [icArrowBack, icArrowBackFill],
   arrow_forward: [icArrowForward, icArrowForwardFill],
+  arrow_upward: [icArrowUpward, icArrowUpwardFill],
   cake: [icCake, icCakeFill],
   calendar_month: [icCalendarMonth, icCalendarMonthFill],
   call: [icCall, icCallFill],
@@ -84,6 +89,7 @@ export const icones = {
   home: [icHome, icHomeFill],
   image: [icImage, icImageFill],
   info: [icInfo, icInfoFill],
+  link: [icLink, icLinkFill],
   menu: [icMenu, icMenuFill],
   moped: [icMoped, icMopedFill],
   open_in_new: [icOpenInNew, icOpenInNewFill],

@@ -1,38 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@media (max-width: 1024px) {
-    .wave {
-        opacity: 0;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
-    #imgprod {
-        border-radius: 30px;
-        width: 250px;
-        height: 250px;
-    }
-
-    #footer {
-        background-color: #F7418F;
-        height: 200px;
-    }
-
-    #link-footer {
-        display: none;
-    }
-
-    .logo-footer {
-        width: 100px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease, transform 0.3s ease;
-        border-radius: 50%;
-        margin-bottom: 10px;
-    }
-
-    .logo-footer:hover {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-}
-
-
+/* ESTILOS GLOBAIS
+   Cada componente tem o próprio CSS na pasta dele (src/components/<Nome>/<Nome>.css).
+   Aqui ficam só o reset, as cores da marca e utilitários. */
 
 * {
     margin: 0;
@@ -44,11 +14,7 @@
 }
 
 :root {
-    --red: #F7418F;
     --white: #fff;
-    --dark: #1e1c2a;
-
-    /* Tokens do redesign */
     --rosa: #F06292;
     --rosa-forte: #E23E7E;
     --rosa-claro: #FDE4EC;
@@ -58,7 +24,11 @@
     --sombra-suave: 0 18px 40px rgba(58, 36, 32, 0.12);
 }
 
-/* Ícones: ver src/components/Icon/Icon.css */
+html {
+    scroll-behavior: smooth;
+    /* altura do header fixo, para os títulos não ficarem escondidos */
+    scroll-padding-top: 104px;
+}
 
 body {
     background: var(--white);
@@ -77,104 +47,3 @@ body {
     white-space: nowrap;
     border: 0;
 }
-
-html {
-    scroll-behavior: smooth;
-    /* altura do header fixo, para os títulos não ficarem escondidos */
-    scroll-padding-top: 104px;
-}
-
-
-/* HEADER: estilos em src/components/Header/Header.css */
-
-/* HOME: estilos em src/components/Home/Home.css */
-
-/* ESTILOS DE BOLOS: estilos em src/components/CakeStyles/CakeStyles.css */
-
-/* FORMULÁRIO: estilos em src/components/ContactForm/ContactForm.css */
-
-.footer .psocial {
-    color: var(--red);
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* DELIVERY: estilos em src/components/Delivery/Delivery.css */
-
-
-/* INICIO FOOTER */
-
-.footer {
-    background-color: white;
-    height: 320px;
-    overflow: hidden;
-    position: relative;
-}
-
-.content {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    color: white;
-}
-
-.social {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    bottom: 0;
-    right: 45%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    width: 200px;
-    height: 70px;
-    gap: 16px;
-    font-weight: 500;
-    text-align: center;
-    width: 150px;
-
-}
-
-
-.social a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2px;
-    color: white;
-    margin-right: 0px;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-.links {
-    transition: transform 0.6s ease-out;
-}
-
-.links:hover {
-    transform: scale(1.1);
-}
-
-.logo-footer {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: auto;
-}
-
-
-/* FIM FOOTER */
-
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-/* CARDÁPIO: estilos em src/components/Cardapio/Cardapio.css */

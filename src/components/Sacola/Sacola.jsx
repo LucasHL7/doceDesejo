@@ -13,14 +13,20 @@ export default function Sacola() {
   const [aviso, setAviso] = useState(null);
   const [noFormulario, setNoFormulario] = useState(false);
 
-  // Esconde o botão flutuante quando o formulário (que já mostra o pedido) está na tela.
+  // Esconde o botão flutuante quando o formulário (que já mostra o pedido) ou o rodapé
+  // estão na tela.
   useEffect(() => {
-    const form = document.querySelector('#contact');
-    if (!form) return undefined;
-    const obs = new IntersectionObserver(([e]) => setNoFormulario(e.isIntersecting), {
-      rootMargin: '0px 0px -30% 0px',
-    });
-    obs.observe(form);
+    const alvos = [document.querySelector('#contact'), document.querySelector('.site-footer')].filter(Boolean);
+    if (!alvos.length) return undefined;
+    const visiveis = new Set();
+    const obs = new IntersectionObserver(
+      (entradas) => {
+        entradas.forEach((e) => (e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target)));
+        setNoFormulario(visiveis.size > 0);
+      },
+      { rootMargin: '0px 0px -30% 0px' }
+    );
+    alvos.forEach((a) => obs.observe(a));
     return () => obs.disconnect();
   }, []);
 
