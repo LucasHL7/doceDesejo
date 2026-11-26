@@ -230,7 +230,8 @@
 
 @media (max-width: 1024px) {
     .hero {
-        padding: 110px 6% 64px;
+        /* espaço para a barra com o selo pendurado */
+        padding: 124px 6% 64px;
         min-height: auto;
     }
 
@@ -260,7 +261,7 @@
 
 @media (max-width: 480px) {
     .hero {
-        padding-top: 96px;
+        padding-top: 118px;
     }
 
     .hero-visual {

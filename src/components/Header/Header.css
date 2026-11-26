@@ -1,4 +1,4 @@
-/* HEADER: pílula flutuante (desktop) + barra inferior (celular) */
+/* HEADER: pílula flutuante + menu lateral (desktop) e selo central + gaveta (celular) */
 
 .site-header {
     position: fixed;
@@ -13,9 +13,9 @@
 .header-pill {
     pointer-events: auto;
     max-width: 1120px;
-    height: 64px;
+    height: 76px;
     margin: 0 auto;
-    padding: 0 8px 0 14px;
+    padding: 0 10px 0 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,9 +44,8 @@
 }
 
 .header-logo {
-    width: 46px;
-    height: 46px;
-    object-fit: contain;
+    width: 66px;
+    height: 66px;
     transition: transform 0.4s ease;
 }
 
@@ -117,8 +116,7 @@
 
 .header-brand:focus-visible,
 .header-links a:focus-visible,
-.header-cta:focus-visible,
-.bottom-nav-item:focus-visible {
+.header-cta:focus-visible {
     outline: 3px solid var(--rosa);
     outline-offset: 2px;
 }
@@ -147,11 +145,10 @@
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, visibility 0.4s;
 }
 
-.side-rail-brand img {
+.side-rail-brand .selo {
     display: block;
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
+    width: 58px;
+    height: 58px;
 }
 
 .side-rail-links {
@@ -243,124 +240,311 @@
     }
 }
 
-/* Barra inferior: escondida no desktop */
+/* Celular: barra com selo central "pendurado" + gaveta lateral (escondidos no desktop) */
 
-.bottom-nav {
+.header-insta,
+.header-toggle,
+.drawer,
+.drawer-backdrop {
     display: none;
 }
-
-/* Tablet e celular */
 
 @media (max-width: 1024px) {
     .site-header {
         top: 10px;
+        padding: 0 12px;
     }
 
     .header-pill {
-        height: 56px;
-        justify-content: center;
-        padding: 0 18px;
-        max-width: max-content;
+        position: relative;
+        width: 100%;
+        height: 60px;
+        max-width: none;
+        /* alinhada à direita: ao encolher, vai em direção ao botão do menu */
+        margin: 0 0 0 auto;
+        padding: 0 8px;
+        border-radius: 22px;
+        overflow: visible;
+        /* voltando ao topo: o fundo aparece na hora e a barra cresce */
+        transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), height 0.4s ease,
+            padding 0.4s ease, border-radius 0.4s ease, background 0.15s ease,
+            box-shadow 0.15s ease, border-color 0.15s ease;
     }
 
+    .header-name,
     .header-links,
     .header-cta,
     .side-rail {
         display: none;
     }
 
+    /* Selo central, maior que a barra, como um carimbo */
+    .header-brand {
+        position: absolute;
+        left: 50%;
+        top: -4px;
+        transform: translateX(-50%);
+        transform-origin: top center;
+        z-index: 1;
+        transition: transform 0.35s ease, opacity 0.25s ease;
+    }
+
     .header-logo {
-        width: 40px;
-        height: 40px;
+        width: 92px;
+        height: 92px;
+        filter: drop-shadow(0 6px 12px rgba(58, 36, 32, 0.16));
+        transition: transform 0.4s ease, width 0.3s ease, height 0.3s ease;
     }
 
-    .header-name {
-        font-size: 1.7rem;
-    }
-
-    .bottom-nav {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
-        background: rgba(255, 255, 255, 0.96);
-        border-top: 1px solid rgba(58, 36, 32, 0.08);
-        box-shadow: 0 -8px 24px rgba(58, 36, 32, 0.08);
-        border-radius: 22px 22px 0 0;
-    }
-
-    .bottom-nav-item {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-        padding: 4px 0;
-        border-radius: 12px;
-        color: var(--texto-suave);
-        font-size: 0.72rem;
-        font-weight: 500;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    .bottom-nav-icon {
+    .header-insta,
+    .header-toggle {
         display: grid;
         place-items: center;
-        width: 48px;
-        height: 28px;
-        border-radius: 999px;
-        transition: background 0.2s ease;
+        width: 44px;
+        height: 44px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .bottom-nav-icon .icon {
-        font-size: 1.5rem;
-    }
-
-    .bottom-nav-item.is-active {
+    .header-insta {
+        background: transparent;
         color: var(--rosa-forte);
-        font-weight: 600;
+        transition: opacity 0.25s ease, background 0.2s ease;
     }
 
-    .bottom-nav-item.is-active .bottom-nav-icon {
+    .header-insta:hover {
         background: var(--rosa-claro);
     }
 
-    /* Botão central "Pedir" */
-    .bottom-nav-item.is-featured .bottom-nav-icon {
-        width: 54px;
-        height: 54px;
-        margin-top: -26px;
+    .header-toggle {
+        background: var(--rosa-claro);
+        color: var(--rosa-forte);
+        transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+            width 0.3s ease, height 0.3s ease;
+    }
+
+    /* Rolou: a barra some, o selo encolhe e sobra só o botão do menu */
+    /* A barra encolhe até o tamanho do botão; só no fim o fundo some,
+       quando já está escondido atrás do botão rosa */
+    .site-header.is-compact .header-pill {
+        width: 52px;
+        height: 52px;
+        padding: 0;
         border-radius: 50%;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        pointer-events: none;
+        transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), height 0.4s ease,
+            padding 0.4s ease, border-radius 0.4s ease, background 0.1s ease 0.35s,
+            box-shadow 0.1s ease 0.35s, border-color 0.1s ease 0.35s;
+    }
+
+    .site-header.is-compact .header-brand {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.3);
+        pointer-events: none;
+    }
+
+    .site-header.is-compact .header-insta {
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease;
+    }
+
+    .site-header.is-compact .header-toggle {
+        pointer-events: auto;
+        width: 52px;
+        height: 52px;
         background: var(--rosa-forte);
         color: var(--white);
-        border: 4px solid var(--white);
-        box-shadow: 0 8px 18px rgba(226, 62, 126, 0.4);
+        box-shadow: 0 10px 24px rgba(226, 62, 126, 0.4);
     }
 
-    .bottom-nav-item.is-featured .bottom-nav-icon .icon {
-        font-size: 1.6rem;
+    .header-insta .icon,
+    .header-toggle .icon {
+        font-size: 1.55rem;
     }
 
-    .bottom-nav-item.is-featured {
+    .header-insta:focus-visible,
+    .header-toggle:focus-visible,
+    .drawer a:focus-visible,
+    .drawer button:focus-visible {
+        outline: 3px solid var(--rosa);
+        outline-offset: 2px;
+    }
+
+    /* Fundo escuro atrás da gaveta */
+    .drawer-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 2;
+        background: rgba(58, 36, 32, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s ease, visibility 0.3s;
+    }
+
+    .site-header.is-open .drawer-backdrop {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* Gaveta que desliza da direita */
+    .drawer {
+        pointer-events: auto;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        width: min(320px, 86vw);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 16px 16px calc(20px + env(safe-area-inset-bottom));
+        overflow-y: auto;
+        background: var(--white);
+        border-radius: 28px 0 0 28px;
+        box-shadow: -20px 0 40px rgba(58, 36, 32, 0.18);
+        transform: translateX(105%);
+        visibility: hidden;
+        /* ao fechar, só esconde depois que a gaveta sai da tela */
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.35s;
+    }
+
+    .site-header.is-open .drawer {
+        transform: none;
+        visibility: visible;
+        /* ao abrir, fica visível na hora (e pode receber foco) */
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+    }
+
+    .drawer-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .drawer-brand .selo {
+        display: block;
+        width: 64px;
+        height: 64px;
+    }
+
+    .drawer-close {
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border: none;
+        border-radius: 50%;
+        background: var(--rosa-claro);
+        color: var(--rosa-forte);
+        cursor: pointer;
+    }
+
+    .drawer-close .icon {
+        font-size: 1.5rem;
+    }
+
+    .drawer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .drawer-links a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 13px 14px;
+        border-radius: 16px;
+        font-size: 1.02rem;
+        font-weight: 500;
+        color: var(--chocolate);
+        transition: background 0.2s ease;
+    }
+
+    .drawer-links a .icon {
+        font-size: 1.35rem;
+        color: var(--texto-suave);
+    }
+
+    .drawer-links a.is-active {
+        background: var(--rosa-claro);
         color: var(--rosa-forte);
         font-weight: 600;
     }
 
-    /* espaço para a barra não cobrir o fim da página */
-    body {
-        padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    .drawer-links a.is-active .icon {
+        color: var(--rosa-forte);
+    }
+
+    .drawer-footer {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .drawer-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 15px 20px;
+        border-radius: 999px;
+        background: var(--rosa-forte);
+        color: var(--white);
+        font-weight: 600;
+        box-shadow: 0 10px 22px rgba(226, 62, 126, 0.3);
+    }
+
+    .drawer-cta .icon {
+        font-size: 1.25rem;
+    }
+
+    .drawer-social {
+        display: flex;
+        gap: 8px;
+    }
+
+    .drawer-social a {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 8px;
+        border-radius: 999px;
+        background: var(--creme);
+        color: var(--chocolate);
+        font-size: 0.88rem;
+        font-weight: 500;
+    }
+
+    .drawer-social .icon {
+        font-size: 1.15rem;
+        color: var(--rosa-forte);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .header-logo,
     .header-pill,
-    .side-rail {
+    .side-rail,
+    .drawer,
+    .drawer-backdrop {
         transition: none;
     }
 }

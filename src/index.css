@@ -76,7 +76,7 @@ body {
 html {
     scroll-behavior: smooth;
     /* altura do header fixo, para os títulos não ficarem escondidos */
-    scroll-padding-top: 96px;
+    scroll-padding-top: 104px;
 }
 
 

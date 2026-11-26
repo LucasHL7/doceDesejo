@@ -1,0 +1,22 @@
+.selo {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Círculo branco por trás do PNG, até o meio do anel ondulado */
+.selo::before {
+    content: '';
+    position: absolute;
+    inset: 12%;
+    border-radius: 50%;
+    background: var(--white);
+}
+
+.selo img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
