@@ -1,0 +1,104 @@
+/* FORMULÁRIO: resumo da sacola (o resto do formulário ainda usa o CSS antigo em index.css) */
+
+.order-summary {
+    padding: 18px 20px;
+    border-radius: 20px;
+    background: var(--creme);
+    border: 1.5px solid var(--rosa-claro);
+}
+
+.order-summary-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.order-summary-head h3 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    color: var(--chocolate);
+}
+
+.order-summary-head .icon {
+    color: var(--rosa-forte);
+}
+
+.contact .order-summary-edit {
+    padding: 6px 14px;
+    border: 1.5px solid var(--rosa-forte);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--rosa-forte);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.contact .order-summary-edit:hover {
+    background: var(--rosa-forte);
+    color: var(--white);
+}
+
+.order-summary-empty {
+    color: var(--texto-suave);
+}
+
+.order-summary-empty a {
+    color: var(--rosa-forte);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.order-summary-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(58, 36, 32, 0.15);
+}
+
+.order-summary-list li div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.order-summary-list li span {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+
+.order-summary-list .order-summary-price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--chocolate);
+    white-space: nowrap;
+}
+
+.order-summary-row,
+.order-summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.order-summary-row {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+
+.order-summary-total strong {
+    font-size: 1.25rem;
+    color: var(--rosa-forte);
+}
+
+.form-error {
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #FDECEC;
+    color: #B3261E;
+    font-weight: 500;
+}

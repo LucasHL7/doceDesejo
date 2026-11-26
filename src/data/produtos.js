@@ -1,4 +1,4 @@
-// Fonte única de preços e opções usada pela tabela de preços e pelo formulário.
+// Fonte única de preços e opções. O cardápio (cardapio.js) monta os produtos a partir daqui.
 
 export const formatarPreco = (valor) =>
   `R$${valor.toFixed(2).replace('.', ',')}`;
@@ -19,15 +19,6 @@ export const bolosConfeitados = [
 ];
 
 export const PRECO_BENTO_CAKE = 40;
-
-export const brigadeirosTabela = [
-  { qtd: 50, preco: 80 },
-  { qtd: 100, preco: 150 },
-  { qtd: 150, preco: 225 },
-  { qtd: 200, preco: 300 },
-  { qtd: 250, preco: 375 },
-  { qtd: 300, preco: 450 },
-];
 
 export const brownies = [
   { qtd: 20, preco: 90 },
@@ -107,16 +98,6 @@ export const sabores = {
 };
 
 export const LIMITE_SABORES = 4;
-
-export const produtosFormulario = [
-  { value: 'bolo', label: 'Bolo' },
-  { value: 'fatias', label: 'Fatias de Bolo' },
-  { value: 'brigadeiro', label: 'Brigadeiro' },
-  { value: 'brownie', label: 'Brownie Recheado' },
-  { value: 'salgadinho', label: 'Salgadinhos de Festa' },
-  { value: 'bem-casado', label: 'Bem Casado' },
-  { value: 'bento-cake', label: 'Bento Cake' },
-];
 
 export const formasPagamento = [
   { value: 'dinheiro', label: 'Dinheiro' },
