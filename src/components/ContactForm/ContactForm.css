@@ -1,58 +1,179 @@
-/* FORMULÁRIO: resumo da sacola (o resto do formulário ainda usa o CSS antigo em index.css) */
+/* FORMULÁRIO DE ORÇAMENTO + prévia do WhatsApp */
 
-.order-summary {
-    padding: 18px 20px;
-    border-radius: 20px;
-    background: var(--creme);
-    border: 1.5px solid var(--rosa-claro);
+.quote {
+    background:
+        radial-gradient(circle at 0% 100%, var(--rosa-claro) 0, transparent 40%),
+        var(--creme);
+    padding: 100px 6%;
 }
 
-.order-summary-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.quote-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.quote-head {
+    text-align: center;
+    max-width: 36rem;
+    margin: 0 auto 40px;
+}
+
+.quote-eyebrow {
+    display: inline-block;
     margin-bottom: 10px;
-}
-
-.order-summary-head h3 {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.1rem;
-    color: var(--chocolate);
-}
-
-.order-summary-head .icon {
-    color: var(--rosa-forte);
-}
-
-.contact .order-summary-edit {
-    padding: 6px 14px;
-    border: 1.5px solid var(--rosa-forte);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--rosa-forte);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    cursor: pointer;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rosa-forte);
 }
 
-.contact .order-summary-edit:hover {
-    background: var(--rosa-forte);
-    color: var(--white);
+.quote-title {
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--chocolate);
+    margin-bottom: 12px;
 }
 
-.order-summary-empty {
+.quote-script {
+    font-family: 'Gwendolyn', cursive;
+    font-weight: 700;
+    font-size: 1.35em;
+    line-height: 0.8;
+    color: var(--rosa-forte);
+}
+
+.quote-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
     color: var(--texto-suave);
 }
 
-.order-summary-empty a {
-    color: var(--rosa-forte);
-    font-weight: 600;
-    text-decoration: underline;
+.quote-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 1fr);
+    gap: 48px;
+    align-items: start;
 }
 
-.order-summary-list li {
+/* Cartão do formulário */
+
+.quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding: 32px;
+    border-radius: 32px;
+    background: var(--white);
+    box-shadow: 0 20px 44px rgba(58, 36, 32, 0.08);
+}
+
+.quote-step {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.quote-step legend {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--chocolate);
+}
+
+.quote-step legend small {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+}
+
+.quote-step-num {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--rosa-claro);
+    color: var(--rosa-forte);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.quote-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+/* Campos */
+
+.quote-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.quote-field label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--chocolate);
+}
+
+.quote-field input,
+.quote-field textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1.5px solid rgba(58, 36, 32, 0.12);
+    border-radius: 14px;
+    background: var(--white);
+    color: var(--chocolate);
+    font: inherit;
+    font-size: 1rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quote-field textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.quote-field input::placeholder,
+.quote-field textarea::placeholder {
+    color: #B3A19B;
+}
+
+.quote-field input:focus,
+.quote-field textarea:focus {
+    outline: none;
+    border-color: var(--rosa-forte);
+    box-shadow: 0 0 0 4px var(--rosa-claro);
+}
+
+.quote-field.has-error input {
+    border-color: #D93025;
+    background: #FFF8F7;
+}
+
+.quote-field-error {
+    font-size: 0.82rem;
+    color: #B3261E;
+}
+
+/* Resumo do pedido */
+
+.quote-order {
+    padding: 16px 18px;
+    border-radius: 20px;
+    background: var(--creme);
+}
+
+.quote-order li {
     display: flex;
     justify-content: space-between;
     gap: 12px;
@@ -60,45 +181,367 @@
     border-bottom: 1px dashed rgba(58, 36, 32, 0.15);
 }
 
-.order-summary-list li div {
+.quote-order li div {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.order-summary-list li span {
+.quote-order li span {
     font-size: 0.85rem;
     color: var(--texto-suave);
 }
 
-.order-summary-list .order-summary-price {
+.quote-order .quote-order-price {
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--chocolate);
     white-space: nowrap;
 }
 
-.order-summary-row,
-.order-summary-total {
+.quote-order-foot {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
+    padding-top: 12px;
 }
 
-.order-summary-row {
-    font-size: 0.9rem;
+.quote-edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1.5px solid var(--rosa-forte);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--rosa-forte);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.quote-edit .icon {
+    font-size: 1.05rem;
+}
+
+.quote-edit:hover {
+    background: var(--rosa-forte);
+    color: var(--white);
+}
+
+.quote-order-total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.2;
+}
+
+.quote-order-total small {
+    font-size: 0.75rem;
     color: var(--texto-suave);
 }
 
-.order-summary-total strong {
-    font-size: 1.25rem;
+.quote-order-total strong {
+    font-size: 1.35rem;
     color: var(--rosa-forte);
 }
 
-.form-error {
-    padding: 12px 14px;
-    border-radius: 12px;
+.quote-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 22px;
+    border: 2px dashed rgba(226, 62, 126, 0.3);
+    border-radius: 20px;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.quote-empty .icon {
+    font-size: 2rem;
+    color: var(--rosa-forte);
+}
+
+.quote-empty-link {
+    margin-top: 4px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: var(--rosa-forte);
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* Pagamento */
+
+.quote-pay {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.quote-pay-option {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 8px;
+    border: 1.5px solid rgba(58, 36, 32, 0.12);
+    border-radius: 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--chocolate);
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.quote-pay-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.quote-pay-option .icon {
+    font-size: 1.6rem;
+    color: var(--texto-suave);
+}
+
+.quote-pay-option small {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--rosa-forte);
+}
+
+.quote-pay-option:hover {
+    border-color: var(--rosa);
+}
+
+.quote-pay-option.is-active {
+    border-color: var(--rosa-forte);
+    background: var(--rosa-claro);
+}
+
+.quote-pay-option.is-active .icon {
+    color: var(--rosa-forte);
+}
+
+.quote-pay-option:has(input:focus-visible) {
+    outline: 3px solid var(--rosa);
+    outline-offset: 2px;
+}
+
+/* Avisos */
+
+.quote-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 18px;
+    border-radius: 20px;
+    background: var(--creme);
+}
+
+.quote-notes p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--texto-suave);
+}
+
+.quote-notes .icon {
+    font-size: 1.3rem;
+    color: var(--rosa-forte);
+    margin-top: 1px;
+}
+
+.quote-notes strong {
+    color: var(--chocolate);
+}
+
+.quote-alert {
+    padding: 12px 16px;
+    border-radius: 14px;
     background: #FDECEC;
     color: #B3261E;
     font-weight: 500;
+}
+
+.quote-alert a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* Botões */
+
+.quote-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.quote-submit,
+.quote-preview-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 24px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 1.02rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.quote-submit {
+    flex: 1;
+    border: none;
+    background: #1FAF5A;
+    color: var(--white);
+    box-shadow: 0 12px 26px rgba(31, 175, 90, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quote-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgba(31, 175, 90, 0.38);
+}
+
+.quote-submit .icon,
+.quote-preview-btn .icon {
+    font-size: 1.2rem;
+}
+
+.quote-preview-btn {
+    display: none; /* só no celular */
+    border: 1.5px solid rgba(58, 36, 32, 0.15);
+    background: var(--white);
+    color: var(--chocolate);
+}
+
+.quote-edit:focus-visible,
+.quote-empty-link:focus-visible,
+.quote-submit:focus-visible,
+.quote-preview-btn:focus-visible {
+    outline: 3px solid var(--rosa);
+    outline-offset: 3px;
+}
+
+/* Prévia fixa ao lado */
+
+.quote-preview {
+    position: sticky;
+    top: 110px;
+}
+
+.quote-preview-caption {
+    margin-top: 16px;
+    text-align: center;
+    font-family: 'Gwendolyn', cursive;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--rosa-forte);
+}
+
+/* Prévia em janela (celular) */
+
+.quote-dialog {
+    margin: auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    width: min(360px, calc(100% - 24px));
+    max-height: calc(100dvh - 24px);
+    overflow: visible;
+}
+
+.quote-dialog::backdrop {
+    background: rgba(58, 36, 32, 0.55);
+}
+
+.quote-dialog .wa-screen {
+    height: min(520px, calc(100dvh - 140px));
+}
+
+.quote-dialog-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.quote-dialog-actions .quote-preview-btn {
+    display: inline-flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quote-submit {
+        transition: none;
+    }
+}
+
+/* Desktop: espaço para o menu lateral (ver Header.css) */
+@media (min-width: 1025px) {
+    .quote {
+        padding-left: max(6%, 110px);
+        padding-right: max(6%, 110px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .quote {
+        padding: 80px 5%;
+    }
+
+    .quote-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-preview {
+        display: none;
+    }
+
+    .quote-preview-btn {
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 640px) {
+    .quote {
+        padding: 64px 12px;
+    }
+
+    .quote-head {
+        padding: 0 8px;
+        margin-bottom: 28px;
+    }
+
+    .quote-form {
+        padding: 22px 18px;
+        border-radius: 26px;
+        gap: 22px;
+    }
+
+    .quote-row {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-pay {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .quote-actions {
+        flex-direction: column-reverse;
+    }
+
+    .quote-submit,
+    .quote-preview-btn {
+        width: 100%;
+    }
 }

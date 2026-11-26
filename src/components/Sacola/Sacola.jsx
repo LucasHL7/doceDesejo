@@ -11,6 +11,18 @@ export default function Sacola() {
     useSacola();
   const dialog = useRef(null);
   const [aviso, setAviso] = useState(null);
+  const [noFormulario, setNoFormulario] = useState(false);
+
+  // Esconde o botão flutuante quando o formulário (que já mostra o pedido) está na tela.
+  useEffect(() => {
+    const form = document.querySelector('#contact');
+    if (!form) return undefined;
+    const obs = new IntersectionObserver(([e]) => setNoFormulario(e.isIntersecting), {
+      rootMargin: '0px 0px -30% 0px',
+    });
+    obs.observe(form);
+    return () => obs.disconnect();
+  }, []);
 
   // Abre/fecha a gaveta (<dialog> nativo) conforme o estado da sacola.
   useEffect(() => {
@@ -42,7 +54,7 @@ export default function Sacola() {
 
   return (
     <>
-      {quantidadeItens > 0 && (
+      {quantidadeItens > 0 && !noFormulario && (
         <button type="button" className="bag-fab" onClick={abrir} aria-haspopup="dialog">
           <span className="bag-fab-icon">
             <Icon name="shopping_bag" />

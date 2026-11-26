@@ -91,13 +91,9 @@ html {
 
 /* ESTILOS DE BOLOS: estilos em src/components/CakeStyles/CakeStyles.css */
 
-.contact {
-    padding: 100px 10%;
-    background-color: var(--white);
-}
+/* FORMULÁRIO: estilos em src/components/ContactForm/ContactForm.css */
 
-.footer .psocial,
-.contact h2 {
+.footer .psocial {
     color: var(--red);
     font-size: 2rem;
     margin-bottom: 20px;
@@ -106,46 +102,6 @@ html {
 
 /* DELIVERY: estilos em src/components/Delivery/Delivery.css */
 
-/* INICIO FORM */
-.contact form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact label {
-    font-weight: bold;
-}
-
-.contact input,
-.contact select,
-.contact button {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.contact button {
-    background: var(--red);
-    color: var(--white);
-    font-weight: 700;
-    transition: all 0.5s;
-}
-
-.contact button:hover {
-    background: #fc4c35;
-}
-
-.contact .obs {
-    height: 150px;
-}
-
-.form-group div {
-    margin-bottom: 10px;
-}
-
-/* FIM FORM */
 
 /* INICIO FOOTER */
 

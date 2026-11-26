@@ -1,0 +1,160 @@
+/* PRÉVIA DO WHATSAPP: celular com a conversa */
+
+.wa-phone {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 44px;
+    background: var(--chocolate);
+    box-shadow: 0 30px 60px rgba(58, 36, 32, 0.28);
+}
+
+.wa-screen {
+    display: flex;
+    flex-direction: column;
+    height: 560px;
+    border-radius: 34px;
+    overflow: hidden;
+    /* fundo "papel de parede" do WhatsApp */
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35) 0 2px, transparent 3px) 0 0 / 28px 28px,
+        #EFE7DD;
+}
+
+.wa-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 14px 12px;
+    background: #075E54;
+    color: var(--white);
+}
+
+.wa-top .icon {
+    font-size: 1.25rem;
+}
+
+.wa-avatar {
+    width: 36px;
+    height: 36px;
+}
+
+.wa-contact {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.wa-contact strong {
+    font-size: 0.95rem;
+}
+
+.wa-contact span {
+    font-size: 0.72rem;
+    opacity: 0.8;
+}
+
+.wa-chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    scrollbar-width: thin;
+}
+
+.wa-bubble {
+    position: relative;
+    align-self: flex-end;
+    max-width: 94%;
+    padding: 9px 11px 20px;
+    border-radius: 12px 4px 12px 12px;
+    background: #D9FDD3;
+    color: #111B21;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    overflow-wrap: anywhere;
+}
+
+.wa-bubble p {
+    margin: 0;
+}
+
+.wa-bubble .is-soft {
+    color: #54656F;
+    font-size: 0.76rem;
+}
+
+.wa-bubble .is-empty {
+    color: #8696A0;
+    font-style: italic;
+}
+
+/* espaço a preencher */
+.wa-blank {
+    display: inline-block;
+    width: 70px;
+    height: 0.8em;
+    border-radius: 4px;
+    background: rgba(17, 27, 33, 0.12);
+    vertical-align: middle;
+    animation: wa-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes wa-pulse {
+    50% {
+        opacity: 0.45;
+    }
+}
+
+.wa-time {
+    position: absolute;
+    right: 9px;
+    bottom: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.66rem;
+    color: #667781;
+}
+
+.wa-time .icon {
+    font-size: 0.95rem;
+    color: #53BDEB;
+}
+
+.wa-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 10px 12px;
+    padding: 6px 6px 6px 16px;
+    border-radius: 999px;
+    background: var(--white);
+    color: #8696A0;
+    font-size: 0.85rem;
+}
+
+.wa-send {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #00A884;
+    color: var(--white);
+}
+
+.wa-send .icon {
+    font-size: 1.1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wa-blank {
+        animation: none;
+    }
+}
