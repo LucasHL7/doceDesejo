@@ -1,6 +1,6 @@
 import Header from './components/Header/Header.jsx';
 import Home from './components/Home/Home.jsx';
-import CakeStyles from './components/CakeStyles.jsx';
+import CakeStyles from './components/CakeStyles/CakeStyles.jsx';
 import PriceList from './components/PriceList.jsx';
 import OtherProducts from './components/OtherProducts.jsx';
 import ContactForm from './components/ContactForm.jsx';

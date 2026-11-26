@@ -84,16 +84,14 @@ html {
 
 /* HOME: estilos em src/components/Home/Home.css */
 
-/* INICIO BOLOS */
+/* ESTILOS DE BOLOS: estilos em src/components/CakeStyles/CakeStyles.css */
 
-.bolos,
 .menu-section,
 .contact {
     padding: 100px 10%;
     background-color: var(--white);
 }
 
-.bolos h2,
 .footer .psocial,
 .menu-section h2,
 .contact h2 {
@@ -102,40 +100,6 @@ html {
     margin-bottom: 20px;
     text-align: center;
 }
-
-.bolos {
-    text-align: center;
-}
-
-.cake-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.cake-item {
-    position: relative;
-    width: 450px;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cake-item img {
-    width: 90%;
-    height: 90%;
-    border-radius: 15px;
-}
-
-.cake-name {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    text-align: center;
-}
-
-/* FIM BOLOS */
 
 /* INICIO MENU */
 .menu-section {

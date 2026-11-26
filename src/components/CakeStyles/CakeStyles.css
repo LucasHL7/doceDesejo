@@ -1,0 +1,271 @@
+/* ESTILOS DE BOLOS: carrossel */
+
+.cakes {
+    background: var(--white);
+    padding: 100px 6%;
+}
+
+.cakes-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+
+.cakes-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.cakes-eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rosa-forte);
+}
+
+.cakes-title {
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--chocolate);
+    margin-bottom: 12px;
+}
+
+.cakes-script {
+    font-family: 'Gwendolyn', cursive;
+    font-weight: 700;
+    font-size: 1.35em;
+    line-height: 0.8;
+    color: var(--rosa-forte);
+}
+
+.cakes-lead {
+    max-width: 30rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--texto-suave);
+}
+
+.cakes-arrows {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cakes-arrow {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(58, 36, 32, 0.12);
+    background: var(--white);
+    color: var(--chocolate);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.cakes-arrow .icon {
+    font-size: 1.8rem;
+}
+
+.cakes-arrow:hover:not(:disabled) {
+    background: var(--rosa-forte);
+    border-color: var(--rosa-forte);
+    color: var(--white);
+}
+
+.cakes-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+/* Trilho com rolagem nativa (arrastar no celular, setas no PC) */
+
+.cakes-track {
+    --gap: 24px;
+    --visiveis: 3;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - (var(--visiveis) - 1) * var(--gap)) / var(--visiveis));
+    gap: var(--gap);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 6px 2px 14px;
+    margin: -6px -2px 0;
+    border-radius: 28px;
+}
+
+.cakes-track::-webkit-scrollbar {
+    display: none;
+}
+
+.cakes-track:focus-visible {
+    outline: 3px solid var(--rosa);
+    outline-offset: 4px;
+}
+
+.cakes-slide {
+    scroll-snap-align: start;
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--rosa-claro);
+    aspect-ratio: 3 / 4;
+    box-shadow: 0 14px 30px rgba(58, 36, 32, 0.1);
+}
+
+.cakes-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.cakes-slide:hover img {
+    transform: scale(1.04);
+}
+
+/* Bolinhas */
+
+.cakes-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.cakes-dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: rgba(58, 36, 32, 0.18);
+    cursor: pointer;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.cakes-dot.is-active {
+    width: 28px;
+    background: var(--rosa-forte);
+}
+
+.cakes-dot:focus-visible,
+.cakes-arrow:focus-visible,
+.cakes-cta-btn:focus-visible {
+    outline: 3px solid var(--rosa);
+    outline-offset: 3px;
+}
+
+/* Chamada para o orçamento */
+
+.cakes-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.cakes-cta p {
+    color: var(--texto-suave);
+    font-size: 1rem;
+}
+
+.cakes-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: var(--rosa-claro);
+    color: var(--rosa-forte);
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cakes-cta-btn .icon {
+    font-size: 1.25rem;
+    transition: transform 0.2s ease;
+}
+
+.cakes-cta-btn:hover {
+    background: var(--rosa-forte);
+    color: var(--white);
+}
+
+.cakes-cta-btn:hover .icon {
+    transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cakes-slide img,
+    .cakes-dot {
+        transition: none;
+    }
+}
+
+/* Desktop: espaço para o menu lateral (ver Header.css) */
+@media (min-width: 1025px) {
+    .cakes {
+        padding-left: max(6%, 110px);
+        padding-right: max(6%, 110px);
+    }
+}
+
+/* Tablet: 2 por vez */
+@media (max-width: 1024px) {
+    .cakes {
+        padding: 80px 6%;
+    }
+
+    .cakes-track {
+        --visiveis: 2;
+    }
+}
+
+/* Celular: 1 por vez, mostrando a pontinha do próximo */
+@media (max-width: 640px) {
+    .cakes {
+        padding: 72px 0;
+    }
+
+    .cakes-head,
+    .cakes-cta {
+        padding: 0 20px;
+    }
+
+    .cakes-head {
+        margin-bottom: 24px;
+    }
+
+    .cakes-arrows {
+        display: none;
+    }
+
+    .cakes-track {
+        --gap: 14px;
+        grid-auto-columns: 80%;
+        padding: 6px 20px 14px;
+        margin: -6px 0 0;
+        scroll-padding: 0 20px;
+        border-radius: 0;
+    }
+
+    .cakes-slide {
+        border-radius: 24px;
+    }
+}
