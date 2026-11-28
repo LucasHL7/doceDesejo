@@ -47,8 +47,7 @@ body {
     border: 0;
 }
 
-/* Com um modal aberto (produto ou sacola), pausa as animações infinitas da página
-   por trás: ninguém as vê e elas obrigam o navegador a repintar o fundo sem parar. */
+/* Com um modal aberto, pausa as animações infinitas do fundo (ninguém as vê). */
 body:has(dialog[open]) .hero-blob,
 body:has(dialog[open]) .wa-blank {
     animation-play-state: paused;

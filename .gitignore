@@ -1,15 +1,24 @@
+# Dependências e build
 node_modules
 dist
-
-# Firebase CLI
-.firebase
-firebase-debug.log
-firestore-debug.log
-
-# Relatório de cobertura dos testes (npm run coverage)
 coverage
 
-# Variáveis de ambiente locais
+# Variáveis de ambiente locais (a configuração do Firebase fica aqui)
 .env
 .env.local
 .env.*.local
+
+# Firebase CLI
+.firebase
+*-debug.log
+
+# Logs
+npm-debug.log*
+*.log
+
+# Editor e sistema
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

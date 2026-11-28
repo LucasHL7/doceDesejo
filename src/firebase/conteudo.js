@@ -6,12 +6,9 @@
 // - imagensSite/{id}  uma foto fixa do site (hero, delivery-1...) { src, alt }
 // - admins/{uid}      quem pode editar (criado à mão no Console do Firebase)
 //
-// As fotos enviadas pelo painel ficam dentro do próprio documento, como texto (data URL),
-// já comprimidas no navegador. Assim tudo cabe no plano gratuito (Spark), sem precisar
-// do Firebase Storage, que hoje exige o plano pago.
-//
-// Usa o Firestore "lite" (só leituras e gravações simples, sem tempo real), que é bem
-// menor e deixa o site carregar mais rápido.
+// As fotos ficam no próprio documento (data URL comprimida no navegador): assim tudo
+// cabe no plano gratuito, sem o Firebase Storage, que exige o plano pago.
+// Usa o Firestore Lite (sem tempo real), bem menor que o SDK completo.
 
 import { initializeApp } from 'firebase/app';
 import {
@@ -82,8 +79,7 @@ export async function salvarOrdem(colecao, itens) {
   await lote.commit();
 }
 
-// Copia o conteúdo padrão (que estava fixo no código) para o Firestore.
-// Usado uma vez, quando o painel é aberto e o banco ainda está vazio.
+// Copia o conteúdo padrão para o Firestore no primeiro acesso ao painel.
 export async function importarPadrao({ produtos, galeria, imagensSite }) {
   const lote = writeBatch(db());
   produtos.forEach((p) => lote.set(doc(db(), 'produtos', p.id), semId(p)));

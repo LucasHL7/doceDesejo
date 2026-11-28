@@ -24,8 +24,7 @@ export default defineConfig({
       provider: 'v8',
       // Mede todo o src, inclusive arquivos que ainda não têm teste (aparecem com 0%).
       include: ['src/**/*.{js,jsx}'],
-      // Fora da conta: os próprios testes, os ajudantes de teste (src/test), os pontos de entrada
-      // (main.jsx só chama createRoot().render) e a lista de imports de SVG dos ícones.
+      // Fora da conta: testes, ajudantes de teste, pontos de entrada e a lista de imports de SVG.
       exclude: [
         'src/**/*.test.{js,jsx}',
         'src/test/**',

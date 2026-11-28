@@ -4,8 +4,8 @@ import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
 
 // ---- Nunca falar com o Firebase de verdade ----
-// O projeto `docedesejoadmin` tem dados reais. Todo teste usa estas versões falsas do SDK;
-// quem precisar de respostas específicas mocka src/firebase/conteudo.js ou ajusta estes vi.fn.
+// Todo teste usa estas versões falsas do SDK; quem precisar de respostas específicas
+// mocka src/firebase/conteudo.js ou ajusta estes vi.fn.
 vi.mock('firebase/app', () => ({ initializeApp: vi.fn(() => ({ name: 'app-de-teste' })) }));
 vi.mock('firebase/firestore/lite', () => ({
   collection: vi.fn((db, nome) => ({ nome })),

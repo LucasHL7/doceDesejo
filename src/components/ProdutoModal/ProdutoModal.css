@@ -18,9 +18,7 @@
     animation: pmodal-in 0.25s ease;
 }
 
-/* Sem backdrop-filter: desfocar a página inteira atrás do modal fazia o navegador
-   refazer o desfoque a cada mudança (e a cada quadro das animações do fundo),
-   e a escolha de tamanho travava. Um fundo um pouco mais escuro resolve. */
+/* Sem backdrop-filter: desfocar a página inteira fazia o modal travar. */
 .pmodal::backdrop {
     background: rgba(58, 36, 32, 0.55);
 }

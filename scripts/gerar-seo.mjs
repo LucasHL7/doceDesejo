@@ -1,6 +1,5 @@
-// Roda depois do `vite build` (veja o script "build" no package.json).
-// Gera dist/robots.txt e dist/sitemap.xml com o endereço do site definido em .env
-// (VITE_SITE_URL). Sem o endereço, gera só o robots.txt e avisa.
+// Roda depois do `vite build`: gera dist/robots.txt e dist/sitemap.xml com o
+// VITE_SITE_URL de .env.production. Sem o endereço, gera só o robots.txt e avisa.
 
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -34,7 +33,7 @@ if (site) {
   console.log(`SEO: robots.txt e sitemap.xml gerados para ${site}`);
 } else {
   console.warn(
-    '\n⚠ SEO: VITE_SITE_URL está vazio no .env. Gerei só o robots.txt.\n' +
+    '\n⚠ SEO: VITE_SITE_URL está vazio (.env.production). Gerei só o robots.txt.\n' +
       '  Sem o endereço do site, a prévia de link no WhatsApp fica sem foto e não há sitemap.\n'
   );
 }

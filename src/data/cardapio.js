@@ -1,10 +1,5 @@
-// Cardápio: produtos que a pessoa pode colocar na sacola.
-//
-// Os produtos vêm do Firebase (editados pelo painel /admin). Este arquivo guarda:
-// - as categorias e os tipos de produto;
-// - o cardápio padrão, usado quando o Firebase não está configurado ou não responde,
-//   e importado para o Firebase na primeira vez que o painel é aberto;
-// - as contas de preço e os textos usados pela sacola e pelo WhatsApp.
+// Cardápio padrão (usado quando o Firebase não responde e importado pelo painel no
+// primeiro acesso) e as contas de preço usadas pela sacola e pelo WhatsApp.
 //
 // Tipos de produto:
 // - 'opcoes':  escolhe uma opção com preço próprio (ex.: tamanho do bolo) e quantas quer.
@@ -15,7 +10,7 @@
 //
 // `campos` são as personalizações pedidas antes de adicionar:
 // { id, label, tipo: 'select' | 'checkbox' | 'texto', opcoes?, max?, opcional?, placeholder? }
-// Tudo aqui é dado simples (sem funções) para poder ser salvo no Firestore.
+// Só dados simples (sem funções), para poder ser salvo no Firestore.
 
 import {
   bolosConfeitados,

@@ -1,6 +1,5 @@
-# Publicação na Netlify (https://docedesejoencomendas.netlify.app).
-# A versão antiga do site era HTML puro; a nova precisa do build do Vite.
-# A Netlify lê este arquivo sozinha: não é preciso mudar nada no painel dela.
+# Build e cabeçalhos da Netlify. As variáveis VITE_FIREBASE_* são cadastradas no painel
+# da Netlify (Site configuration > Environment variables), não aqui.
 
 [build]
   command = "npm run build"
@@ -16,8 +15,8 @@
     X-Robots-Tag = "noindex, nofollow"
     Cache-Control = "no-cache"
 
-# Arquivos gerados pelo Vite têm o conteúdo no nome (ex.: site-kx0m1lDY.js): podem ficar
-# em cache por um ano. As fotos de public/scr não, porque podem ser trocadas com o mesmo nome.
+# Arquivos do Vite têm hash no nome: cache de um ano. As fotos de public/scr não entram
+# aqui porque podem ser trocadas mantendo o nome.
 [[headers]]
   for = "/assets/*"
   [headers.values]

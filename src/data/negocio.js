@@ -10,7 +10,7 @@ export const endereco = {
   cep: '64000-000',
 };
 
-export const enderecoCompleto = `${endereco.rua} - ${endereco.bairro}, ${endereco.cidade} - ${endereco.uf}`;
+const enderecoCompleto = `${endereco.rua} - ${endereco.bairro}, ${endereco.cidade} - ${endereco.uf}`;
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `Doce Desejo, ${enderecoCompleto}, ${endereco.cep}`

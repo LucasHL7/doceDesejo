@@ -5,10 +5,8 @@ import Login from './components/Login/Login.jsx';
 import Painel from './components/Painel/Painel.jsx';
 import Icon from '../components/Icon/Icon.jsx';
 
-// Porta de entrada do painel: só mostra o painel para quem fez login E está
-// cadastrado na coleção `admins` do Firestore. As regras do Firestore fazem a mesma
-// checagem do lado do servidor, então esconder a tela é só conforto: mesmo que alguém
-// burlasse esta tela, não conseguiria gravar nada.
+// Mostra o painel só para quem fez login e está em `admins/{uid}`. A proteção de verdade
+// são as regras do Firestore; esta tela só evita mostrar um painel que não funcionaria.
 export default function Admin() {
   // undefined = ainda verificando; null = sem login
   const [usuario, setUsuario] = useState(firebaseConfigurado ? undefined : null);
