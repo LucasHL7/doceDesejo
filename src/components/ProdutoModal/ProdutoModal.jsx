@@ -86,7 +86,7 @@ function Conteudo({ produto, onFechar }) {
   const confirmar = (ev) => {
     ev.preventDefault();
     if (!Number.isInteger(qtdNum) || qtdNum < min) {
-      setErro(`A quantidade mínima é ${min} ${porUnidade ? produto.unidade : ''}.`.trim());
+      setErro(`A quantidade mínima é ${porUnidade ? `${min} ${produto.unidade}` : min}.`);
       return;
     }
     adicionar({ produtoId: produto.id, opcao: escolha.opcao, qtd: qtdNum, campos: escolha.campos });
