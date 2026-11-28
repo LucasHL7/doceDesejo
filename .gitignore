@@ -6,6 +6,9 @@ dist
 firebase-debug.log
 firestore-debug.log
 
+# Relatório de cobertura dos testes (npm run coverage)
+coverage
+
 # Variáveis de ambiente locais
 .env
 .env.local
