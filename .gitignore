@@ -22,3 +22,7 @@ npm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Documentação de uso interno (fica só local)
+*.md
+!README.md

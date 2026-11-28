@@ -31,7 +31,7 @@ export default function Admin() {
     return (
       <Aviso titulo="Firebase não configurado">
         Preencha as variáveis <code>VITE_FIREBASE_*</code> no <code>.env.local</code> (veja{' '}
-        <code>.env.example</code>). O passo a passo está em <code>PAINEL.md</code>.
+        <code>.env.example</code>).
       </Aviso>
     );
   }
