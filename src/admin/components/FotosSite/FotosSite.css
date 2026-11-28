@@ -1,0 +1,117 @@
+.fotos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.fotos-titulo {
+    font-size: 1.35rem;
+    margin-bottom: 4px;
+}
+
+.fotos-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.fotos-espaco {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+}
+
+.fotos-espaco > .adm-btn {
+    justify-content: center;
+}
+
+.fotos-galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fotos-galeria-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+}
+
+.fotos-vazio {
+    text-align: center;
+    color: var(--texto-suave);
+}
+
+.fotos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 14px;
+}
+
+.fotos-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(58, 36, 32, 0.05);
+}
+
+.fotos-item img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 12px;
+    background: var(--rosa-claro);
+}
+
+.fotos-item-alt {
+    width: 100%;
+    min-height: 38px;
+    padding: 6px 10px;
+    border: 1.5px solid rgba(58, 36, 32, 0.12);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: var(--chocolate);
+}
+
+.fotos-item-alt:focus {
+    outline: none;
+    border-color: var(--rosa);
+}
+
+.fotos-item-acoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fotos-item-acoes .adm-icon-btn {
+    width: 36px;
+    height: 36px;
+}
+
+.fotos-item-pos {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+}
+
+@media (max-width: 600px) {
+    .fotos-galeria-head .adm-btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .fotos-lista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fotos-grade {
+        grid-template-columns: 1fr;
+    }
+}

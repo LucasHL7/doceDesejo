@@ -4,8 +4,12 @@
 
 import icAdd from '@material-symbols/svg-400/rounded/add.svg?raw';
 import icAddFill from '@material-symbols/svg-400/rounded/add-fill.svg?raw';
+import icAddPhotoAlternate from '@material-symbols/svg-400/rounded/add_photo_alternate.svg?raw';
+import icAddPhotoAlternateFill from '@material-symbols/svg-400/rounded/add_photo_alternate-fill.svg?raw';
 import icArrowBack from '@material-symbols/svg-400/rounded/arrow_back.svg?raw';
 import icArrowBackFill from '@material-symbols/svg-400/rounded/arrow_back-fill.svg?raw';
+import icArrowDownward from '@material-symbols/svg-400/rounded/arrow_downward.svg?raw';
+import icArrowDownwardFill from '@material-symbols/svg-400/rounded/arrow_downward-fill.svg?raw';
 import icArrowForward from '@material-symbols/svg-400/rounded/arrow_forward.svg?raw';
 import icArrowForwardFill from '@material-symbols/svg-400/rounded/arrow_forward-fill.svg?raw';
 import icArrowUpward from '@material-symbols/svg-400/rounded/arrow_upward.svg?raw';
@@ -42,6 +46,10 @@ import icInfo from '@material-symbols/svg-400/rounded/info.svg?raw';
 import icInfoFill from '@material-symbols/svg-400/rounded/info-fill.svg?raw';
 import icLink from '@material-symbols/svg-400/rounded/link.svg?raw';
 import icLinkFill from '@material-symbols/svg-400/rounded/link-fill.svg?raw';
+import icLock from '@material-symbols/svg-400/rounded/lock.svg?raw';
+import icLockFill from '@material-symbols/svg-400/rounded/lock-fill.svg?raw';
+import icLogout from '@material-symbols/svg-400/rounded/logout.svg?raw';
+import icLogoutFill from '@material-symbols/svg-400/rounded/logout-fill.svg?raw';
 import icMenu from '@material-symbols/svg-400/rounded/menu.svg?raw';
 import icMenuFill from '@material-symbols/svg-400/rounded/menu-fill.svg?raw';
 import icMoped from '@material-symbols/svg-400/rounded/moped.svg?raw';
@@ -68,10 +76,14 @@ import icShoppingBag from '@material-symbols/svg-400/rounded/shopping_bag.svg?ra
 import icShoppingBagFill from '@material-symbols/svg-400/rounded/shopping_bag-fill.svg?raw';
 import icVisibility from '@material-symbols/svg-400/rounded/visibility.svg?raw';
 import icVisibilityFill from '@material-symbols/svg-400/rounded/visibility-fill.svg?raw';
+import icVisibilityOff from '@material-symbols/svg-400/rounded/visibility_off.svg?raw';
+import icVisibilityOffFill from '@material-symbols/svg-400/rounded/visibility_off-fill.svg?raw';
 
 export const icones = {
   add: [icAdd, icAddFill],
+  add_photo_alternate: [icAddPhotoAlternate, icAddPhotoAlternateFill],
   arrow_back: [icArrowBack, icArrowBackFill],
+  arrow_downward: [icArrowDownward, icArrowDownwardFill],
   arrow_forward: [icArrowForward, icArrowForwardFill],
   arrow_upward: [icArrowUpward, icArrowUpwardFill],
   cake: [icCake, icCakeFill],
@@ -90,6 +102,8 @@ export const icones = {
   image: [icImage, icImageFill],
   info: [icInfo, icInfoFill],
   link: [icLink, icLinkFill],
+  lock: [icLock, icLockFill],
+  logout: [icLogout, icLogoutFill],
   menu: [icMenu, icMenuFill],
   moped: [icMoped, icMopedFill],
   open_in_new: [icOpenInNew, icOpenInNewFill],
@@ -103,4 +117,5 @@ export const icones = {
   send: [icSend, icSendFill],
   shopping_bag: [icShoppingBag, icShoppingBagFill],
   visibility: [icVisibility, icVisibilityFill],
+  visibility_off: [icVisibilityOff, icVisibilityOffFill],
 };

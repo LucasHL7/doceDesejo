@@ -1,0 +1,258 @@
+/* ESTILOS COMUNS DO PAINEL
+   Botões, campos e avisos usados por várias telas do painel (src/admin/components/*).
+   As cores vêm de src/index.css. */
+
+body {
+    background: var(--creme);
+}
+
+.adm-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 42px;
+    padding: 8px 16px;
+    border: 1.5px solid rgba(58, 36, 32, 0.15);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--chocolate);
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.adm-btn .icon {
+    font-size: 1.2rem;
+}
+
+.adm-btn:hover:not(:disabled) {
+    border-color: var(--rosa);
+    color: var(--rosa-forte);
+}
+
+.adm-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.adm-btn:focus-visible,
+.adm-icon-btn:focus-visible {
+    outline: 3px solid var(--rosa);
+    outline-offset: 2px;
+}
+
+.adm-btn-primary {
+    background: var(--rosa-forte);
+    border-color: var(--rosa-forte);
+    color: var(--white);
+}
+
+.adm-btn-primary:hover:not(:disabled) {
+    background: #c92f6c;
+    border-color: #c92f6c;
+    color: var(--white);
+}
+
+.adm-btn-perigo {
+    color: #b3261e;
+}
+
+.adm-btn-perigo:hover:not(:disabled) {
+    border-color: #b3261e;
+    color: #b3261e;
+}
+
+.adm-btn-perigo.adm-btn-primary {
+    background: #b3261e;
+    border-color: #b3261e;
+    color: var(--white);
+}
+
+/* Botão só com ícone (subir, descer, excluir...) */
+.adm-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--texto-suave);
+    cursor: pointer;
+}
+
+.adm-icon-btn .icon {
+    font-size: 1.3rem;
+}
+
+.adm-icon-btn:hover:not(:disabled) {
+    background: var(--rosa-claro);
+    color: var(--rosa-forte);
+}
+
+.adm-icon-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.adm-icon-btn.is-perigo:hover:not(:disabled) {
+    background: #fdecea;
+    color: #b3261e;
+}
+
+/* Campos de formulário */
+.adm-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.adm-field > span,
+.adm-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--chocolate);
+}
+
+.adm-field small,
+.adm-ajuda {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    font-weight: 400;
+}
+
+.adm-field input,
+.adm-field select,
+.adm-field textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1.5px solid rgba(58, 36, 32, 0.18);
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--chocolate);
+    font-size: 1rem;
+}
+
+.adm-field textarea {
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.adm-field input:focus,
+.adm-field select:focus,
+.adm-field textarea:focus {
+    outline: none;
+    border-color: var(--rosa);
+    box-shadow: 0 0 0 3px var(--rosa-claro);
+}
+
+.adm-field.has-error input,
+.adm-field.has-error select,
+.adm-field.has-error textarea {
+    border-color: #b3261e;
+}
+
+.adm-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.adm-check input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--rosa-forte);
+}
+
+/* Mensagens */
+.adm-erro,
+.adm-info {
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.adm-erro {
+    background: #fdecea;
+    color: #8c1d18;
+}
+
+.adm-info {
+    background: #e8f5e9;
+    color: #1e5b24;
+}
+
+code {
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 0.88em;
+    background: var(--rosa-claro);
+    padding: 1px 6px;
+    border-radius: 6px;
+    word-break: break-all;
+}
+
+/* Tela de carregando e avisos de tela cheia */
+.adm-carregando {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    color: var(--texto-suave);
+}
+
+.adm-aviso {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px 16px;
+}
+
+.adm-aviso-box {
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 32px 28px;
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+    line-height: 1.55;
+}
+
+.adm-aviso-box h1 {
+    font-size: 1.3rem;
+}
+
+.adm-aviso-icon {
+    font-size: 2.4rem;
+    color: var(--rosa-forte);
+}
+
+/* Cartão branco usado para agrupar seções */
+.adm-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(58, 36, 32, 0.06);
+}
+
+.adm-card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .adm-btn {
+        transition: none;
+    }
+}

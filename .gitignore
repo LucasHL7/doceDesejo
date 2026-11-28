@@ -1,6 +1,11 @@
 node_modules
 dist
 
+# Firebase CLI
+.firebase
+firebase-debug.log
+firestore-debug.log
+
 # Variáveis de ambiente locais
 .env
 .env.local

@@ -1,0 +1,234 @@
+.editor {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.editor-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    scroll-margin-top: 140px;
+}
+
+.editor-titulo {
+    font-size: 1.35rem;
+}
+
+.editor-erros ul {
+    margin-top: 6px;
+    padding-left: 18px;
+}
+
+.editor-erros li {
+    list-style: disc;
+}
+
+.editor-secao {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.editor-secao > .adm-btn {
+    align-self: flex-start;
+}
+
+.editor-basico {
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.editor-coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.editor-linha {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+}
+
+.editor-curto {
+    max-width: 320px;
+}
+
+/* Cartões para escolher o tipo de preço */
+.editor-tipos {
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.editor-tipo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(58, 36, 32, 0.15);
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.editor-tipo input {
+    position: absolute;
+    opacity: 0;
+}
+
+.editor-tipo strong {
+    font-size: 0.95rem;
+}
+
+.editor-tipo span {
+    font-size: 0.82rem;
+    color: var(--texto-suave);
+    line-height: 1.4;
+}
+
+.editor-tipo.is-active {
+    border-color: var(--rosa-forte);
+    background: var(--rosa-claro);
+}
+
+.editor-tipo:has(input:focus-visible) {
+    outline: 3px solid var(--rosa);
+    outline-offset: 2px;
+}
+
+.editor-radios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+}
+
+/* Tabela de opções (nome + preço) */
+.editor-opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.editor-opcoes .editor-curto {
+    width: 100%;
+}
+
+.editor-tabela {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editor-tabela-head,
+.editor-tabela-linha {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 150px auto;
+    gap: 8px;
+    align-items: center;
+}
+
+.editor-tabela-head {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+}
+
+.editor-tabela-linha input {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1.5px solid rgba(58, 36, 32, 0.18);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--chocolate);
+}
+
+.editor-tabela-linha input:focus {
+    outline: none;
+    border-color: var(--rosa);
+    box-shadow: 0 0 0 3px var(--rosa-claro);
+}
+
+.editor-mini-acoes {
+    display: flex;
+}
+
+.editor-mini-acoes .adm-icon-btn {
+    width: 36px;
+    height: 36px;
+}
+
+/* Cada personalização */
+.editor-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+    border: 1.5px solid rgba(58, 36, 32, 0.1);
+    border-radius: 16px;
+    background: var(--creme);
+}
+
+.editor-campo-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.editor-campo-topo strong {
+    font-size: 0.95rem;
+}
+
+/* Botões fixos no rodapé */
+.editor-rodape {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 14px 16px;
+    margin: 0 -16px;
+    background: rgba(255, 248, 244, 0.94);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(58, 36, 32, 0.08);
+}
+
+@media (max-width: 700px) {
+    .editor-basico {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-tabela-head,
+    .editor-tabela-linha {
+        grid-template-columns: minmax(0, 1fr) 128px;
+    }
+
+    .editor-tabela-linha .editor-mini-acoes {
+        grid-column: 1 / -1;
+        justify-content: flex-end;
+        margin-top: -4px;
+    }
+
+    .editor-tabela-linha {
+        padding-bottom: 6px;
+        border-bottom: 1px solid rgba(58, 36, 32, 0.08);
+    }
+
+    .editor-tabela-head span:last-child {
+        grid-column: 2;
+    }
+
+    .editor-rodape .adm-btn {
+        flex: 1;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,41 @@
+rules_version = '2';
+
+// Regras de segurança do Firestore da Doce Desejo.
+// Cole este arquivo em: Console do Firebase > Firestore Database > Regras > Publicar.
+//
+// - Qualquer visitante pode LER o cardápio e as fotos (o site precisa disso).
+// - Só quem está cadastrado na coleção `admins` pode ALTERAR alguma coisa.
+//   Ter login não basta: qualquer pessoa poderia criar uma conta com o e-mail dela,
+//   por isso a checagem é pelo documento admins/{uid}, criado à mão no console.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function ehAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    match /produtos/{id} {
+      allow read: if true;
+      allow write: if ehAdmin();
+    }
+
+    match /galeria/{id} {
+      allow read: if true;
+      allow write: if ehAdmin();
+    }
+
+    match /imagensSite/{id} {
+      allow read: if true;
+      allow write: if ehAdmin();
+    }
+
+    // Cada usuário só consegue ver o próprio documento (o painel usa isso para saber
+    // se a pessoa é admin). Ninguém altera pelo site: só pelo Console do Firebase.
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+  }
+}
