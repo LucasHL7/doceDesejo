@@ -1,0 +1,24 @@
+# Publicação na Netlify (https://docedesejoencomendas.netlify.app).
+# A versão antiga do site era HTML puro; a nova precisa do build do Vite.
+# A Netlify lê este arquivo sozinha: não é preciso mudar nada no painel dela.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# O painel não deve ser guardado em cache nem aparecer em buscadores.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-cache"
+
+# Arquivos gerados pelo Vite têm o conteúdo no nome (ex.: site-kx0m1lDY.js): podem ficar
+# em cache por um ano. As fotos de public/scr não, porque podem ser trocadas com o mesmo nome.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
