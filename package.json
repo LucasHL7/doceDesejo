@@ -27,5 +27,6 @@
     "jsdom": "^26.1.0",
     "vite": "^6.0.0",
     "vitest": "^3.2.7"
-  }
+  },
+  "description": "Site da confeitaria Doce Desejo (Teresina-PI): cardápio com sacola de pedido, orçamento pelo WhatsApp e painel administrativo com Firebase."
 }
