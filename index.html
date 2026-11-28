@@ -3,13 +3,80 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- SEO
+         %VITE_SITE_URL% vem do arquivo .env (endereço do site publicado, sem barra no fim).
+         Os dados da empresa abaixo também estão em src/data/negocio.js: mude nos dois lugares. -->
+    <title>Doce Desejo | Bolos e doces sob encomenda em Teresina</title>
     <meta name="description"
-        content="Doce Desejo - Encomende bolos, doces e salgados personalizados para todas as ocasiões especiais. Descubra sabores únicos e designs exclusivos.">
-    <meta name="keywords" content="bolos, doces, salgados, bem-casados, brigadeiros, brownie, festas, confeitaria">
-    <meta name="author" content="Doce Desejo">
-    <title>Doce Desejo</title>
+        content="Confeitaria em Teresina: bolos confeitados, bento cake, brigadeiros, brownies e salgados para festas. Veja os preços e peça seu orçamento pelo WhatsApp.">
+    <link rel="canonical" href="%VITE_SITE_URL%/">
+    <meta name="theme-color" content="#E23E7E">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Prévia ao compartilhar o link (WhatsApp, Instagram, Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Doce Desejo">
+    <meta property="og:title" content="Doce Desejo | Bolos e doces sob encomenda em Teresina">
+    <meta property="og:description"
+        content="Bolos confeitados, brigadeiros, brownies, bem-casados e salgados. Monte seu pedido e peça o orçamento pelo WhatsApp.">
+    <meta property="og:url" content="%VITE_SITE_URL%/">
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Selo da Doce Desejo ao lado de um bolo de chocolate com morangos">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fontes (antes eram carregadas por @import no CSS, o que atrasava a primeira pintura) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+
+    <!-- Dados da empresa para o Google (mapa, horário, telefone) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Doce Desejo",
+        "description": "Bolos confeitados, bento cake, brigadeiros, brownies, bem-casados e salgados sob encomenda em Teresina.",
+        "url": "%VITE_SITE_URL%/",
+        "image": "%VITE_SITE_URL%/og-image.jpg",
+        "logo": "%VITE_SITE_URL%/scr/Logo.png",
+        "telephone": "+55 86 99581-1231",
+        "priceRange": "R$",
+        "servesCuisine": "Confeitaria",
+        "currenciesAccepted": "BRL",
+        "paymentAccepted": "Dinheiro, Pix, Cartão de débito, Cartão de crédito",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Joaquim Nelson, 3245A - Novo Horizonte",
+            "addressLocality": "Teresina",
+            "addressRegion": "PI",
+            "postalCode": "64000-000",
+            "addressCountry": "BR"
+        },
+        "areaServed": { "@type": "City", "name": "Teresina" },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "13:00",
+                "closes": "19:00"
+            }
+        ],
+        "hasMenu": "%VITE_SITE_URL%/#product-list",
+        "sameAs": [
+            "https://www.instagram.com/docedesejogourmethe/",
+            "https://linktr.ee/docedesejogourmethe",
+            "https://app.cardapioweb.com/doce_desejo_gourmet"
+        ]
+    }
+    </script>
 </head>
 
 <body>

@@ -96,7 +96,7 @@ function Conteudo({ produto, onFechar }) {
   return (
     <form className="pmodal-box" onSubmit={confirmar} noValidate>
       <div className="pmodal-img">
-        <img src={produto.imagem} alt="" />
+        <img src={produto.imagem} alt={produto.nome} />
         <button type="button" className="pmodal-close" onClick={onFechar} aria-label="Fechar">
           <Icon name="close" />
         </button>

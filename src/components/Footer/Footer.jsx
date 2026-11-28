@@ -1,11 +1,16 @@
 import Icon from '../Icon/Icon.jsx';
 import Selo from '../Selo/Selo.jsx';
 import { WHATSAPP_NUMERO } from '../../data/produtos.js';
+import {
+  CATALOGO_URL,
+  INSTAGRAM_URL,
+  LINKTREE_URL,
+  MAPS_URL,
+  endereco,
+  horarios,
+} from '../../data/negocio.js';
 import './Footer.css';
 
-const INSTAGRAM_URL = 'https://www.instagram.com/docedesejogourmethe/';
-const LINKTREE_URL = 'https://linktr.ee/docedesejogourmethe';
-const CATALOGO_URL = 'https://app.cardapioweb.com/doce_desejo_gourmet';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMERO}`;
 
 // 5586995811231 -> (86) 99581-1231
@@ -50,7 +55,7 @@ export default function Footer() {
           <Selo className="footer-selo" />
           <p className="footer-name">Doce Desejo Gourmet</p>
           <p className="footer-tagline">
-            Bolos, doces e salgados feitos à mão para adoçar os seus momentos.
+            Bolos, doces e salgados feitos à mão em Teresina para adoçar os seus momentos.
           </p>
           <div className="footer-social">
             <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -105,6 +110,28 @@ export default function Footer() {
                   Catálogo online
                 </span>
               </a>
+            </li>
+            <li>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+                <Icon name="location_on" />
+                <address>
+                  <small>Endereço</small>
+                  {endereco.rua}
+                  <br />
+                  {endereco.bairro}, {endereco.cidade} - {endereco.uf}
+                </address>
+              </a>
+            </li>
+            <li className="footer-contact-item">
+              <Icon name="schedule" />
+              <span>
+                <small>Horário</small>
+                {horarios.map((h) => (
+                  <span key={h.dias} className="footer-horario">
+                    {h.dias}: {h.horas}
+                  </span>
+                ))}
+              </span>
             </li>
           </ul>
         </div>

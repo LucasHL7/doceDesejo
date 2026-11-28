@@ -50,6 +50,8 @@ import icLock from '@material-symbols/svg-400/rounded/lock.svg?raw';
 import icLockFill from '@material-symbols/svg-400/rounded/lock-fill.svg?raw';
 import icLogout from '@material-symbols/svg-400/rounded/logout.svg?raw';
 import icLogoutFill from '@material-symbols/svg-400/rounded/logout-fill.svg?raw';
+import icLocationOn from '@material-symbols/svg-400/rounded/location_on.svg?raw';
+import icLocationOnFill from '@material-symbols/svg-400/rounded/location_on-fill.svg?raw';
 import icMenu from '@material-symbols/svg-400/rounded/menu.svg?raw';
 import icMenuFill from '@material-symbols/svg-400/rounded/menu-fill.svg?raw';
 import icMoped from '@material-symbols/svg-400/rounded/moped.svg?raw';
@@ -102,6 +104,7 @@ export const icones = {
   image: [icImage, icImageFill],
   info: [icInfo, icInfoFill],
   link: [icLink, icLinkFill],
+  location_on: [icLocationOn, icLocationOnFill],
   lock: [icLock, icLockFill],
   logout: [icLogout, icLogoutFill],
   menu: [icMenu, icMenuFill],

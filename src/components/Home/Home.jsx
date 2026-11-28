@@ -20,7 +20,7 @@ export default function Home() {
         <div className="hero-text">
           <span className="hero-eyebrow">
             <Icon name="cake" />
-            Bem-vindo à Doce Desejo
+            Confeitaria em Teresina
           </span>
 
           <h1 className="hero-title">
@@ -28,8 +28,9 @@ export default function Home() {
           </h1>
 
           <p className="hero-lead">
-            Bolos únicos para aniversários, casamentos, formaturas e todas as ocasiões especiais.
-            Do clássico chocolate ao red velvet, cada bolo é feito à mão e decorado com carinho.
+            Bolos sob encomenda em Teresina para aniversários, casamentos, formaturas e todas as
+            ocasiões especiais. Do clássico chocolate ao red velvet, cada bolo é feito à mão e
+            decorado com carinho.
           </p>
 
           <div className="hero-actions">

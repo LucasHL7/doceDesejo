@@ -1,8 +1,7 @@
 import Icon from '../Icon/Icon.jsx';
 import { useConteudo } from '../../context/ConteudoContext.jsx';
+import { CATALOGO_URL } from '../../data/negocio.js';
 import './Delivery.css';
-
-const CATALOGO_URL = 'https://app.cardapioweb.com/doce_desejo_gourmet';
 
 // Chamada para o catálogo de delivery (Cardápio Web), separado das encomendas por orçamento.
 export default function Delivery() {
@@ -24,7 +23,7 @@ export default function Delivery() {
           </h2>
           <p className="delivery-lead">
             No nosso catálogo de delivery você escolhe os doces e salgados, faz o pedido e
-            recebe em casa. As encomendas personalizadas, como bolos decorados, continuam sendo
+            recebe em casa, em Teresina. As encomendas personalizadas, como bolos decorados, continuam sendo
             feitas aqui pelo orçamento.
           </p>
 
