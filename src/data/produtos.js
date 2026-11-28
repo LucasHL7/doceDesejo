@@ -1,4 +1,6 @@
-// Fonte única de preços e opções. O cardápio (cardapio.js) monta os produtos a partir daqui.
+// Preços e opções do cardápio padrão (cardapio.js monta os produtos a partir daqui).
+// Depois que o cardápio é importado para o Firebase, os preços passam a ser editados
+// pelo painel /admin; estes valores ficam só como reserva caso o Firebase não responda.
 
 export const formatarPreco = (valor) =>
   `R$${valor.toFixed(2).replace('.', ',')}`;
@@ -52,9 +54,6 @@ export const tiposFatia = [
   { valor: 6, nome: 'Fatia com nossa embalagem' },
   { valor: 8, nome: 'Fatia com 3 brigadeiros' },
 ];
-
-// Brigadeiro por unidade: acima de 45 unidades o preço unitário cai.
-export const precoUnitarioBrigadeiro = (qtd) => (qtd > 45 ? 1.5 : 1.7);
 
 export const massas = [
   { value: 'chocolate', label: 'Chocolate' },

@@ -1,16 +1,17 @@
 import Icon from '../Icon/Icon.jsx';
+import { useConteudo } from '../../context/ConteudoContext.jsx';
 import './Delivery.css';
 
 const CATALOGO_URL = 'https://app.cardapioweb.com/doce_desejo_gourmet';
 
-const fotos = [
-  { src: '/scr/Brownie.jpg', alt: 'Brownie recheado' },
-  { src: '/scr/docinhos.jpg', alt: 'Docinhos variados' },
-  { src: '/scr/salgadinhos.jpg', alt: 'Salgadinhos de festa' },
-];
-
 // Chamada para o catálogo de delivery (Cardápio Web), separado das encomendas por orçamento.
 export default function Delivery() {
+  const { imagensSite, carregando } = useConteudo();
+  // Fotos editadas pelo painel /admin (aba "Fotos do site").
+  const fotos = carregando
+    ? []
+    : ['delivery-1', 'delivery-2', 'delivery-3'].map((id) => imagensSite[id]).filter((f) => f?.src);
+
   return (
     <section id="menu" className="delivery" aria-labelledby="delivery-title">
       <div className="delivery-card">
@@ -52,7 +53,7 @@ export default function Delivery() {
 
         <div className="delivery-photos" aria-hidden="true">
           {fotos.map((f, i) => (
-            <img key={f.src} src={f.src} alt="" className={`delivery-photo delivery-photo-${i + 1}`} loading="lazy" />
+            <img key={i} src={f.src} alt="" className={`delivery-photo delivery-photo-${i + 1}`} loading="lazy" />
           ))}
         </div>
       </div>

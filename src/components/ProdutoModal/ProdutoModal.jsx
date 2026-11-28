@@ -43,13 +43,13 @@ export default function ProdutoModal({ produto, onFechar }) {
 
 function valoresIniciais(produto) {
   const campos = {};
-  for (const c of produto.campos) {
-    if (c.tipo === 'select') campos[c.id] = c.opcoes[0].value;
+  for (const c of produto.campos ?? []) {
+    if (c.tipo === 'select') campos[c.id] = c.opcional ? '' : c.opcoes[0]?.value ?? '';
     else if (c.tipo === 'checkbox') campos[c.id] = [];
     else campos[c.id] = '';
   }
   return {
-    opcao: produto.opcoes ? produto.opcoes[0].value : null,
+    opcao: produto.opcoes?.length ? produto.opcoes[0].value : null,
     qtd: produto.tipo === 'unidade' ? produto.min : 1,
     campos,
   };
@@ -73,7 +73,7 @@ function Conteudo({ produto, onFechar }) {
     const atual = escolha.campos[campo.id];
     if (atual.includes(valor)) {
       setCampo(campo.id, atual.filter((v) => v !== valor));
-    } else if (atual.length < campo.max) {
+    } else if (!campo.max || atual.length < campo.max) {
       setCampo(campo.id, [...atual, valor]);
     }
   };
@@ -106,7 +106,7 @@ function Conteudo({ produto, onFechar }) {
         <h3 id="pmodal-title" className="pmodal-title">{produto.nome}</h3>
         <p className="pmodal-desc">{produto.descricao}</p>
 
-        {produto.opcoes && (
+        {produto.opcoes?.length > 0 && (
           <fieldset className="pmodal-field">
             <legend>{produto.opcaoLabel}</legend>
             <div className="pmodal-options">
@@ -130,16 +130,20 @@ function Conteudo({ produto, onFechar }) {
           </fieldset>
         )}
 
-        {produto.campos.map((campo) => (
+        {(produto.campos ?? []).map((campo) => (
           <div key={campo.id} className="pmodal-field">
             {campo.tipo === 'select' && (
               <>
-                <label htmlFor={`pm-${campo.id}`} className="pmodal-label">{campo.label}</label>
+                <label htmlFor={`pm-${campo.id}`} className="pmodal-label">
+                  {campo.label}
+                  {campo.opcional && ' (opcional)'}
+                </label>
                 <select
                   id={`pm-${campo.id}`}
                   value={escolha.campos[campo.id]}
                   onChange={(e) => setCampo(campo.id, e.target.value)}
                 >
+                  {campo.opcional && <option value="">Nenhum</option>}
                   {campo.opcoes.map((o) => (
                     <option key={o.value} value={o.value}>{o.label}</option>
                   ))}
@@ -162,11 +166,14 @@ function Conteudo({ produto, onFechar }) {
 
             {campo.tipo === 'checkbox' && (
               <fieldset>
-                <legend className="pmodal-label">{campo.label}</legend>
+                <legend className="pmodal-label">
+                  {campo.label}
+                  {campo.max ? ` (até ${campo.max})` : ''}
+                </legend>
                 <div className="pmodal-chips">
                   {campo.opcoes.map((o) => {
                     const marcado = escolha.campos[campo.id].includes(o.value);
-                    const cheio = !marcado && escolha.campos[campo.id].length >= campo.max;
+                    const cheio = Boolean(campo.max) && !marcado && escolha.campos[campo.id].length >= campo.max;
                     return (
                       <label key={o.value} className={`pmodal-chip ${marcado ? 'is-active' : ''} ${cheio ? 'is-disabled' : ''}`}>
                         <input

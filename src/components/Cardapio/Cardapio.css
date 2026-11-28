@@ -289,3 +289,37 @@
         font-size: 1.2rem;
     }
 }
+
+/* Cartões de espera enquanto o cardápio carrega do Firebase */
+.menu-card-skeleton {
+    pointer-events: none;
+}
+
+.menu-card-skeleton .menu-card-img,
+.menu-skel-line {
+    animation: menu-skel 1.2s ease-in-out infinite alternate;
+}
+
+.menu-skel-line {
+    display: block;
+    height: 14px;
+    width: 80%;
+    border-radius: 7px;
+    background: var(--rosa-claro);
+}
+
+.menu-skel-line.is-short {
+    width: 50%;
+}
+
+@keyframes menu-skel {
+    from { opacity: 1; }
+    to { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-card-skeleton .menu-card-img,
+    .menu-skel-line {
+        animation: none;
+    }
+}

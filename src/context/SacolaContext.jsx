@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { buscarProduto, calcularLinha } from '../data/cardapio.js';
+import { calcularLinha } from '../data/cardapio.js';
+import { useConteudo } from './ConteudoContext.jsx';
 
 // Sacola de pedido compartilhada entre o cardápio, a sacola flutuante e o formulário.
 // Fica salva no navegador da pessoa para não se perder ao recarregar a página.
@@ -10,19 +11,28 @@ const SacolaContext = createContext(null);
 function lerSalvo() {
   try {
     const salvo = JSON.parse(localStorage.getItem(CHAVE));
-    if (!Array.isArray(salvo)) return [];
-    // descarta itens de produtos que não existem mais
-    return salvo.filter((l) => buscarProduto(l.produtoId));
+    return Array.isArray(salvo) ? salvo : [];
   } catch {
     return [];
   }
 }
 
 export function SacolaProvider({ children }) {
+  const { buscarProduto, carregando } = useConteudo();
   const [linhas, setLinhas] = useState(lerSalvo);
   const [aberta, setAberta] = useState(false);
   // muda a cada item adicionado; a sacola usa para mostrar o aviso "Adicionado"
   const [ultimoAdicionado, setUltimoAdicionado] = useState(null);
+
+  // Descarta itens de produtos que foram removidos ou desativados no painel
+  // (só depois que os produtos terminam de carregar).
+  useEffect(() => {
+    if (carregando) return;
+    setLinhas((atual) => {
+      const validas = atual.filter((l) => buscarProduto(l.produtoId));
+      return validas.length === atual.length ? atual : validas;
+    });
+  }, [carregando, buscarProduto]);
 
   useEffect(() => {
     try {
@@ -49,10 +59,10 @@ export function SacolaProvider({ children }) {
   const limpar = useCallback(() => setLinhas([]), []);
 
   const valor = useMemo(() => {
-    const comPreco = linhas.map((l) => {
-      const produto = buscarProduto(l.produtoId);
-      return { ...l, produto, total: calcularLinha(produto, l) };
-    });
+    const comPreco = linhas
+      .map((l) => ({ ...l, produto: buscarProduto(l.produtoId) }))
+      .filter((l) => l.produto)
+      .map((l) => ({ ...l, total: calcularLinha(l.produto, l) }));
     return {
       linhas: comPreco,
       quantidadeItens: comPreco.length,
@@ -66,7 +76,7 @@ export function SacolaProvider({ children }) {
       abrir: () => setAberta(true),
       fechar: () => setAberta(false),
     };
-  }, [linhas, aberta, ultimoAdicionado, adicionar, alterarQtd, remover, limpar]);
+  }, [linhas, aberta, ultimoAdicionado, adicionar, alterarQtd, remover, limpar, buscarProduto]);
 
   return <SacolaContext.Provider value={valor}>{children}</SacolaContext.Provider>;
 }

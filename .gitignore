@@ -1,2 +1,7 @@
 node_modules
 dist
+
+# Variáveis de ambiente locais
+.env
+.env.local
+.env.*.local

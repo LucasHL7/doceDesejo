@@ -1,21 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Icon from '../Icon/Icon.jsx';
+import { useConteudo } from '../../context/ConteudoContext.jsx';
 import './CakeStyles.css';
 
-// Fotos do carrossel. Para adicionar um bolo, coloque a imagem em
-// public/scr/confeitados/ e inclua uma linha aqui.
-const bolos = [
-  { src: '/scr/confeitados/confeitado-1.jpeg', alt: 'Bolo confeitado decorado, estilo 1' },
-  { src: '/scr/confeitados/confeitado-2.jpeg', alt: 'Bolo confeitado decorado, estilo 2' },
-  { src: '/scr/confeitados/confeitado-3.jpeg', alt: 'Bolo confeitado decorado, estilo 3' },
-  { src: '/scr/confeitados/confeitado-4.jpeg', alt: 'Bolo confeitado decorado, estilo 4' },
-  { src: '/scr/confeitados/confeitado-5.jpeg', alt: 'Bolo confeitado decorado, estilo 5' },
-];
+// As fotos do carrossel são editadas pelo painel /admin (aba "Fotos do site").
 
 const prefereMenosMovimento = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export default function CakeStyles() {
+  const { galeria, carregando } = useConteudo();
+  const bolos = carregando ? [] : galeria;
   const trilho = useRef(null);
   const [atual, setAtual] = useState(0);
   const [ultimo, setUltimo] = useState(0); // última posição alcançável
@@ -48,6 +43,9 @@ export default function CakeStyles() {
       ro.disconnect();
     };
   }, [medir]);
+
+  // Mede de novo quando as fotos chegam do Firebase.
+  useEffect(medir, [bolos.length, medir]);
 
   const irPara = (indice) => {
     const alvo = Math.min(Math.max(indice, 0), ultimo);
@@ -102,8 +100,10 @@ export default function CakeStyles() {
           tabIndex={0}
           aria-label="Fotos de bolos confeitados. Use as setas do teclado para navegar."
         >
+          {carregando &&
+            Array.from({ length: 4 }, (_, i) => <li key={i} className="cakes-slide" aria-hidden="true" />)}
           {bolos.map((b, i) => (
-            <li key={b.src} className="cakes-slide" aria-label={`${i + 1} de ${bolos.length}`}>
+            <li key={b.id ?? b.src} className="cakes-slide" aria-label={`${i + 1} de ${bolos.length}`}>
               <img src={b.src} alt={b.alt} loading="lazy" decoding="async" />
             </li>
           ))}

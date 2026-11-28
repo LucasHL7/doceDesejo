@@ -7,20 +7,23 @@ import ContactForm from './components/ContactForm/ContactForm.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Sacola from './components/Sacola/Sacola.jsx';
 import { SacolaProvider } from './context/SacolaContext.jsx';
+import { ConteudoProvider } from './context/ConteudoContext.jsx';
 
 export default function App() {
   return (
-    <SacolaProvider>
-      <Header />
-      <main>
-        <Home />
-        <CakeStyles />
-        <Cardapio />
-        <Delivery />
-        <ContactForm />
-      </main>
-      <Footer />
-      <Sacola />
-    </SacolaProvider>
+    <ConteudoProvider>
+      <SacolaProvider>
+        <Header />
+        <main>
+          <Home />
+          <CakeStyles />
+          <Cardapio />
+          <Delivery />
+          <ContactForm />
+        </main>
+        <Footer />
+        <Sacola />
+      </SacolaProvider>
+    </ConteudoProvider>
   );
 }

@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { categorias, produtos, precoDoCard } from '../../data/cardapio.js';
+import { categorias, precoDoCard } from '../../data/cardapio.js';
+import { useConteudo } from '../../context/ConteudoContext.jsx';
 import { formatarPreco } from '../../data/produtos.js';
 import Icon from '../Icon/Icon.jsx';
 import ProdutoModal from '../ProdutoModal/ProdutoModal.jsx';
 import './Cardapio.css';
 
 export default function Cardapio() {
+  const { produtos, carregando } = useConteudo();
   const [categoria, setCategoria] = useState('todos');
   const [escolhido, setEscolhido] = useState(null);
 
@@ -27,22 +29,34 @@ export default function Cardapio() {
         </header>
 
         <div className="menu-tabs" role="tablist" aria-label="Categorias do cardápio">
-          {categorias.map((c) => (
-            <button
-              key={c.id}
-              type="button"
-              role="tab"
-              aria-selected={categoria === c.id}
-              className={`menu-tab ${categoria === c.id ? 'is-active' : ''}`}
-              onClick={() => setCategoria(c.id)}
-            >
-              {c.label}
-            </button>
-          ))}
+          {categorias
+            .filter((c) => c.id === 'todos' || produtos.some((p) => p.categoria === c.id))
+            .map((c) => (
+              <button
+                key={c.id}
+                type="button"
+                role="tab"
+                aria-selected={categoria === c.id}
+                className={`menu-tab ${categoria === c.id ? 'is-active' : ''}`}
+                onClick={() => setCategoria(c.id)}
+              >
+                {c.label}
+              </button>
+            ))}
         </div>
 
-        <ul className="menu-grid">
-          {visiveis.map((p) => {
+        <ul className="menu-grid" aria-busy={carregando || undefined}>
+          {carregando &&
+            Array.from({ length: 6 }, (_, i) => (
+              <li key={i} className="menu-card menu-card-skeleton" aria-hidden="true">
+                <span className="menu-card-img" />
+                <span className="menu-card-body">
+                  <span className="menu-skel-line" />
+                  <span className="menu-skel-line is-short" />
+                </span>
+              </li>
+            ))}
+          {!carregando && visiveis.map((p) => {
             const preco = precoDoCard(p);
             return (
               <li key={p.id} className="menu-card">

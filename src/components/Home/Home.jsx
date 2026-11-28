@@ -1,11 +1,18 @@
-import { bolosConfeitados, PRECO_BENTO_CAKE, formatarPreco } from '../../data/produtos.js';
+import { formatarPreco } from '../../data/produtos.js';
+import { precoDoCard } from '../../data/cardapio.js';
+import { useConteudo } from '../../context/ConteudoContext.jsx';
 import Icon from '../Icon/Icon.jsx';
 import './Home.css';
 
 const destaques = ['Bolos sob encomenda', 'Doces e salgados', 'Orçamento pelo WhatsApp'];
 
 export default function Home() {
-  const menorBolo = bolosConfeitados[0];
+  const { imagensSite, buscarProduto, carregando } = useConteudo();
+  // Os selos de preço usam os produtos do cardápio; somem se o produto for removido no painel.
+  const bolo = carregando ? null : buscarProduto('bolo-confeitado');
+  const bento = carregando ? null : buscarProduto('bento-cake');
+  const menorOpcaoBolo = bolo?.opcoes?.reduce((a, b) => (b.preco < a.preco ? b : a), bolo.opcoes[0]);
+  const hero = imagensSite.hero;
 
   return (
     <section id="home" className="hero">
@@ -45,18 +52,22 @@ export default function Home() {
 
         <div className="hero-visual">
           <div className="hero-blob" aria-hidden="true"></div>
-          <img className="hero-img" src="/scr/bolo.png" alt="Bolo de chocolate com morangos e cerejas" />
+          {!carregando && hero?.src && <img className="hero-img" src={hero.src} alt={hero.alt ?? ''} />}
 
-          <div className="hero-badge hero-badge-top">
-            <span className="hero-badge-label">Bolo confeitado</span>
-            <strong>a partir de {formatarPreco(menorBolo.preco)}</strong>
-            <span className="hero-badge-sub">{menorBolo.fatias} fatias</span>
-          </div>
+          {bolo && (
+            <div className="hero-badge hero-badge-top">
+              <span className="hero-badge-label">{bolo.nome}</span>
+              <strong>a partir de {formatarPreco(precoDoCard(bolo).valor)}</strong>
+              {menorOpcaoBolo && <span className="hero-badge-sub">{menorOpcaoBolo.label}</span>}
+            </div>
+          )}
 
-          <div className="hero-badge hero-badge-bottom">
-            <span className="hero-badge-label">Bento Cake</span>
-            <strong>{formatarPreco(PRECO_BENTO_CAKE)}</strong>
-          </div>
+          {bento && (
+            <div className="hero-badge hero-badge-bottom">
+              <span className="hero-badge-label">{bento.nome}</span>
+              <strong>{formatarPreco(precoDoCard(bento).valor)}</strong>
+            </div>
+          )}
         </div>
       </div>
     </section>

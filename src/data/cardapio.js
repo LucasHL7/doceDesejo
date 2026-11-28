@@ -1,11 +1,21 @@
 // Cardápio: produtos que a pessoa pode colocar na sacola.
 //
+// Os produtos vêm do Firebase (editados pelo painel /admin). Este arquivo guarda:
+// - as categorias e os tipos de produto;
+// - o cardápio padrão, usado quando o Firebase não está configurado ou não responde,
+//   e importado para o Firebase na primeira vez que o painel é aberto;
+// - as contas de preço e os textos usados pela sacola e pelo WhatsApp.
+//
 // Tipos de produto:
 // - 'opcoes':  escolhe uma opção com preço próprio (ex.: tamanho do bolo) e quantas quer.
 // - 'unidade': preço por unidade; a pessoa digita a quantidade (ex.: brigadeiros, fatias).
+//              O preço vem das opções (se houver) ou de `precoUnitario`, com um preço menor
+//              opcional para pedidos grandes (`atacado`: { acimaDe, preco }).
 // - 'fixo':    preço único; só escolhe quantas quer.
 //
-// `campos` são as personalizações (massa, recheio, sabores...) pedidas antes de adicionar.
+// `campos` são as personalizações pedidas antes de adicionar:
+// { id, label, tipo: 'select' | 'checkbox' | 'texto', opcoes?, max?, opcional?, placeholder? }
+// Tudo aqui é dado simples (sem funções) para poder ser salvo no Firestore.
 
 import {
   bolosConfeitados,
@@ -17,7 +27,6 @@ import {
   recheiosBolo,
   recheiosFatia,
   sabores,
-  precoUnitarioBrigadeiro,
   PRECO_BENTO_CAKE,
   LIMITE_SABORES,
 } from './produtos.js';
@@ -31,16 +40,22 @@ export const categorias = [
   { id: 'salgados', label: 'Salgados' },
 ];
 
+export const tiposProduto = [
+  { id: 'opcoes', label: 'Por opção', ajuda: 'Cada opção tem um preço (ex.: tamanho do bolo, pacote de 20/50/100).' },
+  { id: 'unidade', label: 'Por unidade', ajuda: 'Preço por unidade, a pessoa digita a quantidade (ex.: brigadeiros).' },
+  { id: 'fixo', label: 'Preço único', ajuda: 'Um preço só, a pessoa escolhe quantos quer (ex.: Bento Cake).' },
+];
+
 const campoMassa = { id: 'massa', label: 'Massa', tipo: 'select', opcoes: massas };
 const campoSabores = (lista, label = 'Sabores') => ({
   id: 'sabores',
-  label: `${label} (até ${LIMITE_SABORES})`,
+  label,
   tipo: 'checkbox',
   max: LIMITE_SABORES,
   opcoes: lista,
 });
 
-export const produtos = [
+export const cardapioPadrao = [
   {
     id: 'bolo-confeitado',
     categoria: 'bolos',
@@ -57,12 +72,7 @@ export const produtos = [
     campos: [
       campoMassa,
       { id: 'recheio', label: 'Recheio', tipo: 'select', opcoes: recheiosBolo },
-      {
-        id: 'recheio2',
-        label: 'Segundo recheio (opcional)',
-        tipo: 'select',
-        opcoes: [{ value: '', label: 'Nenhum' }, ...recheiosBolo],
-      },
+      { id: 'recheio2', label: 'Segundo recheio', tipo: 'select', opcional: true, opcoes: recheiosBolo },
     ],
     aviso: 'Envie a foto de referência da decoração junto com o orçamento.',
   },
@@ -100,7 +110,8 @@ export const produtos = [
     unidade: 'unidades',
     min: 10,
     passo: 5,
-    precoUnitario: precoUnitarioBrigadeiro,
+    precoUnitario: 1.7,
+    atacado: { acimaDe: 45, preco: 1.5 },
     campos: [
       campoSabores(sabores.brigadeiro),
       {
@@ -144,56 +155,56 @@ export const produtos = [
     opcoes: salgadinhos.map((s) => ({ value: String(s.qtd), label: `${s.qtd} unidades`, preco: s.preco })),
     campos: [],
   },
-];
+].map((p, i) => ({ ordem: i, ativo: true, ...p }));
 
-export const buscarProduto = (id) => produtos.find((p) => p.id === id);
+// Preço de uma unidade para produtos 'unidade' sem opções.
+function precoPorUnidade(produto, qtd) {
+  const { atacado } = produto;
+  if (atacado && qtd > atacado.acimaDe) return atacado.preco;
+  return produto.precoUnitario ?? 0;
+}
+
+const temOpcoes = (produto) => Array.isArray(produto.opcoes) && produto.opcoes.length > 0;
 
 // Preço de uma linha da sacola (ou do que está sendo montado no modal).
 export function calcularLinha(produto, { opcao, qtd }) {
   const n = Number(qtd) || 0;
-  if (produto.tipo === 'fixo') return produto.preco * n;
-  if (produto.tipo === 'opcoes') {
+  if (produto.tipo === 'fixo') return (produto.preco ?? 0) * n;
+  if (temOpcoes(produto)) {
     const o = produto.opcoes.find((op) => op.value === opcao);
     return (o?.preco ?? 0) * n;
   }
-  // unidade
-  const unit = produto.opcoes
-    ? produto.opcoes.find((op) => op.value === opcao)?.preco ?? 0
-    : produto.precoUnitario(n);
-  return unit * n;
+  return precoPorUnidade(produto, n) * n;
 }
 
 // "A partir de" mostrado no card.
 export function precoDoCard(produto) {
-  if (produto.tipo === 'fixo') return { prefixo: '', valor: produto.preco, sufixo: '' };
-  if (produto.tipo === 'opcoes') {
-    return { prefixo: 'a partir de', valor: Math.min(...produto.opcoes.map((o) => o.preco)), sufixo: '' };
+  if (produto.tipo === 'fixo') return { prefixo: '', valor: produto.preco ?? 0, sufixo: '' };
+  const sufixo = produto.tipo === 'unidade' ? '/un' : '';
+  if (temOpcoes(produto)) {
+    return { prefixo: 'a partir de', valor: Math.min(...produto.opcoes.map((o) => o.preco)), sufixo };
   }
-  const menor = produto.opcoes
-    ? Math.min(...produto.opcoes.map((o) => o.preco))
-    : produto.precoUnitario(Infinity);
-  return { prefixo: 'a partir de', valor: menor, sufixo: '/un' };
+  return { prefixo: 'a partir de', valor: precoPorUnidade(produto, Infinity), sufixo };
 }
 
 // Texto curto das escolhas de uma linha (para a sacola e o WhatsApp).
 export function descreverEscolhas(produto, { opcao, campos = {} }) {
   const partes = [];
-  if (produto.opcoes) {
+  if (temOpcoes(produto)) {
     const o = produto.opcoes.find((op) => op.value === opcao);
     if (o) partes.push(o.label);
   }
-  for (const campo of produto.campos) {
+  for (const campo of produto.campos ?? []) {
     const valor = campos[campo.id];
     if (!valor || (Array.isArray(valor) && valor.length === 0)) continue;
-    const rotulo = campo.label.replace(/ \(.*\)$/, '');
     if (campo.tipo === 'select') {
       const o = campo.opcoes.find((op) => op.value === valor);
-      partes.push(`${rotulo}: ${o?.label ?? valor}`);
+      partes.push(`${campo.label}: ${o?.label ?? valor}`);
     } else if (campo.tipo === 'checkbox') {
       const nomes = valor.map((v) => campo.opcoes.find((op) => op.value === v)?.label ?? v);
-      partes.push(`${rotulo}: ${nomes.join(', ')}`);
+      partes.push(`${campo.label}: ${nomes.join(', ')}`);
     } else {
-      partes.push(`${rotulo}: ${valor}`);
+      partes.push(`${campo.label}: ${valor}`);
     }
   }
   return partes;
