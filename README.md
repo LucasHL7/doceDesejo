@@ -66,3 +66,9 @@ firestore.rules           regras de segurança do Firestore
 
 - [PAINEL.md](PAINEL.md): como configurar o Firebase e usar o painel, e os limites do plano gratuito
 - [PLANO-SEO.md](PLANO-SEO.md): situação do SEO e próximos passos
+
+## Direitos
+
+Código © 2026 [LucasHL7](https://github.com/LucasHL7). Todos os direitos reservados.
+
+O repositório é público apenas para consulta, como parte do meu portfólio. Não há licença de uso: copiar, modificar ou redistribuir o código exige autorização. A marca, o logotipo e as fotos dos produtos pertencem à Doce Desejo.
